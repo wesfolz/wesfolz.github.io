@@ -105,7 +105,14 @@ export default function CollegSection(props) {
     ];
 
     return (
-        <InfoSection backgroundImage={Wildcat} backgroundColor={Colors.uofa} exit={props.exit} exitColor={Colors.uofaRed}>
+        <InfoSection
+            title="University of Arizona"
+            subtitle="Master of Science"
+            backgroundImage={Wildcat}
+            backgroundColor={Colors.uofa}
+            exitColor={Colors.uofaRed}
+            {...props}>
+
             <SectionTitle>Summary</SectionTitle>
             <SectionText>Lorem ipsum dolor</SectionText>
             <SectionTitle>Projects</SectionTitle>

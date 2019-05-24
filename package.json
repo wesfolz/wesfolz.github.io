@@ -1,5 +1,6 @@
 {
-  "name": "personal_website",
+  "name": "wesley_folz",
+  "homepage": "https://wesfolz.github.io",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,6 +10,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "emailjs-com": "^2.3.2",
     "firacode": "^1.206.0",
+    "gh-pages": "^2.0.1",
     "i": "^0.3.6",
     "npm": "^6.9.0",
     "react": "^16.8.4",
@@ -18,6 +20,8 @@
     "styled-components": "^4.2.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

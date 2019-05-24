@@ -125,7 +125,13 @@ export default function LokcheedSection(props) {
     ];
 
     return (
-        <InfoSection backgroundImage={Lockheed} backgroundColor={Colors.lockheed} exit={props.exit}>
+        <InfoSection
+            title="Lockheed Martin"
+            subtitle="Software Engineer"
+            backgroundImage={Lockheed}
+            backgroundColor={Colors.lockheed}
+            {...props}>
+
             <SectionTitle>Summary</SectionTitle>
             <SectionText>Lorem ipsum dolor</SectionText>
             <SectionTitle>Projects</SectionTitle>

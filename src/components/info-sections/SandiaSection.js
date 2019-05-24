@@ -18,7 +18,7 @@ import TechIcon from 'components/tech-section/TechIcon';
 import InfoGrid from 'components/info-sections/InfoGrid';
 import { SectionTitle, SectionText } from 'components/info-sections/SectionStyles';
 
-export default function LokcheedSection(props) {
+export default function SandiaSection(props) {
 
     const techList = [
         {
@@ -85,7 +85,13 @@ export default function LokcheedSection(props) {
     ];
 
     return (
-        <InfoSection backgroundImage={Sandia} backgroundColor={Colors.sandia} exit={props.exit}>
+        <InfoSection
+            title="Sandia Labs"
+            subtitle="Technical Intern"
+            backgroundImage={Sandia}
+            backgroundColor={Colors.sandia}
+            {...props}>
+
             <SectionTitle>Summary</SectionTitle>
             <SectionText>Lorem ipsum dolor</SectionText>
             <SectionTitle>Projects</SectionTitle>

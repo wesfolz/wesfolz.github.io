@@ -21,6 +21,7 @@ const NavList = styled.ul`
         left: 0;
         height: 100%;
         padding: 0px 4px; 
+        width: unset;
     }
 `;
 

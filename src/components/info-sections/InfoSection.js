@@ -4,42 +4,29 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import SelectableButton from 'components/buttons/SelectableButton';
 import Colors from 'styles/Colors';
+import { SectionHeader, HeaderImg } from 'components/info-sections/SectionStyles';
 
 const SectionWrapper = styled.div`
     position: absolute;
-    top: 0;
+    top: ${props => props.shrink ? '0' : 'calc(50% - 200px)'};
     left: 0;
     width: 100%;
-    min-height: 100vh;
     background-color: ${Colors.offWhite};
-`;
-
-const Header = styled.div`
-    background: ${props => props.backgroundColor} url(${props => props.backgroundImage}) no-repeat center;
-    background-size: contain;
-    width: 100%;
-    height: ${props => props.shrink ? '400px' : '100vh'};
-    @media(max-width: 768px) {
-        height: ${props => props.shrink ? '240px' : '100vh'};
-    }
-    top: 0;
-    left: 0;
-    transition: height 1.0s ease;
+    transition: top 1.0s ease;
 `;
 
 const ContentWrapper = styled.div`
-    height: ${props => props.shrink ? '100%' : 0};
-    transform: scale(${props => props.shrink ? 1 : 0});
-    transition: height 1.0 ease, transform 1.0s ease;
-    padding: 0px 40px 40px;
+    max-height: ${props => props.shrink ? '10000px' : 0};
+    overflow: hidden;
+    transition: max-height 1.0s ease, padding 1.0s ease;
+    padding: ${props => props.shrink ? '0px 40px 40px' : '0px 40px'};
     margin: 0 auto;
     max-width: 1200px;
-    /* display: ${props => props.shrink ? 'block' : 'none'}; */
 `;
 
 const CloseButton = styled(SelectableButton)`
     position: fixed;
-    z-index: 1;
+    z-index: 1000;
     top: 20px;
     right: 20px;
     border-radius: 50%;
@@ -65,15 +52,19 @@ export default function InfoSection(props) {
     };
 
     return (
-        <SectionWrapper>
+        <SectionWrapper shrink={shrink}>
             <CloseButton color={props.exitColor} onClick={closeSection}>
                 <FontAwesomeIcon icon="times" size="lg"></FontAwesomeIcon>
             </CloseButton>
-            <Header
-                backgroundImage={props.backgroundImage}
-                backgroundColor={props.backgroundColor}
-                shrink={shrink}>
-            </Header>
+            <SectionHeader
+                color={props.backgroundColor}>
+                <p>{props.title}</p>
+                <HeaderImg color={props.backgroundColor}
+                    image={props.backgroundImage}
+                    imageSize={props.imageSize / 1.5}>
+                </HeaderImg>
+                <p>{props.subtitle}</p>
+            </SectionHeader>
             <ContentWrapper shrink={shrink}>
                 {props.children}
             </ContentWrapper>
