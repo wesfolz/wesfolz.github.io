@@ -1,5 +1,7 @@
 const Colors = {
     primary: '#011627',
+    secondary: '#022F4080',
+    info: '#208AAE',
     darkGreen: '#272822',
     darkGray: '#041d20',
     lightBlue: '#a7dbf7',
@@ -9,6 +11,7 @@ const Colors = {
     green: '#27AE60',
     darkRed: '#5E1224',
     offWhite: '#fafafa',
+    lightGray: '#e0e0e0',
     timeline: '#035E7F',
     timelineBackground: '#022F40',
     contact: '#144BCC',

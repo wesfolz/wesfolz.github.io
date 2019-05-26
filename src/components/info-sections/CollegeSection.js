@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import Wildcat from 'images/wildcat.jpg';
+import Wildcat from 'images/wildcat.png';
 import Surface from 'images/surface.png';
 import Robot from 'images/robot.jpg';
 import Encryption from 'images/encryption.png';
@@ -66,38 +66,53 @@ export default function CollegSection(props) {
         {
             content: (
                 <React.Fragment>
-                    <ParallaxInfoImage backgroundImage={Surface} overlayColor={Colors.uofa} href={MtsPoster}></ParallaxInfoImage>
-                    <SectionText>
-                        I developed and maintained Big Data web applications for retrieval and visualization of spacecraft and satellite telemetry data.
-                        For this team I worked as a full stack engineer contributing on a wide array of features.
-                        I redesigned and implemented the UIs for plotting data and building queries.
-                        I improved performance of telemetry database queries by a factor of 10.
-                        I developed the requirements and architecture for new visualization applications.
-                        I built prototype applications to test out new technologies for searching and visualizing of large datasets.
-                    </SectionText>
-                </React.Fragment>),
-            title: 'Mobile Terrain Scanning'
-        },
-        {
-            content: (
-                <React.Fragment>
-                    <SectionText>Developing and maintaining web applications for Big Data retrieval and visualization using Java Wicket and jQuery. Developing prototype web applications with ReactJS and Elasticsearch.</SectionText>
                     <ParallaxInfoImage backgroundImage={Models3D} backgroundColor="black" overlayColor={Colors.uofa} href="http://youtu.be/KQVvxJpnd_8"></ParallaxInfoImage>
+                    <SectionText>
+                        Working with a fellow student, we developd an Android app that could convert multiple images of an object into a virtual three dimensional model of that object.
+                        Our app provided a user interface for creating new models, capturing images and opening models.
+                        To do the conversions from images to three dimensional models, we used a number of algorithms from the OpenCV library and developded our own custom image processing algorithms.
+                    </SectionText>
                 </React.Fragment>),
             title: 'Images To 3D Models'
         },
         {
             content: (
                 <React.Fragment>
-                    <ParallaxInfoImage backgroundImage={Robot} overlayColor={Colors.uofa} href="https://www.facebook.com/wesley.folz/videos/10152455549220229/"></ParallaxInfoImage>
-                    <SectionText>Developing and maintaining web applications for Big Data retrieval and visualization using Java Wicket and jQuery. Developing prototype web applications with ReactJS and Elasticsearch.</SectionText>
+                    <SectionText>
+                        For my senior capstone project, I worked on an interdisciplinary team of engineers to build
+                        a system capable of scanning surface terrain and outputting three dimensional representations of the terrain.
+                        Our system integrated LiDAR, IMU and GPS devices.
+                        I wrote the algorithms for converting an uncorrected three dimensional point cloud to a surface mesh.
+                    </SectionText>
+                    <ParallaxInfoImage backgroundImage={Surface} overlayColor={Colors.uofa} href={MtsPoster}></ParallaxInfoImage>
                 </React.Fragment>),
-            title: 'Robot'
+            title: 'Mobile Terrain Scanning'
         },
         {
             content: (
                 <React.Fragment>
-                    <SectionText>Developing and maintaining web applications for Big Data retrieval and visualization using Java Wicket and jQuery. Developing prototype web applications with ReactJS and Elasticsearch.</SectionText>
+                    <ParallaxInfoImage backgroundImage={Robot} overlayColor={Colors.uofa} href="https://www.facebook.com/wesley.folz/videos/10152455549220229/"></ParallaxInfoImage>
+                    <SectionText>
+                        Working on a team of four, I helped build, wire and program an infrared sensing robot using a PIC24F microcontroller.
+                        The robot could autonomously drive along black tape lines and read barcodes using infrared sensors.
+                        The robot could also play a song on a small 8 ohm speaker using pulse width modulation.
+                    </SectionText>
+                </React.Fragment>),
+            title: 'Infrared Sensing Robot'
+        },
+        {
+            content: (
+                <React.Fragment>
+                    <SectionText>
+                        Another student and I built a SystemC model to
+                        simulate our real-time embedded system design.
+                        Our embedded system model could encode/decode,
+                        encrypt/decrypt and transmit MPEG video data.
+                        After optimizing the power consumption of our system
+                        we found that it was capable of encrypting 1080p video at
+                        30fps in real time using a 128-bit AES coprocessor
+                        operating at 72MHz.
+                    </SectionText>
                     <ParallaxInfoImage backgroundImage={Encryption} overlayColor={Colors.uofa} href="https://github.com/wesfolz/Real_Time_Video_Encryption/blob/master/Final%20Project%20Report.pdf"></ParallaxInfoImage>
                 </React.Fragment>),
             title: 'Real Time Video Encryption'
@@ -106,21 +121,22 @@ export default function CollegSection(props) {
 
     return (
         <InfoSection
-            title="University of Arizona"
-            subtitle="Master of Science"
+            infoTitle="University of Arizona"
+            infoSubtitle="Master of Science"
             backgroundImage={Wildcat}
-            backgroundColor={Colors.uofa}
-            exitColor={Colors.uofaRed}
+            backgroundColor={Colors.uofaRed}
+            exitColor={Colors.uofa}
             {...props}>
 
             <SectionTitle>Summary</SectionTitle>
-            <SectionText>Lorem ipsum dolor</SectionText>
+            <SectionText>
+                I studied Electrical and Computer Engineering at the University of Arizona, where
+                I received both my Bachelor of Science and Master of Science degrees.
+            </SectionText>
             <SectionTitle>Projects</SectionTitle>
-            <InfoGrid rows={rows}>
-            </InfoGrid>
+            <InfoGrid rows={rows}></InfoGrid>
             <SectionTitle>Technology</SectionTitle>
-            <TechnologySection techList={techList}>
-            </TechnologySection>
+            <TechnologySection techList={techList}></TechnologySection>
         </InfoSection>
     );
 }

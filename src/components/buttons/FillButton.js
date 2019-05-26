@@ -5,13 +5,14 @@ const CustomButton = styled.button`
     background-color: transparent;
     color: ${props => props.color || 'white'};
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 16px;
     border-radius: 2px;
     padding: 4px 16px;
     outline: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: left;
     border: 0;
     cursor: pointer;
     transition: background-color 0.2s ease-out, color 0.2s ease-out;
@@ -19,6 +20,9 @@ const CustomButton = styled.button`
         color: black;
         background-color: ${props => props.color};
         transition: background-color 0.2s ease-out, color 0.2s ease-out;
+    }
+    @media(max-width: 768px) {
+        font-size: 14px;
     }
 `;
 

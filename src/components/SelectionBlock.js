@@ -12,22 +12,31 @@ const ButtonLayout = styled(SelectableButton)`
 `;
 
 const SectionTitle = styled(TypeWriter)`
-    font-size: 72px;
+    font-size: 70px;
     font-weight: bold;
+    @media(max-width: 768px) {
+        font-size: 50px;
+    }
 `;
 
 const SectionSubTitle = styled(TypeWriter)`
     font-size: 40px;
     padding-bottom: 8px;
+    @media(max-width: 768px) {
+        font-size: 30px;
+    }
 `;
 
 const SectionText = styled.p`
     color: white;
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 24px;
     opacity: ${props => props.show ? 1 : 0};
     transform: ${props => props.show ? 'translateY(0)' : 'translateY(-10px)'};
     transition: opacity 0.25s, transform 0.25s;
+    @media(max-width: 768px) {
+        font-size: 14px;
+    }
 `;
 
 const SelectionContainer = styled.div`
@@ -37,7 +46,8 @@ const SelectionContainer = styled.div`
     /* width: 100%; */
     max-width: 600px;
     opacity: ${props => props.slideOut || props.shrink ? 0 : 1};
-    transition: opacity 1.0s, transform 1.0s;
+    transition: ${props => `opacity ${props.transitionTime}s, transform ${props.transitionTime}s`};
+    margin: 32px 0px;
     ${props => props.shrink ?
         css`transform: scale(0);` :
         css``
@@ -48,9 +58,9 @@ const SelectionContainer = styled.div`
     };
 `;
 
-const DELAY = 250;
+const DELAY = 500;
 
-export default function SelectionBlock({ selectItem, titleText, subtitleText, sectionText, selections, history, shrink, slideOut }) {
+export default function SelectionBlock({ selectItem, titleText, subtitleText, sectionText, selections, history, shrink, slideOut, transitionTime }) {
 
     const [titleComplete, setTitleComplete] = useState(false);
     const [subtitleComplete, setSubtitleComplete] = useState(false);
@@ -63,11 +73,14 @@ export default function SelectionBlock({ selectItem, titleText, subtitleText, se
     });
 
     useEffect(() => {
-        //reset the animations when the title changes
+        //reset the animations when the content changes
         setTitleComplete(titleText == null);
         setSubtitleComplete(subtitleText == null);
         setSectionTextComplete(sectionText == null);
         setIndexLoading(0);
+        if (!titleText && !subtitleText && sectionText) {
+            waitForSectionText();
+        }
     }, [titleText, subtitleText, sectionText, selections]);
 
     const buttonClick = (index) => {
@@ -105,24 +118,36 @@ export default function SelectionBlock({ selectItem, titleText, subtitleText, se
         });
     };
 
+    const completeTitle = () => {
+        setTitleComplete(true);
+        if (!subtitleText) {
+            completeSubtitle();
+        }
+    };
+
+    const completeSubtitle = () => {
+        setSubtitleComplete(true);
+        waitForSectionText();
+    };
+
     return (
-        <SelectionContainer shrink={shrink} slideOut={slideOut}>
+        <SelectionContainer shrink={shrink} slideOut={slideOut} transitionTime={transitionTime}>
             <SectionTitle text={titleText}
-                onComplete={() => setTimeout(() => { setTitleComplete(true) }, DELAY)}
+                onComplete={() => setTimeout(() => { completeTitle() }, DELAY)}
                 color='white'
-                delay={DELAY * 2}
+                delay={DELAY}
                 start={true}>
             </SectionTitle>
             <SectionSubTitle text={subtitleText}
-                onComplete={() => setTimeout(() => { setSubtitleComplete(true); waitForSectionText(); }, DELAY)}
+                onComplete={() => setTimeout(() => { completeSubtitle() }, DELAY)}
                 color='white'
-                delay={DELAY * 2}
+                delay={DELAY}
                 start={titleComplete}>
             </SectionSubTitle>
-            {sectionText ? <SectionText show={subtitleComplete}>
+            {sectionText ? <SectionText show={titleComplete && subtitleComplete}>
                 {sectionText}
-            </SectionText> 
-            : null }
+            </SectionText>
+                : null}
             {selectionElements()}
         </SelectionContainer>
     );

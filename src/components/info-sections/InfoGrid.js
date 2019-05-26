@@ -6,7 +6,7 @@ const ContentGrid = styled.ul`
     list-style-type: none;
     padding: 0px;
     li {
-        margin: 80px 0;
+        margin: 40px 0;
         &:first-child {
             margin: 0;
         }
@@ -18,10 +18,20 @@ const ContentGrid = styled.ul`
 
 const ContentRow = styled.li`
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    h4 {
+        margin: 0 0 8px;
+    }
+`;
+
+const RowContents = styled.div`
+    display: flex;
     align-items: center;
     justify-content: center;
-    background-color: white;
     position: relative;
+    width: 100%;
+    background-color: white;
     border-radius: 4px;
     @media(max-width: 768px) {
         flex-direction: column;
@@ -57,8 +67,11 @@ export default function InfoGrid({ rows }) {
     const infoRows = () => {
         return (rows.map(row => {
             return (
-                <ContentRow key={row.title}>
-                    {row.content}
+                <ContentRow>
+                    <h4>{row.title}</h4>
+                    <RowContents key={row.title}>
+                        {row.content}
+                    </RowContents>
                 </ContentRow>
             )
         }));

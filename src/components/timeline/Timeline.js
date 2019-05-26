@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 import Lockheed from 'images/lockheed.jpg';
-import Wildcat from 'images/wildcat.jpg';
+import Wildcat from 'images/wildcat.png';
 import Sandia from 'images/sandia.png';
 import Stratosphere from 'images/stratosphere.png';
 import Colors from 'styles/Colors';
@@ -13,11 +13,10 @@ import SandiaSection from 'components/info-sections/SandiaSection';
 import CollegeSection from 'components/info-sections/CollegeSection';
 import StratosphereSection from 'components/info-sections/StratosphereSection';
 
-const TRANSITION_TIME = 1.0;
+const TRANSITION_TIME = 0.75;
 const INITIAL_SCALE = 0.25;
 const TIMELINE_WIDTH = 100 / INITIAL_SCALE;
 const LINE_WIDTH = 6 / INITIAL_SCALE;
-const IMAGE_SIZE = 100 / INITIAL_SCALE;
 
 const TIMELINE_EVENTS = {
     COLLEGE: 1,
@@ -75,15 +74,14 @@ const TimelineMarker = styled.li`
     background-color: ${Colors.primary};
     z-index: 1;
     font-size: ${`${20 / INITIAL_SCALE}px`};
-    padding: 20px;
-    border-radius: 60px;
-    /* border: 20px solid #ffffff80; */
+    padding: ${`${3 / INITIAL_SCALE}px`};
+    border-radius: ${`${6 / INITIAL_SCALE}px`};
 `;
 
 const EventMarker = styled.div`
     position: absolute;
     top: ${props => props.top};
-    left: ${`calc(${IMAGE_SIZE * 1.5 + LINE_WIDTH / 2}px + 50vw)`};
+    left: ${props => `calc(${props.imageSize * 1.5 + LINE_WIDTH / 2}px + 50vw)`};
     &::before {
         content: '';
         position: absolute;
@@ -91,9 +89,9 @@ const EventMarker = styled.div`
         border-bottom: ${`${LINE_WIDTH}px`}  solid ${props => `${props.color}c0`};
         border-right: ${`${LINE_WIDTH}px`} solid ${props => `${props.color}c0`};
         /* background-color: ${props => `${props.color}40`}; */
-        padding: ${props => `${props.height}vh`} ${props => `${IMAGE_SIZE * 0.75 - LINE_WIDTH / 4}px`};
-        left: ${`${-IMAGE_SIZE * 1.5}px`};
-        top: ${props => `calc(${-props.height}vh - ${INITIAL_SCALE * IMAGE_SIZE / 4}px)`};
+        padding: ${props => `${props.height}vh`} ${props => `${props.imageSize * 0.75 - LINE_WIDTH / 4}px`};
+        left: ${props => `${-props.imageSize * 1.5}px`};
+        top: ${props => `calc(${-props.height}vh - ${INITIAL_SCALE * props.imageSize / 4}px)`};
         transition: all 0.3s ease-in-out;
         border-top-right-radius: ${`${LINE_WIDTH}px`} ;
         border-bottom-right-radius: ${`${LINE_WIDTH}px`} ;
@@ -111,12 +109,12 @@ const EventMarker = styled.div`
 `;
 
 const EventMarkerLeft = styled(EventMarker)`
-    right: ${`calc(${IMAGE_SIZE * 1.5 + LINE_WIDTH / 2}px + 50vw)`};
+    right: ${props => `calc(${props.imageSize * 1.5 + LINE_WIDTH / 2}px + 50vw)`};
     left: unset;
     &::before {
         border-left: ${`${LINE_WIDTH}px`}  solid ${props => `${props.color}c0`};
         border-right: 0;
-        right: ${`${-IMAGE_SIZE * 1.5}px`};
+        right: ${props => `${-props.imageSize * 1.5}px`};
         left: unset;
         border-top-left-radius: ${`${LINE_WIDTH}px`};
         border-bottom-left-radius: ${`${LINE_WIDTH}px`};
@@ -140,8 +138,15 @@ export default function Timeline() {
     const [collapse, setCollapse] = useState(false);
     const [overflowHidden, setOverflowHidden] = useState(true);
     const [timelineWidth, setTimelineWidth] = useState(TIMELINE_WIDTH);
+    const [imageSize, setImageSize] = useState(100 / INITIAL_SCALE);
+
 
     const handleResize = () => {
+        if (window.innerWidth <= 768) {
+            setImageSize(60 / INITIAL_SCALE);
+        } else {
+            setImageSize(100 / INITIAL_SCALE);
+        }
         const width = window.innerWidth < TIMELINE_WIDTH ? window.innerWidth : TIMELINE_WIDTH;
         setTimelineWidth(width);
     };
@@ -190,16 +195,16 @@ export default function Timeline() {
         }
         switch (selectedEvent) {
             case TIMELINE_EVENTS.COLLEGE:
-                return (<CollegeSection exit={zoomOut} imageSize={IMAGE_SIZE}></CollegeSection>);
+                return (<CollegeSection exit={zoomOut} imageSize={imageSize}></CollegeSection>);
 
             case TIMELINE_EVENTS.SANDIA:
-                return (<SandiaSection exit={zoomOut} imageSize={IMAGE_SIZE}></SandiaSection>);
+                return (<SandiaSection exit={zoomOut} imageSize={imageSize}></SandiaSection>);
 
             case TIMELINE_EVENTS.LOCKHEED:
-                return (<LokcheedSection exit={zoomOut} imageSize={IMAGE_SIZE}></LokcheedSection>);
+                return (<LokcheedSection exit={zoomOut} imageSize={imageSize}></LokcheedSection>);
 
             case TIMELINE_EVENTS.STRATOSPHERE:
-                return (<StratosphereSection exit={zoomOut} imageSize={IMAGE_SIZE}></StratosphereSection>);
+                return (<StratosphereSection exit={zoomOut} imageSize={imageSize}></StratosphereSection>);
 
             default:
                 return null;
@@ -219,14 +224,14 @@ export default function Timeline() {
                         <TimelineMarker>2014</TimelineMarker>
                         <TimelineMarker>2011</TimelineMarker>
                     </TimelineList>
-                    <EventMarker top={`calc(-100% + 13vh)`} height={26} color={Colors.stratosphere} timelineWidth={timelineWidth}>
+                    <EventMarker top={`calc(-100% + 13vh)`} height={26} color={Colors.stratosphere} timelineWidth={timelineWidth} imageSize={imageSize}>
                         <TimelineEvent
                             left={true}
-                            title="Stratosphere Digital"
-                            subtitle="Independent Contractor"
+                            eventTitle="Stratosphere Digital"
+                            eventSubtitle="Independent Contractor"
                             eventId={TIMELINE_EVENTS.STRATOSPHERE}
                             collapse={collapse}
-                            imageSize={IMAGE_SIZE}
+                            imageSize={imageSize}
                             image={Stratosphere}
                             color={'black'}
                             selectItem={selectEvent}
@@ -235,13 +240,13 @@ export default function Timeline() {
                             transitionTime={TRANSITION_TIME}>
                         </TimelineEvent>
                     </EventMarker>
-                    <EventMarkerLeft top={`calc(-100% + 56vh)`} height={70} color={Colors.lockheed} timelineWidth={timelineWidth}>
+                    <EventMarkerLeft top={`calc(-100% + 56vh)`} height={70} color={Colors.lockheed} timelineWidth={timelineWidth} imageSize={imageSize}>
                         <TimelineEvent
                             eventId={TIMELINE_EVENTS.LOCKHEED}
-                            title="Lockheed Martin"
-                            subtitle="Software Engineer"
+                            eventTitle="Lockheed Martin"
+                            eventSubtitle="Software Engineer"
                             collapse={collapse}
-                            imageSize={IMAGE_SIZE}
+                            imageSize={imageSize}
                             image={Lockheed}
                             color={Colors.lockheed}
                             selectItem={selectEvent}
@@ -250,13 +255,13 @@ export default function Timeline() {
                             transitionTime={TRANSITION_TIME}>
                         </TimelineEvent>
                     </EventMarkerLeft>
-                    <EventMarker top={'85%'} height={50} color={Colors.sandia} timelineWidth={timelineWidth}>
+                    <EventMarker top={'85%'} height={50} color={Colors.sandia} timelineWidth={timelineWidth} imageSize={imageSize}>
                         <TimelineEvent
                             eventId={TIMELINE_EVENTS.SANDIA}
-                            title="Sandia Labs"
-                            subtitle="Technical Intern"
+                            eventTitle="Sandia Labs"
+                            eventSubtitle="Technical Intern"
                             collapse={collapse}
-                            imageSize={IMAGE_SIZE}
+                            imageSize={imageSize}
                             image={Sandia}
                             color={Colors.sandia}
                             selectItem={selectEvent}
@@ -265,16 +270,16 @@ export default function Timeline() {
                             transitionTime={TRANSITION_TIME}>
                         </TimelineEvent>
                     </EventMarker>
-                    <EventMarkerLeft top={'calc(25vh + 100%)'} height={90} color={Colors.uofaRed} timelineWidth={timelineWidth}>
+                    <EventMarkerLeft top={'calc(25vh + 100%)'} height={90} color={Colors.uofaRed} timelineWidth={timelineWidth} imageSize={imageSize}>
                         <TimelineEvent
                             left={true}
-                            title="University of Arizona"
-                            subtitle="Master of Science"
+                            eventTitle="University of Arizona"
+                            eventSubtitle="Master of Science"
                             eventId={TIMELINE_EVENTS.COLLEGE}
                             collapse={collapse}
-                            imageSize={IMAGE_SIZE}
+                            imageSize={imageSize}
                             image={Wildcat}
-                            color={Colors.uofa}
+                            color={Colors.uofaRed}
                             selectItem={selectEvent}
                             exit={zoomOut}
                             scale={INITIAL_SCALE}

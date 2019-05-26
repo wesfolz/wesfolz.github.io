@@ -26,9 +26,15 @@ export const SectionHeader = styled.div`
         color: white;
         text-align: center;
     }
+    border-radius: ${props => `${3 / props.scale}px`};
     width: 100vw;
     height: 400px;
-    border-radius: ${props => `${3 / props.scale}px`};
+    @media(max-width: 768px) {
+        height: 240px;
+        p {
+            font-size: 18px;
+        }
+    }
 `;
 
 export const HeaderImg = styled.div`

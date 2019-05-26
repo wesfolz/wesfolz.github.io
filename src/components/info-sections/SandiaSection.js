@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Sandia from 'images/sandia.png';
 import Maccs from 'images/maccs.png';
-import Santeria from 'images/santeria1.png';
+import Santeria from 'images/santeria.png';
 import Rtree from 'images/rtree.png';
 import MaccsPoster from 'images/MACCS_Poster.pdf';
 import SanteriaPoster from 'images/Santeria_Poster.pdf';
@@ -56,44 +56,53 @@ export default function SandiaSection(props) {
                 <React.Fragment>
                     <ParallaxInfoImage backgroundImage={Maccs} overlayColor={Colors.sandia} href={MaccsPoster}></ParallaxInfoImage>
                     <SectionText>
-                        I developed and maintained Big Data web applications for retrieval and visualization of spacecraft and satellite telemetry data.
-                        For this team I worked as a full stack engineer contributing on a wide array of features.
-                        I redesigned and implemented the UIs for plotting data and building queries.
-                        I improved performance of telemetry database queries by a factor of 10.
-                        I developed the requirements and architecture for new visualization applications.
-                        I built prototype applications to test out new technologies for searching and visualizing of large datasets.
+                        I developed and enhanced Java applications for nuclear scientists and incident responders.
+                        Most notably I created an application that mapped and animated radiation plumes.
+                        The application was also able to capture screenshots and record videos of the radiation plume animations among other features.
                     </SectionText>
                 </React.Fragment>),
-            title: 'MACCS Animations'
+            title: 'Nuclear Incident Response Software'
         },
         {
             content: (
                 <React.Fragment>
-                    <SectionText>Developing and maintaining web applications for Big Data retrieval and visualization using Java Wicket and jQuery. Developing prototype web applications with ReactJS and Elasticsearch.</SectionText>
-                    <ParallaxInfoImage backgroundImage={Santeria} overlayColor={Colors.sandia} href={SanteriaPoster}></ParallaxInfoImage>
-                </React.Fragment>),
-            title: 'Santeria'
-        },
-        {
-            content: (
-                <React.Fragment>
+                    <SectionText>
+                        A fellow intern and I simulated mobile ad-hoc networks using OPNET modeler to evaluate the performance of different routing protocols.
+                        We were able to improve the simulations by implementing a probabilistic model of daily human mobility patterns.
+                        We also developed an R-Tree data structure to more efficiently search for nearest neighbors in a network via spatial indexing.
+                    </SectionText>
                     <ParallaxInfoImage backgroundImage={Rtree} overlayColor={Colors.sandia} href={AdHocPoster}></ParallaxInfoImage>
-                    <SectionText>Developing and maintaining web applications for Big Data retrieval and visualization using Java Wicket and jQuery. Developing prototype web applications with ReactJS and Elasticsearch.</SectionText>
                 </React.Fragment>),
             title: 'Ad Hoc Mobile'
+        },
+        {
+            content: (
+                <React.Fragment>
+                    <ParallaxInfoImage backgroundImage={Santeria} overlayColor={Colors.sandia} href={SanteriaPoster}></ParallaxInfoImage>
+                    <SectionText>
+                        I assisted researchers with development and testing of their Android kernel debugger.
+                        Another intern and I developed a GDB wrapper to send GDB and ADB commands to an Android device.
+                        I also developed an application that could load our custom kernel module onto an Android device with the press of a button.
+                    </SectionText>
+                </React.Fragment>),
+            title: 'Android Kernel Debugger'
         }
     ];
 
     return (
         <InfoSection
-            title="Sandia Labs"
-            subtitle="Technical Intern"
+            infoTitle="Sandia Labs"
+            infoSubtitle="Technical Intern"
             backgroundImage={Sandia}
             backgroundColor={Colors.sandia}
             {...props}>
 
             <SectionTitle>Summary</SectionTitle>
-            <SectionText>Lorem ipsum dolor</SectionText>
+            <SectionText>
+                I was an intern at Sandia National Laboratories for two years during college.
+                I worked full time during the summers and part time during the school year.
+                During my time there I worked on three different software projects.
+            </SectionText>
             <SectionTitle>Projects</SectionTitle>
             <InfoGrid rows={rows}></InfoGrid>
             <SectionTitle>Technology</SectionTitle>

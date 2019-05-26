@@ -79,7 +79,8 @@ export default function StratosphereSection(props) {
                     <ParallaxInfoContainer>
                         <ParallaxImage backgroundImage={Gradient}></ParallaxImage>
                     </ParallaxInfoContainer>
-                    <SectionText>I created an adaptive css gradient background that scales and repositions itself depending on the width of the browser window.
+                    <SectionText>
+                        I created an adaptive css gradient background that rescales and repositions itself depending on the width of the browser window.
                     </SectionText>
                 </React.Fragment>),
             title: 'Gradient Background'
@@ -98,41 +99,44 @@ export default function StratosphereSection(props) {
             content: (
                 <React.Fragment>
                     <ParallaxInfoContainer>
-                        <ParallaxImage backgroundImage={ContactForm} backgroundColor="black"></ParallaxImage>
+                        <ParallaxImage backgroundImage={Blog} backgroundColor="black"></ParallaxImage>
                     </ParallaxInfoContainer>
-                    <SectionText>I updated the contact form with new styling and validation logic.</SectionText>
+                    <SectionText>I added and updated the content for the blog section and many of the case studies.</SectionText>
                 </React.Fragment>),
-            title: 'Contact Form'
+            title: 'New Content'
         },
         {
             content: (
                 <React.Fragment>
-                    <SectionText>I added and updated the content for the blog section and many of the case studies.</SectionText>
+                    <SectionText>I updated the contact form with new styling and validation logic.</SectionText>
                     <ParallaxInfoContainer>
-                        <ParallaxImage backgroundImage={Blog} backgroundColor="black"></ParallaxImage>
+                        <ParallaxImage backgroundImage={ContactForm} backgroundColor="black"></ParallaxImage>
                     </ParallaxInfoContainer>
                 </React.Fragment>),
-            title: 'New Content'
+            title: 'Contact Form'
         }
     ];
 
     return (
-        <InfoSection 
-            title="Stratosphere Digital"
-            subtitle="Independent Contractor"
-            backgroundImage={Stratosphere} 
-            backgroundColor="black" 
+        <InfoSection
+            infoTitle="Stratosphere Digital"
+            infoSubtitle="Independent Contractor"
+            backgroundImage={Stratosphere}
+            backgroundColor="black"
             exitColor={Colors.stratosphere}
             {...props}>
-            
+
             <SectionTitle>Summary</SectionTitle>
-            <SectionText>Stratosphere digital hired me to update their website with new content and features based on new design specifications.</SectionText>
+            <SectionText>
+                Stratosphere digital hired me to update their website with new content and features based on new design specifications.
+                I added new features, new content, new styling and even fixed a few bugs.
+            </SectionText>
             <LinkSection>
                 <UnderlineButton color={Colors.stratosphere}>
                     <a href="https://stratosphere.digital/">Visit Website</a>
                 </UnderlineButton>
             </LinkSection>
-            <SectionTitle>Features</SectionTitle>
+            <SectionTitle>Major Features</SectionTitle>
             <InfoGrid rows={rows}>
             </InfoGrid>
             <SectionTitle>Development Stack</SectionTitle>

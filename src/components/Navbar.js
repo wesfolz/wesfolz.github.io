@@ -13,8 +13,13 @@ const NavList = styled.ul`
     justify-content: space-between;
     width: 100%;
     max-width: 600px;
-    padding: 0px 32px;
+    padding: 8px 32px;
+    margin: 0;
     box-sizing: border-box;
+    z-index: 1000;
+    background-color: black;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     @media(max-height: 600px) {
         flex-direction: column;
         justify-content: space-around;
@@ -54,7 +59,7 @@ export default function Navbar(props) {
         <NavList>
             <li>
                 <Link to="/">
-                    <FillButton color={Colors.lightBlue}
+                    <FillButton color={Colors.info}
                         click={() => navSelect(0)}
                         deselect={deselect[0]} select={select[0]}>
                         <FontAwesomeIcon icon="home" size="lg"></FontAwesomeIcon>
@@ -63,7 +68,7 @@ export default function Navbar(props) {
             </li>
             <li>
                 <Link to="/timeline">
-                    <FillButton color={Colors.timeline}
+                    <FillButton color={Colors.info}
                         click={() => navSelect(1)}
                         deselect={deselect[1]} select={select[1]}>
                         <FontAwesomeIcon icon="user" size="lg"></FontAwesomeIcon>
@@ -72,7 +77,7 @@ export default function Navbar(props) {
             </li>
             <li>
                 <Link to="/contact">
-                    <FillButton color={Colors.contact}
+                    <FillButton color={Colors.info}
                         click={() => navSelect(2)}
                         deselect={deselect[2]} select={select[2]}>
                         <FontAwesomeIcon icon="envelope" size="lg"></FontAwesomeIcon>
@@ -81,14 +86,14 @@ export default function Navbar(props) {
             </li>
             <li>
                 <a href="https://www.linkedin.com/in/wesley-folz/">
-                    <FillButton color={Colors.linkedin}>
+                    <FillButton color={Colors.info}>
                         <FontAwesomeIcon icon={['fab', 'linkedin']} size="lg"></FontAwesomeIcon>
                     </FillButton>
                 </a>
             </li>
             <li>
                 <a href="https://github.com/wesfolz/">
-                    <FillButton color={Colors.github}>
+                    <FillButton color={Colors.info}>
                         <FontAwesomeIcon icon={['fab', 'github']} size="lg"></FontAwesomeIcon>
                     </FillButton>
                 </a>

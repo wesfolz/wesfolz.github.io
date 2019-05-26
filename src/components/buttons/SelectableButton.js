@@ -3,16 +3,16 @@ import styled from 'styled-components';
 import FillButton from 'components/buttons/FillButton';
 
 const CustomButton = styled(FillButton)`
-    background-color: black;
+    background-color: ${props => props.backgroundColor || 'black'};
     border-radius: 6px;
     padding: 8px 16px;
     box-shadow: ${props => props.shadow};
-    transition: background-color 0.2s ease-out, color 0.2s ease-out, box-shadow 0.2s ease-out, opacity 0.2s ease-out;
+    transition: color 0.2s ease-out, box-shadow 0.2s ease-out, opacity 0.2s ease-out;
     &:hover, &.selected {
         color: white;
-        background-color: ${props => props.backgroundColor || 'black'};
-        transition: background-color 0.2s ease-out, color 0.2s ease-out, box-shadow ${props => props.tt} ease-out;
+        transition: color 0.2s ease-out, box-shadow ${props => props.tt} ease-out;
         box-shadow: ${props => props.shadow || '0px 0px 16px white'};
+        background-color: ${props => props.backgroundColor || 'black'};
     }
 `;
 

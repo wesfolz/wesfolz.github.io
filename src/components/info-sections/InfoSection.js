@@ -6,19 +6,22 @@ import SelectableButton from 'components/buttons/SelectableButton';
 import Colors from 'styles/Colors';
 import { SectionHeader, HeaderImg } from 'components/info-sections/SectionStyles';
 
+const TRANSITION_TIME = 0.5;
+const DELAY_TIME = 0.25;
+
 const SectionWrapper = styled.div`
     position: absolute;
-    top: ${props => props.shrink ? '0' : 'calc(50% - 200px)'};
+    top: ${props => props.shrink ? '0' : `calc(50% - ${props.imageSize / 2}px)`};
     left: 0;
     width: 100%;
     background-color: ${Colors.offWhite};
-    transition: top 1.0s ease;
+    transition: top ${`${TRANSITION_TIME}s ease`};
 `;
 
 const ContentWrapper = styled.div`
     max-height: ${props => props.shrink ? '10000px' : 0};
     overflow: hidden;
-    transition: max-height 1.0s ease, padding 1.0s ease;
+    transition: max-height ${`${TRANSITION_TIME}s ease, padding ${TRANSITION_TIME}s ease`};
     padding: ${props => props.shrink ? '0px 40px 40px' : '0px 40px'};
     margin: 0 auto;
     max-width: 1200px;
@@ -41,29 +44,29 @@ export default function InfoSection(props) {
     useEffect(() => {
         setTimeout(() => {
             setShrink(true);
-        }, 250);
+        }, DELAY_TIME * 1000);
     }, []);
 
     const closeSection = () => {
         setShrink(false);
         setTimeout(() => {
             props.exit();
-        }, 1250);
+        }, (TRANSITION_TIME + DELAY_TIME)*1000 );
     };
 
     return (
-        <SectionWrapper shrink={shrink}>
+        <SectionWrapper shrink={shrink} imageSize={props.imageSize}>
             <CloseButton color={props.exitColor} onClick={closeSection}>
                 <FontAwesomeIcon icon="times" size="lg"></FontAwesomeIcon>
             </CloseButton>
             <SectionHeader
                 color={props.backgroundColor}>
-                <p>{props.title}</p>
+                <p>{props.infoTitle}</p>
                 <HeaderImg color={props.backgroundColor}
                     image={props.backgroundImage}
                     imageSize={props.imageSize / 1.5}>
                 </HeaderImg>
-                <p>{props.subtitle}</p>
+                <p>{props.infoSubtitle}</p>
             </SectionHeader>
             <ContentWrapper shrink={shrink}>
                 {props.children}

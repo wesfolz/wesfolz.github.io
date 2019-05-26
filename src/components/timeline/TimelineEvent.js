@@ -36,6 +36,9 @@ const Overlay = styled(SectionHeader)`
         height: 400px;
         border-radius: ${props => `${3 / props.scale}px`};
         transform: scale(1);
+        @media(max-width: 768px) {
+            height: 240px;
+        }
     }
 
     &:hover, &.zoomed, &.expanded {
@@ -49,8 +52,6 @@ const Overlay = styled(SectionHeader)`
 
 export default function TimelineEvent(props) {
 
-    const [zoomed, setZoomed] = useState(false);
-    const [expanded, setExpanded] = useState(false);
     const [overlayClass, setOverlayClass] = useState(null);
     const itemRef = useRef(null);
 
@@ -59,14 +60,12 @@ export default function TimelineEvent(props) {
             setTimeout(() => {
                 setOverlayClass(null);
             }, props.transitionTime * 1000);
-            setZoomed(false);
         }
     }, [props.collapse])
 
     const selectItem = () => {
         setOverlayClass('zoomed');
         setTimeout(() => {
-            setZoomed(true);
             setOverlayClass('expanded');
         }, props.transitionTime * 1000);
 
@@ -81,13 +80,13 @@ export default function TimelineEvent(props) {
                 onClick={selectItem}
                 {...props}
                 className={overlayClass}>
-                <p>{props.title}</p>
+                <p>{props.eventTitle}</p>
                 <HeaderImg
                     image={props.image}
                     color={props.color}
                     imageSize={props.imageSize / 1.5}>
                 </HeaderImg>
-                <p>{props.subtitle}</p>
+                <p>{props.eventSubtitle}</p>
             </Overlay>
         </ItemContainer>
     );

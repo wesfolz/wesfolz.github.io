@@ -33,7 +33,7 @@ export default function TypeWriter({ text, start, delay, onComplete, color, clas
     useEffect(() => {
         setVisibleIndex(-1);
         if (start && text) {
-            const interval = delay && text.length ? delay / text.length : 50;
+            const interval = (delay && text.length) ? delay / text.length : 50;
             setTimeout(() => updateCharacterIndex(interval), interval);
         }
     }, [text, start]);

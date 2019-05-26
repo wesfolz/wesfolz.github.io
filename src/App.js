@@ -33,6 +33,8 @@ library.add(
     faCheckSquare,
     faUser);
 
+const TRANSITION_TIME = 0.5;
+
 const LogoImg = styled.img`
     position: absolute;
     width: 100%;
@@ -42,6 +44,7 @@ const LogoImg = styled.img`
     left: 0;
     top: 0;
     padding: 20px;
+    z-index: -1;
     @media(max-width: 768px) {
         width: 50%;
         height: auto;
@@ -50,7 +53,7 @@ const LogoImg = styled.img`
 
 const Container = styled.div`
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -66,19 +69,29 @@ const App = (props) => {
             titleText: "Hello...",
             subtitleText: "Why are you here?",
             selections: [
-                { text: "I want to learn more about you.", color: Colors.timeline, backgroundColor: Colors.timelineBackground, route: '/timeline' },
-                { text: "I want to contact you.", color: Colors.contact, backgroundColor: Colors.contactBackground, route: '/contact' },
-                { text: "Why are any of us here?", color: "#3891A6", backgroundColor: "#3891A6", route: '/' }
+                { text: "I want to learn more about Wesley.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/', nextSet: 1 },
+                { text: "I want to contact Wesley.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/contact' },
+                { text: "Why are any of us here?", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/', nextSet: 2 }
             ]
         },
         {
-            titleText: "IDK",
-            subtitleText: "whatever",
+            titleText: "Who is Wesley?",
+            subtitleText: "... a software engineer",
+            sectionText: "Developed and maintained Big Data web applications for retrieval and visualization of spacecraft and satellite telemetry data. For this team I worked as a full stack engineer contributing on a wide array of features. I redesigned and implemented the UIs for plotting data and building queries. I improved performance of telemetry database queries by a factor of 10. I developed the requirements and architecture for new visualization applications. I built prototype applications to test out new technologies for searching and visualizing of large datasets.",
+            selections: [
+                { text: "I want to know more.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/timeline' },
+                { text: "I want to contact Wesley.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/contact' },
+                { text: "Cool, thanks!", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/', nextSet: 0 }
+            ]
+        },
+        {
+            titleText: "Why are any of us here?",
+            subtitleText: "Here's some amateur philosophy...",
             sectionText: "I developed and maintained Big Data web applications for retrieval and visualization of spacecraft and satellite telemetry data. For this team I worked as a full stack engineer contributing on a wide array of features. I redesigned and implemented the UIs for plotting data and building queries. I improved performance of telemetry database queries by a factor of 10. I developed the requirements and architecture for new visualization applications. I built prototype applications to test out new technologies for searching and visualizing of large datasets.",
             selections: [
-                { text: "I want to learn more about you.", color: Colors.pink, backgroundColor: Colors.timeline, route: '/timeline' },
-                { text: "I want to contact you.", color: Colors.orange, backgroundColor: Colors.contactBackground, route: '/contact' },
-                { text: "Cool, thanks!", color: Colors.yellow, backgroundColor: Colors.primary, route: '/' }
+                { text: "I want to learn more about you.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/timeline' },
+                { text: "I want to contact you.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/contact' },
+                { text: "Cool, thanks!", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/', nextSet: 0 }
             ]
         }
     ];
@@ -88,7 +101,6 @@ const App = (props) => {
     const [currentRoute, setCurrentRoute] = useState(null);
     const [shrinkBlock, setShrinkBlock] = useState(false);
     const [slideOutBlock, setSlideOutBlock] = useState(false);
-    const [defaultColor, setDefaultColor] = useState(Colors.primary);
 
     const handleLocationChange = () => {
         if (props.location.pathname === '/') {
@@ -121,15 +133,15 @@ const App = (props) => {
             setCurrentRoute(selectionSets[selectedSet].selections[index].route);
             setTimeout(() => {
                 history.push(selectionSets[selectedSet].selections[index].route);
-            }, 1000);
+            }, TRANSITION_TIME * 1000);
         } else {
             setTimeout(() => {
                 setShrinkBlock(false);
                 setSlideOutBlock(false);
                 setSelectedIndex(null);
-                setDefaultColor(selectionSets[selectedSet].selections[index].backgroundColor);
-                setSelectedSet(selectedSet < (selectionSets.length - 1) ? selectedSet + 1 : 0);
-            }, 1000);
+                // setSelectedSet(selectedSet < (selectionSets.length - 1) ? selectedSet + 1 : 0);
+                setSelectedSet(selectionSets[selectedSet].selections[index].nextSet);
+            }, TRANSITION_TIME * 1000);
         }
         if (selectionSets[selectedSet].selections[index].route === '/timeline') {
             setShrinkBlock(true);
@@ -148,6 +160,7 @@ const App = (props) => {
             <Route path="/" exact render={(props) =>
                 <SelectionBlock
                     {...props}
+                    transitionTime={TRANSITION_TIME}
                     shrink={shrinkBlock}
                     slideOut={slideOutBlock}
                     selectItem={selectItem}

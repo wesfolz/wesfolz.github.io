@@ -12,26 +12,16 @@ const Header = styled.h1`
     margin-bottom: 20px;
 `;
 
-const Background = styled.div`
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: -1;
-`;
-
 const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     max-width: 600px;
     width: 100%;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
     opacity: ${props => props.show ? 1 : 0};
     transform: ${props => props.show ? 'translateY(0)' : 'translateY(50px)'};
-    background-color: ${`${Colors.lightBlue}10`};
+    background-color: ${`${Colors.info}10`};
     padding: 40px;
     margin: 0px 40px;
     border-radius: 2px;
@@ -78,7 +68,7 @@ const FeedbackContainer = styled.div`
     align-items: center;
     p {
         padding-left: 20px;
-        color: ${Colors.lightBlue};
+        color: ${Colors.info};
         line-height: 32px;
         a {
             color: inherit;
@@ -159,9 +149,6 @@ export default function ContactForm() {
 
     return (
         <FormContainer show={show}>
-            {/* <Background>
-                <FontAwesomeIcon icon="envelope" size="10x"></FontAwesomeIcon>
-            </Background> */}
             <Header>Contact</Header>
             {(success || error) ? null :
                 <div>
