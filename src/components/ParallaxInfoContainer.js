@@ -9,7 +9,7 @@ const Container = styled.div`
     & >:first-child {
         opacity: 1;
         @media(max-width: 768px) {
-            opacity: 0.3;
+            opacity: 0.2;
         }
     }
     > * {

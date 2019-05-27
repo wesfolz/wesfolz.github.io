@@ -20,7 +20,7 @@ const NavList = styled.ul`
     background-color: black;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    @media(max-height: 600px) {
+    @media(max-height: 500px) {
         flex-direction: column;
         justify-content: space-around;
         left: 0;

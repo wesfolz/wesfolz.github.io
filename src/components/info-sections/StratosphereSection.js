@@ -88,7 +88,9 @@ export default function StratosphereSection(props) {
         {
             content: (
                 <React.Fragment>
-                    <SectionText>I added a new interactive team info section with custom transition animations.</SectionText>
+                    <SectionText>
+                        I added a new interactive team info section with custom transition animations.
+                    </SectionText>
                     <ParallaxInfoContainer>
                         <ParallaxImage backgroundImage={TeamSection} backgroundColor="black"></ParallaxImage>
                     </ParallaxInfoContainer>
@@ -101,14 +103,18 @@ export default function StratosphereSection(props) {
                     <ParallaxInfoContainer>
                         <ParallaxImage backgroundImage={Blog} backgroundColor="black"></ParallaxImage>
                     </ParallaxInfoContainer>
-                    <SectionText>I added and updated the content for the blog section and many of the case studies.</SectionText>
+                    <SectionText>
+                        I added and updated the content for the blog section and many of the case studies.
+                    </SectionText>
                 </React.Fragment>),
             title: 'New Content'
         },
         {
             content: (
                 <React.Fragment>
-                    <SectionText>I updated the contact form with new styling and validation logic.</SectionText>
+                    <SectionText>
+                        I updated the contact form with new styling and validation logic.
+                    </SectionText>
                     <ParallaxInfoContainer>
                         <ParallaxImage backgroundImage={ContactForm} backgroundColor="black"></ParallaxImage>
                     </ParallaxInfoContainer>
@@ -128,7 +134,7 @@ export default function StratosphereSection(props) {
 
             <SectionTitle>Summary</SectionTitle>
             <SectionText>
-                Stratosphere digital hired me to update their website with new content and features based on new design specifications.
+                Stratosphere Digital hired me to update their website with new content and features based on new design specifications.
                 I added new features, new content, new styling and even fixed a few bugs.
             </SectionText>
             <LinkSection>

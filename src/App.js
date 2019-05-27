@@ -122,6 +122,7 @@ const App = (props) => {
         if (props.location.pathname === '/') {
             setShrinkBlock(false);
             setSlideOutBlock(false);
+            setSelectedSet(0);
         }
         setCurrentRoute(props.location.pathname);
     };

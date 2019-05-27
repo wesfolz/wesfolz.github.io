@@ -66,6 +66,7 @@ export default function SelectionBlock({ selectItem, titleText, subtitleText, se
     const [subtitleComplete, setSubtitleComplete] = useState(false);
     const [sectionTextComplete, setSectionTextComplete] = useState(false);
     const [indexLoading, setIndexLoading] = useState(0);
+    const [start, setStart] = useState(true);
 
     const [selectedIndex, setSelectedIndex] = useKeySelect({
         itemCount: selections.length,
@@ -74,6 +75,8 @@ export default function SelectionBlock({ selectItem, titleText, subtitleText, se
 
     useEffect(() => {
         //reset the animations when the content changes
+        console.log(titleText, subtitleText, sectionText, selections);
+        setStart(true);
         setTitleComplete(titleText == null);
         setSubtitleComplete(subtitleText == null);
         setSectionTextComplete(sectionText == null);
@@ -115,6 +118,7 @@ export default function SelectionBlock({ selectItem, titleText, subtitleText, se
     };
 
     const completeTitle = () => {
+        console.log('completeTitle');
         setTitleComplete(true);
         if (!subtitleText) {
             completeSubtitle();
@@ -122,6 +126,7 @@ export default function SelectionBlock({ selectItem, titleText, subtitleText, se
     };
 
     const completeSubtitle = () => {
+        console.log('completeSubtitle');
         setSubtitleComplete(true);
         waitForSectionText();
     };

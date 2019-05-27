@@ -84,10 +84,9 @@ const EventMarker = styled.div`
     &::before {
         content: '';
         position: absolute;
-        border-top: ${`${LINE_WIDTH}px`} solid ${props => `${props.color}ff`};
-        border-bottom: ${`${LINE_WIDTH}px`}  solid ${props => `${props.color}ff`};
-        border-right: ${`${LINE_WIDTH}px`} solid ${props => `${props.color}ff`};
-        /* background-color: ${props => `${props.color}40`}; */
+        border-top: ${`${LINE_WIDTH}px`} solid ${props => props.color};
+        border-bottom: ${`${LINE_WIDTH}px`} solid ${props => props.color};
+        border-right: ${`${LINE_WIDTH}px`} solid ${props => props.color};
         padding: ${props => `${props.height}vh`} ${props => `${props.imageSize * 0.75 - LINE_WIDTH / 4}px`};
         left: ${props => `${-props.imageSize * 1.5}px`};
         top: ${props => `calc(${-props.height}vh - ${INITIAL_SCALE * props.imageSize / 4}px)`};
@@ -97,9 +96,6 @@ const EventMarker = styled.div`
     }
     &:hover {
         &::before {
-            border-top: ${`${LINE_WIDTH}px`} solid ${props => props.color};
-            border-bottom: ${`${LINE_WIDTH}px`} solid ${props => props.color};
-            border-right: ${`${LINE_WIDTH}px`} solid ${props => props.color};
             /* box-shadow: 0px 0px 320px white; */
             background-color: ${props => `${props.color}40`};
             transition: all 0.3s ease-in-out;
@@ -111,7 +107,7 @@ const EventMarkerLeft = styled(EventMarker)`
     right: ${props => `calc(${props.imageSize * 1.5 + LINE_WIDTH / 2}px + 50vw)`};
     left: unset;
     &::before {
-        border-left: ${`${LINE_WIDTH}px`}  solid ${props => `${props.color}ff`};
+        border-left: ${`${LINE_WIDTH}px`}  solid ${props => props.color};
         border-right: 0;
         right: ${props => `${-props.imageSize * 1.5}px`};
         left: unset;
@@ -122,7 +118,6 @@ const EventMarkerLeft = styled(EventMarker)`
     }
     &:hover {
         &::before {
-            border-left: ${`${LINE_WIDTH}px`} solid ${props => props.color};
             border-right: 0;
         }
     }

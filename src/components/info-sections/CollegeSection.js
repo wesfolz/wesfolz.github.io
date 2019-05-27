@@ -68,9 +68,9 @@ export default function CollegSection(props) {
                 <React.Fragment>
                     <ParallaxInfoImage backgroundImage={Models3D} backgroundColor="black" overlayColor={Colors.uofa} href="http://youtu.be/KQVvxJpnd_8"></ParallaxInfoImage>
                     <SectionText>
-                        Working with a fellow student, we developd an Android app that could convert multiple images of an object into a virtual three dimensional model of that object.
+                        Working with a fellow student, we developed an Android app that could convert multiple images of an object into a virtual three dimensional model of that object.
                         Our app provided a user interface for creating new models, capturing images and opening models.
-                        To do the conversions from images to three dimensional models, we used a number of algorithms from the OpenCV library and developded our own custom image processing algorithms.
+                        To do the conversions from images to three dimensional models, we used a number of algorithms from the OpenCV library and developed our own custom image processing algorithms.
                     </SectionText>
                 </React.Fragment>),
             title: 'Images To 3D Models'

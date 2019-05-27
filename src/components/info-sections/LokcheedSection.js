@@ -71,7 +71,7 @@ export default function LokcheedSection(props) {
         },
         {
             icon: <TechIcon src={Git}></TechIcon>,
-            title: 'git'
+            title: 'Git'
         },
         {
             icon: <FontAwesomeIcon icon={['fab', 'jira']} color={Colors.jira} size="3x"></FontAwesomeIcon>,
@@ -114,7 +114,8 @@ export default function LokcheedSection(props) {
                         I designed and implemented innovative UIs for new testing applications.
                         I debugged and fixed many difficult issues in systems involving both software and hardware components.
                         In one instance I tracked down a firmware bug in a serial communication card from one of our vendors.
-                        I wrote an application to power and retrieve data from different flight computers for post-landing data analysis. </SectionText>
+                        I wrote an application to power and retrieve data from different flight computers for post-landing data analysis.
+                    </SectionText>
                     <ParallaxInfoImage backgroundImage={LAS} overlayColor={Colors.lockheed} href="https://www.nasa.gov/sites/default/files/atoms/files/orion_las_fact_sheet_8.5x11_4page_11_19_15.pdf"></ParallaxInfoImage>
                 </React.Fragment>),
             title: 'Embedded Programming'
@@ -124,7 +125,7 @@ export default function LokcheedSection(props) {
                 <React.Fragment>
                     <ParallaxInfoImage backgroundImage={Scrum} overlayColor={Colors.lockheed} href="https://www.scrum.org/"></ParallaxInfoImage>
                     <SectionText>
-                        I served as the Scrum Master for my Agile software development team. I was in charge of running daily meetings, and coordinating dependencies with other teams. I also managed our Jira dsashboard and participated in software peer reviews.
+                        I served as the Scrum Master for my Agile software development team. I was in charge of running daily meetings, and coordinating dependencies with other teams. I also managed our Jira dashboard and participated in software peer reviews.
                     </SectionText>
                 </React.Fragment>),
             title: 'Scrum Master'
