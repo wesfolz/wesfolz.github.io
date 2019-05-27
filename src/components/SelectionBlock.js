@@ -27,7 +27,7 @@ const SectionSubTitle = styled(TypeWriter)`
     }
 `;
 
-const SectionText = styled.p`
+const SectionText = styled.div`
     color: white;
     font-size: 16px;
     line-height: 24px;
@@ -60,7 +60,7 @@ const SelectionContainer = styled.div`
 
 const DELAY = 500;
 
-export default function SelectionBlock({ selectItem, titleText, subtitleText, sectionText, selections, history, shrink, slideOut, transitionTime }) {
+export default function SelectionBlock({ selectItem, titleText, subtitleText, sectionText, selections, shrink, slideOut, transitionTime }) {
 
     const [titleComplete, setTitleComplete] = useState(false);
     const [subtitleComplete, setSubtitleComplete] = useState(false);
@@ -82,10 +82,6 @@ export default function SelectionBlock({ selectItem, titleText, subtitleText, se
             waitForSectionText();
         }
     }, [titleText, subtitleText, sectionText, selections]);
-
-    const buttonClick = (index) => {
-        selectItem(index, history);
-    };
 
     const waitForSectionText = () => {
         if (sectionText) {
@@ -109,7 +105,7 @@ export default function SelectionBlock({ selectItem, titleText, subtitleText, se
                 <ButtonLayout key={selection.text}
                     className={i === selectedIndex ? 'selected' : null}
                     show={i <= indexLoading && titleComplete && subtitleComplete && sectionTextComplete}
-                    onClick={() => buttonClick(i)}
+                    onClick={() => selectItem(i)}
                     color={selection.color}
                     backgroundColor={selection.backgroundColor}>
                     {selection.text}

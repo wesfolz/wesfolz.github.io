@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Route, withRouter } from 'react-router-dom';
+import ReactGA from 'react-ga';
 import styled from 'styled-components';
 import './App.css';
 import GradientBackground from 'components/GradientBackground';
@@ -35,8 +36,20 @@ library.add(
 
 const TRANSITION_TIME = 0.5;
 
+const Container = styled.div`
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 0px 60px;
+    box-sizing: border-box;
+`;
+
 const LogoImg = styled.img`
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     opacity: 0.3;
@@ -51,17 +64,7 @@ const LogoImg = styled.img`
     }
 `;
 
-const Container = styled.div`
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow-x: hidden;
-    padding: 0px 60px;
-    box-sizing: border-box;
-`;
+ReactGA.initialize('UA-140890686-1');
 
 const App = (props) => {
     const selectionSets = [
@@ -71,15 +74,20 @@ const App = (props) => {
             selections: [
                 { text: "I want to learn more about Wesley.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/', nextSet: 1 },
                 { text: "I want to contact Wesley.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/contact' },
-                { text: "Why are any of us here?", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/', nextSet: 2 }
+                { text: "Why am I here?", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/', nextSet: 2 }
             ]
         },
         {
             titleText: "Who is Wesley?",
-            subtitleText: "... a software engineer",
-            sectionText: "Developed and maintained Big Data web applications for retrieval and visualization of spacecraft and satellite telemetry data. For this team I worked as a full stack engineer contributing on a wide array of features. I redesigned and implemented the UIs for plotting data and building queries. I improved performance of telemetry database queries by a factor of 10. I developed the requirements and architecture for new visualization applications. I built prototype applications to test out new technologies for searching and visualizing of large datasets.",
+            subtitleText: "Thanks for asking!",
+            sectionText:
+                <p>
+                    Wesley is a software engineer with experience in full stack web development, embedded programming and many other things.
+                    But more importantly he is a problem solver, always looking for the best way to do things.
+                    Wesley's favorite types of problems to solve are ones that require him to learn new skills and think in new ways.
+                </p>,
             selections: [
-                { text: "I want to know more.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/timeline' },
+                { text: "What has Wesley done?", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/timeline' },
                 { text: "I want to contact Wesley.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/contact' },
                 { text: "Cool, thanks!", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/', nextSet: 0 }
             ]
@@ -87,38 +95,33 @@ const App = (props) => {
         {
             titleText: "Why are any of us here?",
             subtitleText: "Here's some amateur philosophy...",
-            sectionText: "I developed and maintained Big Data web applications for retrieval and visualization of spacecraft and satellite telemetry data. For this team I worked as a full stack engineer contributing on a wide array of features. I redesigned and implemented the UIs for plotting data and building queries. I improved performance of telemetry database queries by a factor of 10. I developed the requirements and architecture for new visualization applications. I built prototype applications to test out new technologies for searching and visualizing of large datasets.",
+            sectionText:
+                <React.Fragment>
+                    <p>People seem to ask the 'why' question a lot, but is it the right question to ask?</p>
+                    <p>Asking the 'why' question presumes that it has an answer, but maybe it doesn't.</p>
+                    <p>Let's assume that there is no external purpose for our existence. This can be discouraging and is a slippery slope into nihilism.
+                    But I think it's freeing and makes life worth living. You can create your own purpose and live life for reasons of your own choosing.
+                    This will likely be more gratiftying than doing things because they are preordained by someone else.</p>
+                    <p>Maybe you shouldn't be asking me why you're here, you should be asking yourself.</p>
+                </React.Fragment>,
             selections: [
-                { text: "I want to learn more about you.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/timeline' },
-                { text: "I want to contact you.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/contact' },
-                { text: "Cool, thanks!", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/', nextSet: 0 }
+                { text: "I know why I'm here.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/', nextSet: 0 }
             ]
         }
     ];
 
     const [selectedSet, setSelectedSet] = useState(0);
-    const [selectedIndex, setSelectedIndex] = useState(null);
     const [currentRoute, setCurrentRoute] = useState(null);
     const [shrinkBlock, setShrinkBlock] = useState(false);
     const [slideOutBlock, setSlideOutBlock] = useState(false);
 
     const handleLocationChange = () => {
+        if (props.location.pathname !== currentRoute) {
+            ReactGA.pageview(props.location.pathname);
+        }
         if (props.location.pathname === '/') {
             setShrinkBlock(false);
             setSlideOutBlock(false);
-            setSelectedIndex(null);
-        } else {
-            switch (props.location.pathname) {
-                case '/timeline':
-                    setSelectedIndex(0);
-                    break;
-                case '/contact':
-                    setSelectedIndex(1);
-                    break;
-                default:
-                    setSelectedIndex(null);
-                    break;
-            }
         }
         setCurrentRoute(props.location.pathname);
     };
@@ -127,18 +130,16 @@ const App = (props) => {
         handleLocationChange();
     }, [props.location]);
 
-    const selectItem = (index, history) => {
-        setSelectedIndex(index);
+    const selectItem = (index) => {
         if (selectionSets[selectedSet].selections[index].route !== '/') {
             setCurrentRoute(selectionSets[selectedSet].selections[index].route);
             setTimeout(() => {
-                history.push(selectionSets[selectedSet].selections[index].route);
+                props.history.push(selectionSets[selectedSet].selections[index].route);
             }, TRANSITION_TIME * 1000);
         } else {
             setTimeout(() => {
                 setShrinkBlock(false);
                 setSlideOutBlock(false);
-                setSelectedIndex(null);
                 // setSelectedSet(selectedSet < (selectionSets.length - 1) ? selectedSet + 1 : 0);
                 setSelectedSet(selectionSets[selectedSet].selections[index].nextSet);
             }, TRANSITION_TIME * 1000);
@@ -157,6 +158,7 @@ const App = (props) => {
                 backgroundColor={Colors.primary}>
             </GradientBackground>
             <LogoImg src={Logo}></LogoImg>
+            <Navbar currentRoute={currentRoute}></Navbar>
             <Route path="/" exact render={(props) =>
                 <SelectionBlock
                     {...props}
@@ -169,7 +171,6 @@ const App = (props) => {
             } />
             <Route path="/timeline" component={Timeline}></Route>
             <Route path="/contact" component={ContactForm}></Route>
-            <Navbar currentRoute={currentRoute}></Navbar>
         </Container>
     );
 };

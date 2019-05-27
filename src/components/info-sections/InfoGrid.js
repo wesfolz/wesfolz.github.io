@@ -67,9 +67,9 @@ export default function InfoGrid({ rows }) {
     const infoRows = () => {
         return (rows.map(row => {
             return (
-                <ContentRow>
+                <ContentRow key={row.title}>
                     <h4>{row.title}</h4>
-                    <RowContents key={row.title}>
+                    <RowContents>
                         {row.content}
                     </RowContents>
                 </ContentRow>

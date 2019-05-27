@@ -41,7 +41,6 @@ const TimelineContainer = styled.div`
     transform: translate3d(${props => props.translation.x}, ${props => props.translation.y}, 0) scale(${props => props.scale || 1});
     transition: all ${`${TRANSITION_TIME}s ease-in-out`};
     backface-visibility: hidden;
-    /* perspective: 1000; */
 `;
 
 const TimelineList = styled.ul`
@@ -85,9 +84,9 @@ const EventMarker = styled.div`
     &::before {
         content: '';
         position: absolute;
-        border-top: ${`${LINE_WIDTH}px`} solid ${props => `${props.color}c0`};
-        border-bottom: ${`${LINE_WIDTH}px`}  solid ${props => `${props.color}c0`};
-        border-right: ${`${LINE_WIDTH}px`} solid ${props => `${props.color}c0`};
+        border-top: ${`${LINE_WIDTH}px`} solid ${props => `${props.color}ff`};
+        border-bottom: ${`${LINE_WIDTH}px`}  solid ${props => `${props.color}ff`};
+        border-right: ${`${LINE_WIDTH}px`} solid ${props => `${props.color}ff`};
         /* background-color: ${props => `${props.color}40`}; */
         padding: ${props => `${props.height}vh`} ${props => `${props.imageSize * 0.75 - LINE_WIDTH / 4}px`};
         left: ${props => `${-props.imageSize * 1.5}px`};
@@ -112,7 +111,7 @@ const EventMarkerLeft = styled(EventMarker)`
     right: ${props => `calc(${props.imageSize * 1.5 + LINE_WIDTH / 2}px + 50vw)`};
     left: unset;
     &::before {
-        border-left: ${`${LINE_WIDTH}px`}  solid ${props => `${props.color}c0`};
+        border-left: ${`${LINE_WIDTH}px`}  solid ${props => `${props.color}ff`};
         border-right: 0;
         right: ${props => `${-props.imageSize * 1.5}px`};
         left: unset;
@@ -270,7 +269,7 @@ export default function Timeline() {
                             transitionTime={TRANSITION_TIME}>
                         </TimelineEvent>
                     </EventMarker>
-                    <EventMarkerLeft top={'calc(25vh + 100%)'} height={90} color={Colors.uofaRed} timelineWidth={timelineWidth} imageSize={imageSize}>
+                    <EventMarkerLeft top={'calc(24vh + 100%)'} height={89} color={Colors.uofaRed} timelineWidth={timelineWidth} imageSize={imageSize}>
                         <TimelineEvent
                             left={true}
                             eventTitle="University of Arizona"

@@ -105,7 +105,7 @@ export default function SandiaSection(props) {
             </SectionText>
             <SectionTitle>Projects</SectionTitle>
             <InfoGrid rows={rows}></InfoGrid>
-            <SectionTitle>Technology</SectionTitle>
+            <SectionTitle>Programming Languages</SectionTitle>
             <TechnologySection techList={techList}></TechnologySection>
             <SectionTitle>Development Platforms</SectionTitle>
             <TechnologySection techList={platformList}>

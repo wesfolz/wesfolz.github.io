@@ -7,7 +7,7 @@ const CustomButton = styled(FillButton)`
     border-radius: 6px;
     padding: 8px 16px;
     box-shadow: ${props => props.shadow};
-    transition: color 0.2s ease-out, box-shadow 0.2s ease-out, opacity 0.2s ease-out;
+    transition: color 0.2s ease-out, box-shadow 0.2s ease-out;
     &:hover, &.selected {
         color: white;
         transition: color 0.2s ease-out, box-shadow ${props => props.tt} ease-out;
