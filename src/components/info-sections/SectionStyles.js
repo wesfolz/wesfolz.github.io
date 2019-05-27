@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import UnderlineButton from 'components/buttons/UnderlineButton';
 
 export const SectionTitle = styled.h1`
     margin: 60px 0px 20px;
@@ -43,4 +44,9 @@ export const HeaderImg = styled.div`
     background: ${props => props.color} url(${props => props.image}) no-repeat center;
     background-size: contain;
     z-index: 2;
+`;
+
+export const InlineButton = styled(UnderlineButton)`
+    margin: 0;
+    padding: 0;
 `;

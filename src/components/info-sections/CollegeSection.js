@@ -19,7 +19,7 @@ import ParallaxInfoImage from 'components/ParallaxInfoImage';
 import TechnologySection from 'components/tech-section/TechnologySection';
 import TechIcon from 'components/tech-section/TechIcon';
 import InfoGrid from 'components/info-sections/InfoGrid';
-import { SectionTitle, SectionText } from 'components/info-sections/SectionStyles';
+import { SectionTitle, SectionText, InlineButton } from 'components/info-sections/SectionStyles';
 
 export default function CollegSection(props) {
 
@@ -127,11 +127,13 @@ export default function CollegSection(props) {
             backgroundColor={Colors.uofaRed}
             exitColor={Colors.uofa}
             {...props}>
-
             <SectionTitle>Summary</SectionTitle>
             <SectionText>
-                I studied Electrical and Computer Engineering at the University of Arizona, where
-                I received both my Bachelor of Science and Master of Science degrees.
+                At the University of Arizona I studied&nbsp;
+                <InlineButton color={Colors.uofaRed}>
+                    <a href="https://ece.engineering.arizona.edu/">Electrical and Computer Engineering</a>
+                </InlineButton> and received both my Bachelor of Science and Master of Science degrees.
+                While there I was involved in many different projects and was a teaching assistant during the last year of my Master’s degree.
             </SectionText>
             <SectionTitle>Projects</SectionTitle>
             <InfoGrid rows={rows}></InfoGrid>

@@ -20,7 +20,7 @@ import TechnologySection from 'components/tech-section/TechnologySection';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TechIcon from 'components/tech-section/TechIcon';
 import InfoGrid from 'components/info-sections/InfoGrid';
-import { SectionTitle, SectionText } from 'components/info-sections/SectionStyles';
+import { SectionTitle, SectionText, InlineButton } from 'components/info-sections/SectionStyles';
 
 export default function LokcheedSection(props) {
 
@@ -139,11 +139,12 @@ export default function LokcheedSection(props) {
             backgroundImage={Lockheed}
             backgroundColor={Colors.lockheed}
             {...props}>
-
             <SectionTitle>Summary</SectionTitle>
             <SectionText>
-                I have worked as a software engineer at Lockheed Martin since 2016.
-                In my time there I worked on two different teams, doing both embedded programming and full stack web development.
+                Lockheed Martin is a multi-billion dollar aerospace and defense company. I have been a software engineer for&nbsp;
+                <InlineButton color={Colors.lockheed}>
+                    <a href="https://www.lockheedmartin.com/en-us/capabilities/space.html">Lockheed Martin Space Systems</a>
+                </InlineButton> since 2016. I have worked on two different teams, doing both embedded programming and full stack web development.
             </SectionText>
             <SectionTitle>Job Duties</SectionTitle>
             <InfoGrid rows={rows}>

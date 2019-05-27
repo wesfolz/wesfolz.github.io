@@ -16,7 +16,7 @@ import ParallaxInfoImage from 'components/ParallaxInfoImage';
 import TechnologySection from 'components/tech-section/TechnologySection';
 import TechIcon from 'components/tech-section/TechIcon';
 import InfoGrid from 'components/info-sections/InfoGrid';
-import { SectionTitle, SectionText } from 'components/info-sections/SectionStyles';
+import { SectionTitle, SectionText, InlineButton } from 'components/info-sections/SectionStyles';
 
 export default function SandiaSection(props) {
 
@@ -96,10 +96,13 @@ export default function SandiaSection(props) {
             backgroundImage={Sandia}
             backgroundColor={Colors.sandia}
             {...props}>
-
             <SectionTitle>Summary</SectionTitle>
             <SectionText>
-                I was an intern at Sandia National Laboratories for two years during college.
+                Sandia National Laboratories is a Federally Funded Research and Development Center
+                which mostly focuses on energy and defense. I was an intern in the&nbsp;
+                <InlineButton color={Colors.sandia}>
+                    <a href="https://www.sandia.gov/careers/students_postdocs/internships/institutes/cyber_defenders.html">Center for Cyber Defenders</a>
+                </InlineButton> program at Sandia for two years during college.
                 I worked full time during the summers and part time during the school year.
                 During my time there I worked on three different software projects.
             </SectionText>

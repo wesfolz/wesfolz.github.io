@@ -9,7 +9,7 @@ const CustomButton = styled.button`
     border-radius: 2px;
     padding: 4px 16px;
     outline: none;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     text-align: left;

@@ -101,7 +101,7 @@ const App = (props) => {
                     <p>Asking the 'why' question presumes that it has an answer, but maybe it doesn't.</p>
                     <p>Let's assume that there is no external purpose for our existence. This can be discouraging and is a slippery slope into nihilism.
                     But I think it's freeing and makes life worth living. You can create your own purpose and live life for reasons of your own choosing.
-                    This will likely be more gratiftying than doing things because they are preordained by someone else.</p>
+                    This will likely be more gratifying than doing things because they are preordained by someone else.</p>
                     <p>Maybe you shouldn't be asking me why you're here, you should be asking yourself.</p>
                 </React.Fragment>,
             selections: [

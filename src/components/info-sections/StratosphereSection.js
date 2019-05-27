@@ -12,7 +12,6 @@ import Handlebars from 'images/logos/handlebars.svg';
 import Chrome from 'images/logos/chrome.svg';
 import Firefox from 'images/logos/firefox.svg';
 import Safari from 'images/logos/safari.svg';
-import Git from 'images/logos/git.svg';
 
 import Colors from 'styles/Colors';
 import InfoSection from 'components/info-sections/InfoSection';
@@ -21,20 +20,8 @@ import TechnologySection from 'components/tech-section/TechnologySection';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TechIcon from 'components/tech-section/TechIcon';
 import InfoGrid from 'components/info-sections/InfoGrid';
-import { SectionTitle, SectionText } from 'components/info-sections/SectionStyles';
+import { SectionTitle, SectionText, InlineButton } from 'components/info-sections/SectionStyles';
 import ParallaxInfoContainer from 'components/ParallaxInfoContainer';
-import UnderlineButton from 'components/buttons/UnderlineButton';
-
-const LinkSection = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 60px 0;
-    padding: 20px 0;
-    background-color: white;
-    border-radius: 4px;
-`;
 
 export default function StratosphereSection(props) {
 
@@ -131,17 +118,14 @@ export default function StratosphereSection(props) {
             backgroundColor="black"
             exitColor={Colors.stratosphere}
             {...props}>
-
             <SectionTitle>Summary</SectionTitle>
             <SectionText>
-                Stratosphere Digital hired me to update their website with new content and features based on new design specifications.
+                <InlineButton color={Colors.stratosphere}>
+                    <a href="https://stratosphere.digital/">Stratosphere Digital</a>
+                </InlineButton> is a small digital agency that designs and builds websites and mobile apps. 
+                I was hired to update their website with new content and features based on new design specifications. 
                 I added new features, new content, new styling and even fixed a few bugs.
             </SectionText>
-            <LinkSection>
-                <UnderlineButton color={Colors.stratosphere}>
-                    <a href="https://stratosphere.digital/">Visit Website</a>
-                </UnderlineButton>
-            </LinkSection>
             <SectionTitle>Major Features</SectionTitle>
             <InfoGrid rows={rows}>
             </InfoGrid>
