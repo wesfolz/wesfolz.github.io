@@ -59,7 +59,6 @@ const RowContents = styled.div`
         box-sizing: border-box;
         @media(max-width: 768px) {
             width: 100%;
-            font-weight: bold;
         }
     }
 `;
