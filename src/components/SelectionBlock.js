@@ -75,7 +75,6 @@ export default function SelectionBlock({ selectItem, titleText, subtitleText, se
 
     useEffect(() => {
         //reset the animations when the content changes
-        console.log(titleText, subtitleText, sectionText, selections);
         setStart(true);
         setTitleComplete(titleText == null);
         setSubtitleComplete(subtitleText == null);
@@ -118,7 +117,6 @@ export default function SelectionBlock({ selectItem, titleText, subtitleText, se
     };
 
     const completeTitle = () => {
-        console.log('completeTitle');
         setTitleComplete(true);
         if (!subtitleText) {
             completeSubtitle();
@@ -126,7 +124,6 @@ export default function SelectionBlock({ selectItem, titleText, subtitleText, se
     };
 
     const completeSubtitle = () => {
-        console.log('completeSubtitle');
         setSubtitleComplete(true);
         waitForSectionText();
     };

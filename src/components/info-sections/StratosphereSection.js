@@ -122,8 +122,8 @@ export default function StratosphereSection(props) {
             <SectionText>
                 <InlineButton color={Colors.stratosphere}>
                     <a href="https://stratosphere.digital/">Stratosphere Digital</a>
-                </InlineButton> is a small digital agency that designs and builds websites and mobile apps. 
-                I was hired to update their website with new content and features based on new design specifications. 
+                </InlineButton>  is a small digital agency that designs and builds websites and mobile apps.
+                Recently they redesigned their website and I was hired to implement the new design changes.
                 I added new features, new content, new styling and even fixed a few bugs.
             </SectionText>
             <SectionTitle>Major Features</SectionTitle>

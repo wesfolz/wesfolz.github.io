@@ -82,12 +82,12 @@ const App = (props) => {
             subtitleText: "Thanks for asking!",
             sectionText:
                 <p>
-                    Wesley is a software engineer with experience in full stack web development, embedded programming and many other things.
-                    But more importantly he is a problem solver, always looking for the best way to do things.
-                    Wesley's favorite types of problems to solve are ones that require him to learn new skills and think in new ways.
+                    Wesley is a software engineer with experience in full stack web development, embedded programming, data structures and algorithms and many other things.
+                    But more importantly, he is a problem solver who is always looking for the best way to do things.
+                    Wesley's favorite types of problems are ones that require him to learn new skills and think in new ways.
                 </p>,
             selections: [
-                { text: "What has Wesley done?", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/timeline' },
+                { text: "What has Wesley done thus far?", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/timeline' },
                 { text: "I want to contact Wesley.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/contact' },
                 { text: "Cool, thanks!", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/', nextSet: 0 }
             ]
@@ -97,15 +97,17 @@ const App = (props) => {
             subtitleText: "Here's some amateur philosophy...",
             sectionText:
                 <React.Fragment>
-                    <p>People seem to ask the 'why' question a lot, but is it the right question to ask?</p>
-                    <p>Asking the 'why' question presumes that it has an answer, but maybe it doesn't.</p>
-                    <p>Let's assume that there is no external purpose for our existence. This can be discouraging and is a slippery slope into nihilism.
-                    But I think it's freeing and makes life worth living. You can create your own purpose and live life for reasons of your own choosing.
-                    This will likely be more gratifying than doing things because they are preordained by someone else.</p>
-                    <p>Maybe you shouldn't be asking me why you're here, you should be asking yourself.</p>
+                    <p>People seem to ask the 'why' question a lot, but is it the right question to ask? What if there is no why?</p>
+                    <p>
+                        Accepting there is no external purpose for our existence can be discouraging and a slippery slope into nihilism.
+                        However, with the right point of view, it can be freeing and make life even more worthwhile.
+                        You can create your own purpose and live life for reasons of your own choosing.
+                        This will likely be more satisfying than doing things for reasons given to you by someone else.
+                    </p>
+                    <p>Maybe you shouldn't be asking me why you're here.<br/>You should be asking yourself.</p>
                 </React.Fragment>,
             selections: [
-                { text: "I know why I'm here.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/', nextSet: 0 }
+                { text: "I want to return to a simpler time.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/', nextSet: 0 }
             ]
         }
     ];
