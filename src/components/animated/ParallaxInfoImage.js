@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ParallaxImage from 'components/ParallaxImage';
-import ParallaxInfoContainer from 'components/ParallaxInfoContainer';
+import ParallaxImage from 'components/animated/ParallaxImage';
+import ParallaxInfoContainer from 'components/animated/ParallaxInfoContainer';
 import UnderlineButton from 'components/buttons/UnderlineButton';
 
 const Overlay = styled.div`

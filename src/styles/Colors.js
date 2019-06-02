@@ -21,6 +21,7 @@ const Colors = {
     lockheed: '#00488C',
     sandia: '#005595',
     stratosphere: '#FF5C00',
+    scavenger: '#F4E023',
     linkedin: '#0077B5',
     github: '#6e5494',
     android: '#a4c639',

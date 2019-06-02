@@ -15,12 +15,13 @@ import Git from 'images/logos/git.svg';
 
 import Colors from 'styles/Colors';
 import InfoSection from 'components/info-sections/InfoSection';
-import ParallaxInfoImage from 'components/ParallaxInfoImage';
+import ParallaxInfoImage from 'components/animated/ParallaxInfoImage';
 import TechnologySection from 'components/tech-section/TechnologySection';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TechIcon from 'components/tech-section/TechIcon';
 import InfoGrid from 'components/info-sections/InfoGrid';
 import { SectionTitle, SectionText, InlineButton } from 'components/info-sections/SectionStyles';
+
 
 export default function LokcheedSection(props) {
 

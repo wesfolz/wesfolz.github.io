@@ -12,7 +12,7 @@ import Cpp from 'images/logos/c++.svg';
 import Javascript from 'images/logos/javascript.svg';
 import Colors from 'styles/Colors';
 import InfoSection from 'components/info-sections/InfoSection';
-import ParallaxInfoImage from 'components/ParallaxInfoImage';
+import ParallaxInfoImage from 'components/animated/ParallaxInfoImage';
 import TechnologySection from 'components/tech-section/TechnologySection';
 import TechIcon from 'components/tech-section/TechIcon';
 import InfoGrid from 'components/info-sections/InfoGrid';

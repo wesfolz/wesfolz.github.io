@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import FadeScroll from 'components/animated/FadeScroll';
 
 //div -> position: absolute, width: 100%, opacity: 0.1, p -> background-color: none, width: 100%
 const ContentGrid = styled.ul`
@@ -25,7 +26,7 @@ const ContentRow = styled.li`
     }
 `;
 
-const RowContents = styled.div`
+const RowContents = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,10 +69,14 @@ export default function InfoGrid({ rows }) {
         return (rows.map(row => {
             return (
                 <ContentRow key={row.title}>
-                    <h4>{row.title}</h4>
-                    <RowContents>
-                        {row.content}
-                    </RowContents>
+                    <FadeScroll>
+                        <h4>{row.title}</h4>
+                    </FadeScroll>
+                    <FadeScroll>
+                        <RowContents>
+                            {row.content}
+                        </RowContents>
+                    </FadeScroll>
                 </ContentRow>
             )
         }));

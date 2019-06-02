@@ -21,10 +21,11 @@ const SkillItem = styled.li`
     width: 75px;
     p {
         margin-bottom: 0;
+        text-align: center;
     }
     i {
-            transform: scale(1);
-            transition: transform 0.3s;
+        transform: scale(1);
+        transition: transform 0.3s;
     }
     &:hover {
         i {

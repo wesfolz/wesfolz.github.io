@@ -9,9 +9,9 @@ import { SectionHeader, HeaderImg } from 'components/info-sections/SectionStyles
 const TRANSITION_TIME = 0.5;
 const DELAY_TIME = 0.25;
 
-const SectionWrapper = styled.div`
+const SectionWrapper = styled.article`
     position: absolute;
-    top: ${props => props.shrink ? '0' : `calc(50% - ${props.imageSize / 2}px)`};
+    top: ${props => props.shrink ? '0' : `calc(50vh - ${props.imageSize / 2}px)`};
     left: 0;
     width: 100%;
     background-color: ${Colors.offWhite};
@@ -51,7 +51,7 @@ export default function InfoSection(props) {
         setShrink(false);
         setTimeout(() => {
             props.exit();
-        }, (TRANSITION_TIME + DELAY_TIME)*1000 );
+        }, (TRANSITION_TIME + DELAY_TIME) * 1000);
     };
 
     return (

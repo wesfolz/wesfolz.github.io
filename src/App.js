@@ -104,7 +104,7 @@ const App = (props) => {
                         You can create your own purpose and live life for reasons of your own choosing.
                         This will likely be more satisfying than doing things for reasons given to you by someone else.
                     </p>
-                    <p>Maybe you shouldn't be asking me why you're here.<br/>You should be asking yourself.</p>
+                    <p>Maybe you shouldn't be asking me why you're here.<br />You should be asking yourself.</p>
                 </React.Fragment>,
             selections: [
                 { text: "I want to return to a simpler time.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/', nextSet: 0 }

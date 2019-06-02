@@ -15,7 +15,7 @@ import Javascript from 'images/logos/javascript.svg';
 
 import Colors from 'styles/Colors.js';
 import InfoSection from 'components/info-sections/InfoSection';
-import ParallaxInfoImage from 'components/ParallaxInfoImage';
+import ParallaxInfoImage from 'components/animated/ParallaxInfoImage';
 import TechnologySection from 'components/tech-section/TechnologySection';
 import TechIcon from 'components/tech-section/TechIcon';
 import InfoGrid from 'components/info-sections/InfoGrid';
@@ -91,7 +91,7 @@ export default function CollegSection(props) {
         {
             content: (
                 <React.Fragment>
-                    <ParallaxInfoImage backgroundImage={Robot} overlayColor={Colors.uofa} href="https://www.facebook.com/wesley.folz/videos/10152455549220229/"></ParallaxInfoImage>
+                    <ParallaxInfoImage backgroundImage={Robot} backgroundColor={Colors.uofa} overlayColor={Colors.uofa} href="https://www.facebook.com/wesley.folz/videos/10152455549220229/"></ParallaxInfoImage>
                     <SectionText>
                         Working on a team of four, I helped build, wire and program an infrared sensing robot using a PIC24F microcontroller.
                         The robot could autonomously drive along black tape lines and read barcodes using infrared sensors.

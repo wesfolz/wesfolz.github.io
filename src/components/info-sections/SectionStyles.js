@@ -13,7 +13,7 @@ export const SectionText = styled.p`
     border-radius: 4px;
 `;
 
-export const SectionHeader = styled.div`
+export const SectionHeader = styled.header`
     background-color: ${props => props.color};
     z-index: 1;
     transition: all 0.3s ease-in-out;
@@ -49,4 +49,10 @@ export const HeaderImg = styled.div`
 export const InlineButton = styled(UnderlineButton)`
     margin: 0;
     padding: 0;
+`;
+
+export const FullRowImage = styled.img`
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
 `;

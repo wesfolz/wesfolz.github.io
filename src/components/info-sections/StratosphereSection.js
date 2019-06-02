@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import Stratosphere from 'images/stratosphere.png';
 import Gradient from 'images/gradient.png';
@@ -15,13 +14,13 @@ import Safari from 'images/logos/safari.svg';
 
 import Colors from 'styles/Colors';
 import InfoSection from 'components/info-sections/InfoSection';
-import ParallaxImage from 'components/ParallaxImage';
+import ParallaxImage from 'components/animated/ParallaxImage';
 import TechnologySection from 'components/tech-section/TechnologySection';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TechIcon from 'components/tech-section/TechIcon';
 import InfoGrid from 'components/info-sections/InfoGrid';
 import { SectionTitle, SectionText, InlineButton } from 'components/info-sections/SectionStyles';
-import ParallaxInfoContainer from 'components/ParallaxInfoContainer';
+import ParallaxInfoContainer from 'components/animated/ParallaxInfoContainer';
 
 export default function StratosphereSection(props) {
 

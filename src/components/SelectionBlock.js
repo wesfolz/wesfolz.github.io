@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import TypeWriter from 'components/TypeWriter';
+import TypeWriter from 'components/animated/TypeWriter';
 import SelectableButton from 'components/buttons/SelectableButton';
 import useKeySelect from 'hooks/useKeySelect';
 
@@ -27,7 +27,7 @@ const SectionSubTitle = styled(TypeWriter)`
     }
 `;
 
-const SectionText = styled.div`
+const SectionText = styled.section`
     color: white;
     font-size: 16px;
     line-height: 24px;
@@ -66,7 +66,6 @@ export default function SelectionBlock({ selectItem, titleText, subtitleText, se
     const [subtitleComplete, setSubtitleComplete] = useState(false);
     const [sectionTextComplete, setSectionTextComplete] = useState(false);
     const [indexLoading, setIndexLoading] = useState(0);
-    const [start, setStart] = useState(true);
 
     const [selectedIndex, setSelectedIndex] = useKeySelect({
         itemCount: selections.length,
@@ -75,7 +74,6 @@ export default function SelectionBlock({ selectItem, titleText, subtitleText, se
 
     useEffect(() => {
         //reset the animations when the content changes
-        setStart(true);
         setTitleComplete(titleText == null);
         setSubtitleComplete(subtitleText == null);
         setSectionTextComplete(sectionText == null);

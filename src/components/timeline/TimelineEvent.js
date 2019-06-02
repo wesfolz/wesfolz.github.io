@@ -27,9 +27,16 @@ const Overlay = styled(SectionHeader)`
         transition: opacity 0.3s;
     }
     &:hover, &.zoomed {
-        /* box-shadow: 0px 0px 160px white; */
-        border-radius: ${props => `${3 / props.scale}px`};
+        box-shadow: ${props => ` 0px 0px ${16 / props.scale}px white`};
+        border-radius: ${props => `${8 / props.scale}px`};
         transform: scale(2);
+        z-index: 2;
+        @media(max-width: 500px) {
+            transform: scale(1.75);
+        }
+        @media(max-width: 400px) {
+            transform: scale(1.25);
+        }
     }
     &.expanded {
         width: 100vw;
