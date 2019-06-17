@@ -22,7 +22,7 @@ const ContentRow = styled.li`
     flex-direction: column;
     align-items: center;
     h4 {
-        margin: 0 0 8px;
+        margin: 0 0 16px;
     }
 `;
 

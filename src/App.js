@@ -36,7 +36,7 @@ library.add(
 
 const TRANSITION_TIME = 0.5;
 
-const Container = styled.div`
+const Container = styled.main`
     width: 100vw;
     min-height: 100vh;
     display: flex;

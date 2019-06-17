@@ -6,6 +6,7 @@ import Wildcat from 'images/wildcat.png';
 import Sandia from 'images/sandia.png';
 import Stratosphere from 'images/stratosphere.png';
 import Scavenger from 'images/scavenger.svg';
+import RaspberryDrone from 'images/raspberry_drone.png';
 import Colors from 'styles/Colors';
 
 import TimelineEvent from 'components/timeline/TimelineEvent';
@@ -14,6 +15,9 @@ import SandiaSection from 'components/info-sections/SandiaSection';
 import CollegeSection from 'components/info-sections/CollegeSection';
 import StratosphereSection from 'components/info-sections/StratosphereSection';
 import EngagementSection from 'components/info-sections/EngagementSection';
+import BlowmeSection from 'components/info-sections/BlowmeSection';
+import DroneSection from 'components/info-sections/DroneSection';
+
 
 const TRANSITION_TIME = 0.75;
 const INITIAL_SCALE = 0.25;
@@ -26,7 +30,9 @@ const TIMELINE_EVENTS = {
     SANDIA: 2,
     LOCKHEED: 3,
     STRATOSPHERE: 4,
-    ENGAGEMENT: 5
+    ENGAGEMENT: 5,
+    BLOWME: 6,
+    DRONE: 7
 };
 
 const OverflowHidden = styled.div`
@@ -103,7 +109,6 @@ const EventMarker = styled.div`
     }
     &:hover {
         &::before {
-            /* box-shadow: 0px 0px 320px white; */
             background-color: ${props => `${props.color}40`};
             transition: all 0.3s ease-in-out;
         }
@@ -238,6 +243,12 @@ export default function Timeline() {
             case TIMELINE_EVENTS.ENGAGEMENT:
                 return (<EngagementSection exit={zoomOut} imageSize={imageSize}></EngagementSection>);
 
+            case TIMELINE_EVENTS.BLOWME:
+                return (<BlowmeSection exit={zoomOut} imageSize={imageSize}></BlowmeSection>); 
+
+            case TIMELINE_EVENTS.DRONE:
+                return (<DroneSection exit={zoomOut} imageSize={imageSize}></DroneSection>);
+
             default:
                 return null;
         }
@@ -272,11 +283,11 @@ export default function Timeline() {
                             transitionTime={TRANSITION_TIME}>
                         </TimelineEvent>
                     </EventMarker>
-                    {/* <EventPointLeft multiplier={WIDTH_MULTIPLIER * 0.5} top={`calc(-100% + 10vh)`} height={0} color={Colors.scavenger} timelineWidth={timelineWidth} imageSize={imageSize}>
+                    <EventPointLeft multiplier={WIDTH_MULTIPLIER * 0.5} top={`calc(-100% + 10vh)`} height={0} color={Colors.scavenger} timelineWidth={timelineWidth} imageSize={imageSize}>
                         <TimelineEvent
                             eventId={TIMELINE_EVENTS.ENGAGEMENT}
-                            eventTitle="I got engaged!"
-                            eventSubtitle="And built an app"
+                            eventTitle="I Got Engaged!"
+                            eventSubtitle="And Built An App"
                             collapse={collapse}
                             imageSize={imageSize}
                             image={Scavenger}
@@ -287,24 +298,24 @@ export default function Timeline() {
                             transitionTime={TRANSITION_TIME}>
                         </TimelineEvent>
                     </EventPointLeft>
-                    <EventPoint multiplier={WIDTH_MULTIPLIER} top={`calc(-100% + 80vh)`} height={0} color={Colors.uofaRed} timelineWidth={timelineWidth} imageSize={imageSize}>
+                    <EventPoint multiplier={WIDTH_MULTIPLIER} top={`calc(-100% + 80vh)`} height={0} color={Colors.drone} timelineWidth={timelineWidth} imageSize={imageSize}>
                         <TimelineEvent
-                            eventId={TIMELINE_EVENTS.LOCKHEED}
-                            eventTitle="Lockheed Martin"
-                            eventSubtitle="Software Engineer"
+                            eventId={TIMELINE_EVENTS.DRONE}
+                            eventTitle="Raspberry Pi Drone"
+                            eventSubtitle="Android App"
                             collapse={collapse}
                             imageSize={imageSize}
-                            image={Wildcat}
-                            color={Colors.uofaRed}
+                            image={RaspberryDrone}
+                            color={Colors.drone}
                             selectItem={selectEvent}
                             exit={zoomOut}
                             scale={INITIAL_SCALE}
                             transitionTime={TRANSITION_TIME}>
                         </TimelineEvent>
                     </EventPoint>
-                    <EventPoint multiplier={WIDTH_MULTIPLIER * 2} top={`calc(-100% + 100vh)`} height={0} color={Colors.uofaRed} timelineWidth={timelineWidth} imageSize={imageSize}>
+                    {/* <EventPoint multiplier={WIDTH_MULTIPLIER * 2} top={`calc(-100% + 120vh)`} height={0} color={Colors.uofaRed} timelineWidth={timelineWidth} imageSize={imageSize}>
                         <TimelineEvent
-                            eventId={TIMELINE_EVENTS.LOCKHEED}
+                            eventId={TIMELINE_EVENTS.BLOWME}
                             eventTitle="I got engaged!"
                             eventSubtitle="And built an app"
                             collapse={collapse}

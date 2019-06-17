@@ -4,6 +4,8 @@ import Lockheed from 'images/lockheed.jpg';
 import Orion from 'images/orion.jpg';
 import LAS from 'images/las.jpg';
 import Scrum from 'images/scrum.png';
+import Data from 'images/big-data.jpg';
+import Debug from 'images/debug.jpg';
 import Elastic from 'images/logos/elasticsearch.svg';
 import Labview from 'images/logos/labview.svg';
 import Python from 'images/logos/python.svg';
@@ -12,6 +14,7 @@ import Cpp from 'images/logos/c++.svg';
 import Bootstrap from 'images/logos/bootstrap.svg';
 import Jquery from 'images/logos/jquery.svg';
 import Git from 'images/logos/git.svg';
+import Redux from 'images/logos/redux.svg';
 
 import Colors from 'styles/Colors';
 import InfoSection from 'components/info-sections/InfoSection';
@@ -49,6 +52,10 @@ export default function LokcheedSection(props) {
         {
             icon: <FontAwesomeIcon icon={['fab', 'react']} color={Colors.react} size="3x"></FontAwesomeIcon>,
             title: 'React'
+        },
+        {
+            icon: <TechIcon src={Redux}></TechIcon>,
+            title: 'Redux'
         },
         {
             icon: <TechIcon src={Jquery}></TechIcon>,
@@ -97,29 +104,48 @@ export default function LokcheedSection(props) {
                 <React.Fragment>
                     <ParallaxInfoImage backgroundImage={Orion} overlayColor={Colors.lockheed} href="https://www.lockheedmartin.com/en-us/products/orion.html"></ParallaxInfoImage>
                     <SectionText>
-                        I developed and maintained Big Data web applications for retrieval and visualization of telemetry data for spacecrafts and satellites such as Orion and GOES-R.
-                        For this team I worked as a full stack engineer contributing on a wide array of features.
-                        I redesigned and implemented the UIs for plotting data and building queries.
-                        I improved performance of telemetry database queries by a factor of 10.
-                        I developed the requirements and architecture for new visualization applications.
-                        I built prototype applications to test out new technologies for searching and visualizing large datasets.
+                        I develop and maintain Big Data web applications for retrieval and visualization of telemetry data for spacecrafts and satellites such as Orion and GOES-R. 
+                        For this team I work as a full stack engineer contributing on a wide array of features. 
+                        I redesigned and implemented the UIs for plotting data, building queries and searching for telemetry. 
+                        I improved performance of telemetry database queries by a factor of 10. 
                     </SectionText>
-                </React.Fragment>),
+                </React.Fragment>
+            ),
             title: 'Full Stack Web Development'
         },
         {
             content: (
                 <React.Fragment>
                     <SectionText>
-                        I developed embedded applications to control electrical electrical ground support equipment for testing different functions of the Orion Multi-Purpose Crew Vehicle and Launch Abort System.
-                        I designed and implemented innovative UIs for new testing applications.
-                        I debugged and fixed many difficult issues in systems involving both software and hardware components.
-                        In one instance I tracked down a firmware bug in a serial communication card from one of our vendors.
+                        I developed the requirements and architecture for new visualization applications. 
+                        I built prototype applications to test out new technologies for searching and visualizing large datasets.
+                    </SectionText>
+                    <ParallaxInfoImage backgroundImage={Data} overlayColor={Colors.lockheed} href="https://en.wikipedia.org/wiki/Big_data"></ParallaxInfoImage>
+                </React.Fragment>),
+            title: 'Big Data Visualization'
+        },
+        {
+            content: (
+                <React.Fragment>
+                    <ParallaxInfoImage backgroundImage={LAS} overlayColor={Colors.lockheed} href="https://www.nasa.gov/sites/default/files/atoms/files/orion_las_fact_sheet_8.5x11_4page_11_19_15.pdf"></ParallaxInfoImage>
+                    <SectionText>
+                        I developed embedded applications to control electrical electrical ground support equipment for testing different functions of the Orion Multi-Purpose Crew Vehicle and Launch Abort System. 
+                        I designed and implemented innovative UIs for new testing applications. 
                         I wrote an application to power and retrieve data from different flight computers for post-landing data analysis.
                     </SectionText>
-                    <ParallaxInfoImage backgroundImage={LAS} overlayColor={Colors.lockheed} href="https://www.nasa.gov/sites/default/files/atoms/files/orion_las_fact_sheet_8.5x11_4page_11_19_15.pdf"></ParallaxInfoImage>
                 </React.Fragment>),
             title: 'Embedded Programming'
+        },
+        {
+            content: (
+                <React.Fragment>
+                    <SectionText>
+                        I debugged and fixed many difficult issues in systems involving both software and hardware components. 
+                        In one instance I tracked down a firmware bug in a serial communication card from one of our vendors.
+                    </SectionText>
+                    <ParallaxInfoImage backgroundImage={Debug} overlayColor={Colors.lockheed} href="https://en.wikipedia.org/wiki/Debugging#Origin_of_the_term"></ParallaxInfoImage>
+                </React.Fragment>),
+            title: 'Advanced Debugging'
         },
         {
             content: (
@@ -148,14 +174,11 @@ export default function LokcheedSection(props) {
                 </InlineButton> since 2016. I have worked on two different teams, doing both embedded programming and full stack web development.
             </SectionText>
             <SectionTitle>Job Duties</SectionTitle>
-            <InfoGrid rows={rows}>
-            </InfoGrid>
+            <InfoGrid rows={rows}></InfoGrid>
             <SectionTitle>Technology</SectionTitle>
-            <TechnologySection techList={techList}>
-            </TechnologySection>
+            <TechnologySection techList={techList}></TechnologySection>
             <SectionTitle>Development Platforms</SectionTitle>
-            <TechnologySection techList={platformList}>
-            </TechnologySection>
+            <TechnologySection techList={platformList}></TechnologySection>
         </InfoSection>
     );
 }

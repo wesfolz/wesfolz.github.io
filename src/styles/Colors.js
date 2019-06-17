@@ -22,6 +22,8 @@ const Colors = {
     sandia: '#005595',
     stratosphere: '#FF5C00',
     scavenger: '#F4E023',
+    drone: '#617F8A',
+    raspberry: '#C11043',
     linkedin: '#0077B5',
     github: '#6e5494',
     android: '#a4c639',

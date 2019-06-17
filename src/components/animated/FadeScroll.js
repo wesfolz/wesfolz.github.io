@@ -2,9 +2,9 @@ import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 
 const FadeEle = styled.div`
-    transition: all 0.75s ease;
+    transition: all ${props => props.show ? '0.75s' : '0s'} ease;
     opacity: ${props => props.show ? 1 : 0};
-    transform: ${props => props.show ? 'translateY(0)' : 'translateY(30px)'};
+    transform: translateY(${props => props.show ? 0 : '30px'});
     width: 100%;
     display: flex;
     align-items: center;
@@ -14,14 +14,23 @@ const FadeEle = styled.div`
 export default function FadeScroll(props) {
 
     const [show, setShow] = useState(true);
+    const [showing, setShowing] = useState(false);
     const eleRef = useRef(null);
 
     const handleScroll = () => {
         const eleMid = (eleRef.current.getBoundingClientRect().bottom - eleRef.current.getBoundingClientRect().top) / 2 + eleRef.current.getBoundingClientRect().top;
-        if (eleMid < window.innerHeight) {
-            setShow(true);
+        if (eleMid < window.innerHeight && !showing) {
+            setShowing(prevShowing => {
+                if(!prevShowing) {
+                    setTimeout(() => {
+                        setShow(true);
+                    }, props.delay || 0);
+                }
+                return true;
+            });
         } else if (eleRef.current.getBoundingClientRect().top > window.innerHeight) {
             setShow(false);
+            setShowing(false);
         }
     };
 
@@ -34,8 +43,8 @@ export default function FadeScroll(props) {
     }, []);
 
     return (
-        <FadeEle ref={eleRef} show={show}>
+        <FadeEle ref={eleRef} show={show} className={props.className}>
             {props.children}
         </FadeEle>
-    )
+    );
 }

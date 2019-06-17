@@ -16,6 +16,7 @@ const SectionWrapper = styled.article`
     width: 100%;
     background-color: ${Colors.offWhite};
     transition: top ${`${TRANSITION_TIME}s ease`};
+    overflow-x: hidden;
 `;
 
 const ContentWrapper = styled.div`

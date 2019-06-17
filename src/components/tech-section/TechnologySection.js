@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import FadeScroll from 'components/animated/FadeScroll';
 
 const SkillsGrid = styled.ul`
     padding: 0;
@@ -35,13 +36,23 @@ const SkillItem = styled.li`
     }
 `;
 
+const SkillFade = styled(FadeScroll)`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
 export default function TechnologySection({ techList }) {
     const technologies = () => {
-        return (techList.map(item => {
-            return (<SkillItem key={item.title}>
-                <i>{item.icon}</i>
-                <p>{item.title}</p>
-            </SkillItem>);
+        return (techList.map((item, index) => {
+            return (
+                <SkillItem key={item.title}>
+                    <SkillFade delay={50*index}>
+                    <i>{item.icon}</i>
+                    <p>{item.title}</p>
+                    </SkillFade>
+                </SkillItem>
+            );
         }));
     };
 

@@ -15,10 +15,11 @@ import Colors from 'styles/Colors.js';
 import InfoSection from 'components/info-sections/InfoSection';
 import ParallaxImage from 'components/animated/ParallaxImage';
 import ParallaxInfoContainer from 'components/animated/ParallaxInfoContainer';
+import ParallaxInfoImage from 'components/animated/ParallaxInfoImage';
 import TechnologySection from 'components/tech-section/TechnologySection';
 import TechIcon from 'components/tech-section/TechIcon';
 import InfoGrid from 'components/info-sections/InfoGrid';
-import { SectionTitle, SectionText, InlineButton, FullRowImage } from 'components/info-sections/SectionStyles';
+import { SectionTitle, SectionText, FullRowImage } from 'components/info-sections/SectionStyles';
 
 export default function EngagementSection(props) {
 
@@ -45,14 +46,10 @@ export default function EngagementSection(props) {
         {
             content: (
                 <React.Fragment>
-                    <ParallaxInfoContainer>
-                        <ParallaxImage backgroundImage={ScavengerClue} backgroundColor="black"></ParallaxImage>
-                    </ParallaxInfoContainer>
+                    <ParallaxInfoImage backgroundImage={ScavengerClue} backgroundColor="black" overlayColor="#EB2532" href="https://github.com/wesfolz/ScavengerApp"></ParallaxInfoImage>
                     <SectionText>
-                        For my senior capstone project, I worked on an interdisciplinary team of engineers to build
-                        a system capable of scanning surface terrain and outputting three dimensional representations of the terrain.
-                        Our system integrated LiDAR, IMU and GPS devices.
-                        I wrote the algorithms for converting an uncorrected three dimensional point cloud to a surface mesh.
+                        I created a set of clues for her to solve. Some of the clues required her to enter answers to questions and for others she needed to go to specific destinations. 
+                        The location-based clues would automatically unlock once her gps position showed she was close enough to the specific destination.
                     </SectionText>
                 </React.Fragment>),
             title: 'Clues'
@@ -61,9 +58,7 @@ export default function EngagementSection(props) {
             content: (
                 <React.Fragment>
                     <SectionText>
-                        Working on a team of four, I helped build, wire and program an infrared sensing robot using a PIC24F microcontroller.
-                        The robot could autonomously drive along black tape lines and read barcodes using infrared sensors.
-                        The robot could also play a song on a small 8 ohm speaker using pulse width modulation.
+                        I added a real-time chat feature to the app so that she could ask me questions in case she was stumped by a particular clue.
                     </SectionText>
                     <ParallaxInfoContainer>
                         <ParallaxImage backgroundImage={ScavengerChat} backgroundColor="black"></ParallaxImage>
@@ -77,13 +72,9 @@ export default function EngagementSection(props) {
         {
             content: (
                 <React.Fragment>
-                    <ParallaxInfoContainer>
-                        <ParallaxImage backgroundImage={ScavengerWeb}></ParallaxImage>
-                    </ParallaxInfoContainer>
+                    <ParallaxInfoImage backgroundImage={ScavengerWeb} overlayColor="#EB2532" href="https://github.com/wesfolz/scavenger-web"></ParallaxInfoImage>
                     <SectionText>
-                        Working on a team of four, I helped build, wire and program an infrared sensing robot using a PIC24F microcontroller.
-                        The robot could autonomously drive along black tape lines and read barcodes using infrared sensors.
-                        The robot could also play a song on a small 8 ohm speaker using pulse width modulation.
+                        I built a web app so that I could monitor how many clues she had solved so far, communicate with her via the instant chat interface and track her location in real time.
                     </SectionText>
                 </React.Fragment>),
             title: 'Location Tracking'
@@ -100,19 +91,17 @@ export default function EngagementSection(props) {
 
     return (
         <InfoSection
-            infoTitle="I got engaged!"
-            infoSubtitle="And built an app"
+            infoTitle="I Got Engaged!"
+            infoSubtitle="And Built An App"
             backgroundImage={Scavenger}
             backgroundColor={"black"}
             exitColor={Colors.scavenger}
             {...props}>
             <SectionTitle>The Story</SectionTitle>
             <SectionText>
-                At the University of Arizona I studied&nbsp;
-                <InlineButton color={Colors.uofaRed}>
-                    <a href="https://ece.engineering.arizona.edu/">Electrical and Computer Engineering</a>
-                </InlineButton> and received both my Bachelor of Science and Master of Science degrees.
-                While there I was involved in many different projects and was a teaching assistant during the last year of my Master’s degree.
+                I was planning to ask my girlfriend to marry me, but I wanted the proposal to be special and unique. 
+                I thought it would be a cool idea to send her on a scavenger hunt to different places that we like to spend time together. 
+                Thinking about the logistics of setting up the hunt seemed impractical and prone to errors, but then I realized that I’m an engineer, so I wrote software to handle the logistics for me.
             </SectionText>
             <SectionTitle>The Mobile App</SectionTitle>
             <InfoGrid rows={appRows}></InfoGrid>

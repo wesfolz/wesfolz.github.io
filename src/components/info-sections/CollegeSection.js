@@ -5,6 +5,7 @@ import Wildcat from 'images/wildcat.png';
 import Surface from 'images/surface.png';
 import Robot from 'images/robot.jpg';
 import Encryption from 'images/encryption.png';
+import Pipeline from 'images/mips_pipeline.png';
 import Models3D from 'images/3D.jpg';
 import MtsPoster from 'images/Mobile_Terrain_Scanning.pdf';
 import Cpp from 'images/logos/c++.svg';
@@ -116,6 +117,17 @@ export default function CollegSection(props) {
                     <ParallaxInfoImage backgroundImage={Encryption} overlayColor={Colors.uofa} href="https://github.com/wesfolz/Real_Time_Video_Encryption/blob/master/Final%20Project%20Report.pdf"></ParallaxInfoImage>
                 </React.Fragment>),
             title: 'Real Time Video Encryption'
+        },
+        {
+            content: (
+                <React.Fragment>
+                    <ParallaxInfoImage backgroundImage={Pipeline} overlayColor={Colors.uofa} href="https://github.com/wesfolz/mips-pipeline-processor"></ParallaxInfoImage>
+                    <SectionText>
+                        For my computer architecture class, I worked with a partner to design a pipeline processor with forwarding and hazard detection that could run MIPS assembly instructions. 
+                        We mapped the processor onto an FPGA board and used it to run our sum of absolute difference algorithm that we wrote in assembly.
+                    </SectionText>
+                </React.Fragment>),
+            title: 'MIPS Processor'
         }
     ];
 
