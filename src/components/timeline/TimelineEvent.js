@@ -43,7 +43,7 @@ const Overlay = styled(SectionHeader)`
         height: 400px;
         border-radius: ${props => `${3 / props.scale}px`};
         transform: scale(1);
-        @media(max-width: 768px) {
+        @media(max-width: 768px), (max-height: 850px) {
             height: 240px;
         }
     }

@@ -30,7 +30,7 @@ export const SectionHeader = styled.header`
     border-radius: ${props => `${3 / props.scale}px`};
     width: 100vw;
     height: 400px;
-    @media(max-width: 768px) {
+    @media(max-width: 768px), (max-height: 850px) {
         height: 240px;
         p {
             font-size: 18px;

@@ -35,7 +35,7 @@ const TIMELINE_EVENTS = {
 };
 
 const OverflowHidden = styled.div`
-    overflow-y: ${props => props.overflowHidden ? 'hidden' : 'unset'};
+    overflow: hidden;
     height: 100vh;
     width: 100vw;
 `;
@@ -82,7 +82,7 @@ const TimelineMarker = styled.li`
     font-size: ${`${20 / INITIAL_SCALE}px`};
     padding: ${`${3 / INITIAL_SCALE}px`};
     border-radius: ${`${6 / INITIAL_SCALE}px`};
-    @media (max-width: 768px) {
+    @media (max-width: 768px), (max-height: 850px) {
         font-size: ${`${16 / INITIAL_SCALE}px`};
     }
 `;
@@ -167,13 +167,12 @@ export default function Timeline() {
     const [translation, setTranslation] = useState({ x: '0px', y: '0px' });
     const [selectedEvent, setSelectedEvent] = useState(null);
     const [collapse, setCollapse] = useState(false);
-    const [overflowHidden, setOverflowHidden] = useState(true);
     const [timelineWidth, setTimelineWidth] = useState(TIMELINE_WIDTH);
     const [imageSize, setImageSize] = useState(100 / INITIAL_SCALE);
 
 
     const handleResize = () => {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 768 || window.innerHeight <= 850) {
             setImageSize(60 / INITIAL_SCALE);
         } else {
             setImageSize(100 / INITIAL_SCALE);
@@ -202,11 +201,9 @@ export default function Timeline() {
         setTranslation({ x: `${xOffset}px`, y: `${yOffset}px` });
         setTimeout(() => {
             setSelectedEvent(eventName);
-            setOverflowHidden(true);
         }, TRANSITION_TIME * 1000 + 300);
         setScale(1);
         setCollapse(false);
-        setOverflowHidden(false);
     };
 
     const zoomOut = () => {
@@ -214,10 +211,6 @@ export default function Timeline() {
         setTranslation({ x: 0, y: 0 });
         setSelectedEvent(null);
         setCollapse(true);
-        setOverflowHidden(false);
-        setTimeout(() => {
-            setOverflowHidden(true);
-        }, TRANSITION_TIME * 1000);
     };
 
     const visibleSection = () => {
@@ -253,7 +246,7 @@ export default function Timeline() {
 
     return (
         <div>
-            <OverflowHidden overflowHidden={overflowHidden}>
+            <OverflowHidden>
                 <TimelineContainer ref={containerRef} scale={scale} translation={translation} opacity={opacity}>
                     <TimelineList>
                         <TimelineMarker>Present</TimelineMarker>
