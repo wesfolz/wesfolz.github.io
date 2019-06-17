@@ -18,12 +18,11 @@ import EngagementSection from 'components/info-sections/EngagementSection';
 import BlowmeSection from 'components/info-sections/BlowmeSection';
 import DroneSection from 'components/info-sections/DroneSection';
 
-
 const TRANSITION_TIME = 0.75;
 const INITIAL_SCALE = 0.25;
 const TIMELINE_WIDTH = 100 / INITIAL_SCALE;
 const LINE_WIDTH = 6 / INITIAL_SCALE;
-const WIDTH_MULTIPLIER = 1.5;
+const WIDTH_MULTIPLIER = 2.0;
 
 const TIMELINE_EVENTS = {
     COLLEGE: 1,
@@ -65,8 +64,6 @@ const TimelineList = styled.ul`
     box-sizing: border-box;
     margin: 0;
     height: ${`${100 / INITIAL_SCALE}%`};
-    /* background-color: #ffffff80;
-    padding: 0px 4px; */
     &::before {
         content: '';
         position: absolute;
