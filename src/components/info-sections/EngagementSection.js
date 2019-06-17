@@ -46,7 +46,7 @@ export default function EngagementSection(props) {
         {
             content: (
                 <React.Fragment>
-                    <ParallaxInfoImage backgroundImage={ScavengerClue} backgroundColor="black" overlayColor="#EB2532" href="https://github.com/wesfolz/ScavengerApp"></ParallaxInfoImage>
+                    <ParallaxInfoImage backgroundImage={ScavengerClue} backgroundColor="black" overlayColor={Colors.info} href="https://github.com/wesfolz/ScavengerApp"></ParallaxInfoImage>
                     <SectionText>
                         I created a storyline which would set the scene for a series of clues she had to solve. 
                         Some of the clues required her to enter answers to questions and for others she needed to drive to specific destinations. 
@@ -76,7 +76,7 @@ export default function EngagementSection(props) {
         {
             content: (
                 <React.Fragment>
-                    <ParallaxInfoImage backgroundImage={ScavengerWeb} overlayColor="#EB2532" href="https://github.com/wesfolz/scavenger-web"></ParallaxInfoImage>
+                    <ParallaxInfoImage backgroundImage={ScavengerWeb} overlayColor={Colors.info} href="https://github.com/wesfolz/scavenger-web"></ParallaxInfoImage>
                     <SectionText>
                         I built a web app so that I could monitor how many clues she had solved, communicate with her via the instant chat interface and track her location in real time from my computer. 
                         This feature took the guesswork out of setting up her final surprise. 
