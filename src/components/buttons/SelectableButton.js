@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import FillButton from 'components/buttons/FillButton';
 
 const CustomButton = styled(FillButton)`

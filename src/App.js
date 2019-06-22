@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import ReactGA from 'react-ga';
-import styled from 'styled-components';
-import './App.css';
+import styled from 'styled-components/macro';
 import GradientBackground from 'components/GradientBackground';
 import ContactForm from 'components/contact/ContactForm';
 import SelectionBlock from 'components/SelectionBlock';
@@ -22,6 +21,7 @@ import {
 import Timeline from 'components/timeline/Timeline';
 import Navbar from 'components/Navbar';
 import Logo from 'images/logos/logo_primary.svg';
+import Routes from 'Routes';
 
 library.add(
     fab,
@@ -72,7 +72,7 @@ const App = (props) => {
             subtitleText: "Why are you here?",
             selections: [
                 { text: "I want to learn more about Wesley.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/', nextSet: 1 },
-                { text: "I want to contact Wesley.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/contact' },
+                { text: "I want to contact Wesley.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: Routes.contact },
                 { text: "Why am I here?", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/', nextSet: 2 }
             ]
         },
@@ -86,8 +86,8 @@ const App = (props) => {
                     Wesley's favorite types of problems are ones that require him to learn new skills and think in new ways.
                 </p>,
             selections: [
-                { text: "What has Wesley done thus far?", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/timeline' },
-                { text: "I want to contact Wesley.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/contact' },
+                { text: "What has Wesley done thus far?", color: Colors.lightGray, backgroundColor: Colors.secondary, route: Routes.timeline },
+                { text: "I want to contact Wesley.", color: Colors.lightGray, backgroundColor: Colors.secondary, route: Routes.contact },
                 { text: "Cool, thanks!", color: Colors.lightGray, backgroundColor: Colors.secondary, route: '/', nextSet: 0 }
             ]
         },
@@ -142,7 +142,6 @@ const App = (props) => {
             setTimeout(() => {
                 setShrinkBlock(false);
                 setSlideOutBlock(false);
-                // setSelectedSet(selectedSet < (selectionSets.length - 1) ? selectedSet + 1 : 0);
                 setSelectedSet(selectionSets[selectedSet].selections[index].nextSet);
             }, TRANSITION_TIME * 1000);
         }
@@ -161,9 +160,8 @@ const App = (props) => {
             </GradientBackground>
             <LogoImg src={Logo}></LogoImg>
             <Navbar currentRoute={currentRoute}></Navbar>
-            <Route path="/" exact render={(props) =>
+            <Route path="/" exact render={() =>
                 <SelectionBlock
-                    {...props}
                     transitionTime={TRANSITION_TIME}
                     shrink={shrinkBlock}
                     slideOut={slideOutBlock}
@@ -171,8 +169,8 @@ const App = (props) => {
                     {...selectionSets[selectedSet]}>
                 </SelectionBlock>
             } />
-            <Route path="/timeline" component={Timeline}></Route>
-            <Route path="/contact" component={ContactForm}></Route>
+            <Route path={Routes.timeline} component={Timeline}></Route>
+            <Route path={Routes.contact} component={ContactForm}></Route>
         </Container>
     );
 };

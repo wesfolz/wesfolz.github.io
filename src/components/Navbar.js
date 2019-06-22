@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import Colors from 'styles/Colors';
 import FillButton from 'components/buttons/FillButton';
+import Routes from 'Routes';
+
 
 const NavList = styled.ul`
     list-style-type: none;
@@ -30,7 +32,7 @@ const NavList = styled.ul`
     }
 `;
 
-const routes = ['/', '/timeline', '/contact'];
+const routes = ['/', Routes.timeline, Routes.contact];
 
 export default function Navbar(props) {
     const [deselect, setDeselect] = useState(Array(routes.length).fill(false));
@@ -67,7 +69,7 @@ export default function Navbar(props) {
                 </Link>
             </li>
             <li>
-                <Link to="/timeline">
+                <Link to={Routes.timeline}>
                     <FillButton color={Colors.info}
                         click={() => navSelect(1)}
                         deselect={deselect[1]} select={select[1]}>
@@ -76,7 +78,7 @@ export default function Navbar(props) {
                 </Link>
             </li>
             <li>
-                <Link to="/contact">
+                <Link to={Routes.contact}>
                     <FillButton color={Colors.info}
                         click={() => navSelect(2)}
                         deselect={deselect[2]} select={select[2]}>

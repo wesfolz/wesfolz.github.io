@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components/macro';
 import TypeWriter from 'components/animated/TypeWriter';
 import SelectableButton from 'components/buttons/SelectableButton';
 import useKeySelect from 'hooks/useKeySelect';

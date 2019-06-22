@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import Lockheed from 'images/lockheed.jpg';
 import Wildcat from 'images/wildcat.png';
@@ -10,13 +10,8 @@ import RaspberryDrone from 'images/raspberry_drone.png';
 import Colors from 'styles/Colors';
 
 import TimelineEvent from 'components/timeline/TimelineEvent';
-import LokcheedSection from 'components/info-sections/LokcheedSection';
-import SandiaSection from 'components/info-sections/SandiaSection';
-import CollegeSection from 'components/info-sections/CollegeSection';
-import StratosphereSection from 'components/info-sections/StratosphereSection';
-import EngagementSection from 'components/info-sections/EngagementSection';
-import BlowmeSection from 'components/info-sections/BlowmeSection';
-import DroneSection from 'components/info-sections/DroneSection';
+import InfoRoutes from 'components/info-sections/InfoRoutes';
+import Routes from 'Routes';
 
 const TRANSITION_TIME = 0.75;
 const INITIAL_SCALE = 0.25;
@@ -160,12 +155,11 @@ const EventPointLeft = styled(EventMarkerLeft)`
     }
 `;
 
-export default function Timeline() {
+export default function Timeline(props) {
     const containerRef = useRef(null);
     const [scale, setScale] = useState(INITIAL_SCALE / 10);
     const [opacity, setOpacity] = useState(0);
     const [translation, setTranslation] = useState({ x: '0px', y: '0px' });
-    const [selectedEvent, setSelectedEvent] = useState(null);
     const [collapse, setCollapse] = useState(false);
     const [timelineWidth, setTimelineWidth] = useState(TIMELINE_WIDTH);
     const [imageSize, setImageSize] = useState(100 / INITIAL_SCALE);
@@ -183,14 +177,21 @@ export default function Timeline() {
 
     useEffect(() => {
         handleResize();
-        setScale(INITIAL_SCALE);
         setOpacity(1);
         window.addEventListener('resize', handleResize);
         return () => {
             setScale(INITIAL_SCALE / 2);
             window.removeEventListener('resize', handleResize);
         };
-    }, []);
+    }, [])
+
+    useEffect(() => {
+        if (props.location.pathname === '/timeline') {
+            setScale(INITIAL_SCALE);
+            setTranslation({ x: 0, y: 0 });
+            setCollapse(true);
+        }
+    }, [props.location]);
 
     const selectEvent = (ref, eventName) => {
         const top = ref.current.getBoundingClientRect().top;
@@ -200,7 +201,7 @@ export default function Timeline() {
         const xOffset = (horizontalOffset / INITIAL_SCALE) - ref.current.getBoundingClientRect().width / (2 * INITIAL_SCALE);
         setTranslation({ x: `${xOffset}px`, y: `${yOffset}px` });
         setTimeout(() => {
-            setSelectedEvent(eventName);
+            navigateToPath(eventName);
         }, TRANSITION_TIME * 1000 + 300);
         setScale(1);
         setCollapse(false);
@@ -209,39 +210,49 @@ export default function Timeline() {
     const zoomOut = () => {
         setScale(INITIAL_SCALE);
         setTranslation({ x: 0, y: 0 });
-        setSelectedEvent(null);
         setCollapse(true);
+        props.history.push('/timeline');
     };
 
-    const visibleSection = () => {
+    const navigateToPath = (eventName) => {
         if (selectEvent == null) {
             return null;
         }
-        switch (selectedEvent) {
+        let path;
+
+        switch (eventName) {
             case TIMELINE_EVENTS.COLLEGE:
-                return (<CollegeSection exit={zoomOut} imageSize={imageSize}></CollegeSection>);
+                path = Routes.college;
+                break;
 
             case TIMELINE_EVENTS.SANDIA:
-                return (<SandiaSection exit={zoomOut} imageSize={imageSize}></SandiaSection>);
+                path = Routes.sandia;
+                break;
 
             case TIMELINE_EVENTS.LOCKHEED:
-                return (<LokcheedSection exit={zoomOut} imageSize={imageSize}></LokcheedSection>);
+                path = Routes.lockheed;
+                break;
 
             case TIMELINE_EVENTS.STRATOSPHERE:
-                return (<StratosphereSection exit={zoomOut} imageSize={imageSize}></StratosphereSection>);
+                path = Routes.stratosphere;
+                break;
 
             case TIMELINE_EVENTS.ENGAGEMENT:
-                return (<EngagementSection exit={zoomOut} imageSize={imageSize}></EngagementSection>);
+                path = Routes.engagement;
+                break;
 
             case TIMELINE_EVENTS.BLOWME:
-                return (<BlowmeSection exit={zoomOut} imageSize={imageSize}></BlowmeSection>); 
+                path = Routes.blowme;
+                break;
 
             case TIMELINE_EVENTS.DRONE:
-                return (<DroneSection exit={zoomOut} imageSize={imageSize}></DroneSection>);
+                path = Routes.drone;
+                break;
 
             default:
-                return null;
+                return;
         }
+        props.history.push(path);
     };
 
     return (
@@ -366,7 +377,7 @@ export default function Timeline() {
                     </EventMarkerLeft>
                 </TimelineContainer>
             </OverflowHidden>
-            {visibleSection()}
+            <InfoRoutes zoomOut={zoomOut} imageSize={imageSize}></InfoRoutes>
         </div>
     );
 }

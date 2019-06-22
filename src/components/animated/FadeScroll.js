@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 const FadeEle = styled.div`
     transition: all ${props => props.show ? '0.75s' : '0s'} ease;

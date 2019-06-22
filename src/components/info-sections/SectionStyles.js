@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import UnderlineButton from 'components/buttons/UnderlineButton';
 
 export const SectionTitle = styled.h1`

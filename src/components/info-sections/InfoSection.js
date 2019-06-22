@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import SelectableButton from 'components/buttons/SelectableButton';
@@ -51,7 +51,9 @@ export default function InfoSection(props) {
     const closeSection = () => {
         setShrink(false);
         setTimeout(() => {
-            props.exit();
+            if(props.zoomOut) {
+                props.zoomOut();
+            }
         }, (TRANSITION_TIME + DELAY_TIME) * 1000);
     };
 

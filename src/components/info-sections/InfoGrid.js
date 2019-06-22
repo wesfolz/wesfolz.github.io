@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import FadeScroll from 'components/animated/FadeScroll';
 
 //div -> position: absolute, width: 100%, opacity: 0.1, p -> background-color: none, width: 100%

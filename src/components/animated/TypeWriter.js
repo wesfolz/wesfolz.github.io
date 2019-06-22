@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 const WriterText = styled.div`
     color: ${props => props.color || 'inherit'};
