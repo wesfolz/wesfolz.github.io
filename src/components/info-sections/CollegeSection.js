@@ -92,7 +92,7 @@ export default function CollegSection(props) {
         {
             content: (
                 <React.Fragment>
-                    <ParallaxInfoImage backgroundImage={Robot} backgroundColor={Colors.uofa} overlayColor={Colors.uofa} href="https://www.facebook.com/wesley.folz/videos/10152455549220229/"></ParallaxInfoImage>
+                    <ParallaxInfoImage backgroundImage={Robot} backgroundColor={Colors.uofa} overlayColor={Colors.uofa} href="https://youtu.be/l8RhUTHFiTc"></ParallaxInfoImage>
                     <SectionText>
                         Working on a team of four, I helped build, wire and program an infrared sensing robot using a PIC24F microcontroller.
                         The robot could autonomously drive along black tape lines and read barcodes using infrared sensors.
