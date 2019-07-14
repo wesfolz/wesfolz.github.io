@@ -65,68 +65,73 @@ export default function CollegSection(props) {
 
     const rows = [
         {
-            content: (
-                <React.Fragment>
-                    <ParallaxInfoImage backgroundImage={Models3D} backgroundColor="black" overlayColor={Colors.uofa} href="http://youtu.be/KQVvxJpnd_8"></ParallaxInfoImage>
-                    <SectionText>
-                        Working with a fellow student, we developed an Android app that could convert multiple images of an object into a virtual three dimensional model of that object.
-                        Our app provided a user interface for creating new models, capturing images and opening models.
-                        To do the conversions from images to three dimensional models, we used a number of algorithms from the OpenCV library and developed our own custom image processing algorithms.
-                    </SectionText>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoImage backgroundImage={Models3D} backgroundColor="black" overlayColor={Colors.uofa} href="http://youtu.be/KQVvxJpnd_8"></ParallaxInfoImage>
+            ),
+            text: (
+                <SectionText>
+                    Working with a fellow student, we developed an Android app that could convert multiple images of an object into a virtual three dimensional model of that object.
+                    Our app provided a user interface for creating new models, capturing images and opening models.
+                    To do the conversions from images to three dimensional models, we used a number of algorithms from the OpenCV library and developed our own custom image processing algorithms.
+                </SectionText>
+            ),
             title: 'Images To 3D Models'
         },
         {
-            content: (
-                <React.Fragment>
-                    <SectionText>
-                        For my senior capstone project, I worked on an interdisciplinary team of engineers to build
-                        a system capable of scanning surface terrain and outputting three dimensional representations of the terrain.
-                        Our system integrated LiDAR, IMU and GPS devices.
-                        I wrote the algorithms for converting an uncorrected three dimensional point cloud to a surface mesh.
-                    </SectionText>
-                    <ParallaxInfoImage backgroundImage={Surface} overlayColor={Colors.uofa} href={MtsPoster}></ParallaxInfoImage>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoImage backgroundImage={Surface} overlayColor={Colors.uofa} href={MtsPoster}></ParallaxInfoImage>
+            ),
+            text: (
+                <SectionText>
+                    For my senior capstone project, I worked on an interdisciplinary team of engineers to build
+                    a system capable of scanning surface terrain and outputting three dimensional representations of the terrain.
+                    Our system integrated LiDAR, IMU and GPS devices.
+                    I wrote the algorithms for converting an uncorrected three dimensional point cloud to a surface mesh.
+                </SectionText>
+            ),
             title: 'Mobile Terrain Scanning'
         },
         {
-            content: (
-                <React.Fragment>
-                    <ParallaxInfoImage backgroundImage={Robot} backgroundColor={Colors.uofa} overlayColor={Colors.uofa} href="https://youtu.be/l8RhUTHFiTc"></ParallaxInfoImage>
-                    <SectionText>
-                        Working on a team of four, I helped build, wire and program an infrared sensing robot using a PIC24F microcontroller.
-                        The robot could autonomously drive along black tape lines and read barcodes using infrared sensors.
-                        The robot could also play a song on a small 8 ohm speaker using pulse width modulation.
-                    </SectionText>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoImage backgroundImage={Robot} backgroundColor={Colors.uofa} overlayColor={Colors.uofa} href="https://youtu.be/l8RhUTHFiTc"></ParallaxInfoImage>
+            ),
+            text: (
+                <SectionText>
+                    Working on a team of four, I helped build, wire and program an infrared sensing robot using a PIC24F microcontroller.
+                    The robot could autonomously drive along black tape lines and read barcodes using infrared sensors.
+                    The robot could also play a song on a small 8 ohm speaker using pulse width modulation.
+                </SectionText>
+            ),
             title: 'Infrared Sensing Robot'
         },
         {
-            content: (
-                <React.Fragment>
-                    <SectionText>
-                        Another student and I built a SystemC model to
-                        simulate our real-time embedded system design.
-                        Our embedded system model could encode/decode,
-                        encrypt/decrypt and transmit MPEG video data.
-                        After optimizing the power consumption of our system
-                        we found that it was capable of encrypting 1080p video at
-                        30fps in real time using a 128-bit AES coprocessor
-                        operating at 72MHz.
-                    </SectionText>
-                    <ParallaxInfoImage backgroundImage={Encryption} overlayColor={Colors.uofa} href="https://github.com/wesfolz/Real_Time_Video_Encryption/blob/master/Final%20Project%20Report.pdf"></ParallaxInfoImage>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoImage backgroundImage={Encryption} overlayColor={Colors.uofa} href="https://github.com/wesfolz/Real_Time_Video_Encryption/blob/master/Final%20Project%20Report.pdf"></ParallaxInfoImage>
+            ),
+            text: (
+                <SectionText>
+                    Another student and I built a SystemC model to
+                    simulate our real-time embedded system design.
+                    Our embedded system model could encode/decode,
+                    encrypt/decrypt and transmit MPEG video data.
+                    After optimizing the power consumption of our system
+                    we found that it was capable of encrypting 1080p video at
+                    30fps in real time using a 128-bit AES coprocessor
+                    operating at 72MHz.
+                </SectionText>
+            ),
             title: 'Real Time Video Encryption'
         },
         {
-            content: (
-                <React.Fragment>
-                    <ParallaxInfoImage backgroundImage={Pipeline} overlayColor={Colors.uofa} href="https://github.com/wesfolz/mips-pipeline-processor"></ParallaxInfoImage>
-                    <SectionText>
-                        For my computer architecture class, I worked with a partner to design a pipeline processor with forwarding and hazard detection that could run MIPS assembly instructions. 
-                        We mapped the processor onto an FPGA board and used it to run our sum of absolute difference algorithm that we wrote in assembly.
-                    </SectionText>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoImage backgroundImage={Pipeline} overlayColor={Colors.uofa} href="https://github.com/wesfolz/mips-pipeline-processor"></ParallaxInfoImage>
+            ),
+            text: (
+                <SectionText>
+                    For my computer architecture class, I worked with a partner to design a pipeline processor with forwarding and hazard detection that could run MIPS assembly instructions. 
+                    We mapped the processor onto an FPGA board and used it to run our sum of absolute difference algorithm that we wrote in assembly.
+                </SectionText>
+            ),
             title: 'MIPS Processor'
         }
     ];

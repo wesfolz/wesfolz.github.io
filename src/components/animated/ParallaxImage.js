@@ -6,7 +6,7 @@ const ParallaxDiv = styled.div`
     width: 100%;
     min-height: inherit;
     z-index: 1;
-    background: ${props => props.backgroundColor || 'white'} url(${props => props.backgroundImage}) no-repeat;
+    background: ${props => props.backgroundColor || 'transparent'} url(${props => props.backgroundImage}) no-repeat;
     /* background-attachment: fixed; */
     /* background-size: cover; */
     background-size: auto 125%;

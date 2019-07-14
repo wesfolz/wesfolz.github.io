@@ -52,39 +52,42 @@ export default function SandiaSection(props) {
 
     const rows = [
         {
-            content: (
-                <React.Fragment>
-                    <ParallaxInfoImage backgroundImage={Maccs} overlayColor={Colors.sandia} href={MaccsPoster}></ParallaxInfoImage>
-                    <SectionText>
-                        I developed and enhanced Java applications for nuclear scientists and incident responders.
-                        Most notably I created an application that mapped and animated radiation plumes.
-                        The application was also able to capture screenshots and record videos of the radiation plume animations among other features.
-                    </SectionText>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoImage backgroundImage={Maccs} overlayColor={Colors.sandia} href={MaccsPoster}></ParallaxInfoImage>
+            ),
+            text: (
+                <SectionText>
+                    I developed and enhanced Java applications for nuclear scientists and incident responders.
+                    Most notably I created an application that mapped and animated radiation plumes.
+                    The application was also able to capture screenshots and record videos of the radiation plume animations among other features.
+                </SectionText>
+            ),
             title: 'Nuclear Incident Response Software'
         },
         {
-            content: (
-                <React.Fragment>
-                    <SectionText>
-                        A fellow intern and I simulated mobile ad-hoc networks using OPNET modeler to evaluate the performance of different routing protocols.
-                        We were able to improve the simulations by implementing a probabilistic model of daily human mobility patterns.
-                        We also developed an R-Tree data structure to more efficiently search for nearest neighbors in a network via spatial indexing.
-                    </SectionText>
-                    <ParallaxInfoImage backgroundImage={Rtree} overlayColor={Colors.sandia} href={AdHocPoster}></ParallaxInfoImage>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoImage backgroundImage={Rtree} overlayColor={Colors.sandia} href={AdHocPoster}></ParallaxInfoImage>
+            ),
+            text: (
+                <SectionText>
+                    A fellow intern and I simulated mobile ad-hoc networks using OPNET modeler to evaluate the performance of different routing protocols.
+                    We were able to improve the simulations by implementing a probabilistic model of daily human mobility patterns.
+                    We also developed an R-Tree data structure to more efficiently search for nearest neighbors in a network via spatial indexing.
+                </SectionText>
+            ),
             title: 'Ad Hoc Mobile'
         },
         {
-            content: (
-                <React.Fragment>
-                    <ParallaxInfoImage backgroundImage={Santeria} overlayColor={Colors.sandia} href={SanteriaPoster}></ParallaxInfoImage>
-                    <SectionText>
-                        I assisted researchers with development and testing of their Android kernel debugger.
-                        Another intern and I developed a GDB wrapper to send GDB and ADB commands to an Android device.
-                        I also developed an application that could load our custom kernel module onto an Android device with the press of a button.
-                    </SectionText>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoImage backgroundImage={Santeria} overlayColor={Colors.sandia} href={SanteriaPoster}></ParallaxInfoImage>
+            ),
+            text: (
+                <SectionText>
+                    I assisted researchers with development and testing of their Android kernel debugger.
+                    Another intern and I developed a GDB wrapper to send GDB and ADB commands to an Android device.
+                    I also developed an application that could load our custom kernel module onto an Android device with the press of a button.
+                </SectionText>
+            ),
             title: 'Android Kernel Debugger'
         }
     ];

@@ -22,7 +22,7 @@ export const SectionHeader = styled.header`
     align-items: center;
     flex-direction: column;
     p {
-        font-size: 28px;
+        font-size: 32px;
         font-weight: bold;
         color: white;
         text-align: center;
@@ -33,7 +33,7 @@ export const SectionHeader = styled.header`
     @media(max-width: 768px), (max-height: 850px) {
         height: 240px;
         p {
-            font-size: 18px;
+            font-size: 20px;
         }
     }
 `;
@@ -49,6 +49,12 @@ export const HeaderImg = styled.div`
 export const InlineButton = styled(UnderlineButton)`
     margin: 0;
     padding: 0;
+`;
+
+export const FullImageContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 
 export const FullRowImage = styled.img`

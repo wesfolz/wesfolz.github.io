@@ -21,6 +21,7 @@ const ContentRow = styled.li`
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 600px;
     h4 {
         margin: 0 0 16px;
     }
@@ -28,58 +29,97 @@ const ContentRow = styled.li`
 
 const RowContents = styled.section`
     display: flex;
+    flex-direction: ${props => props.reverse ? 'row-reverse' : 'row'};
     align-items: center;
     justify-content: center;
     position: relative;
     width: 100%;
-    background-color: white;
+    /* background-color: #eef4fa; */
     border-radius: 4px;
-    @media(max-width: 768px) {
+    @media(max-width: 900px) {
         flex-direction: column;
     }
-    > * {
-        padding: 0px;
+
+    .image {
+        width: 55%;
+    }
+
+    .text {
+        width: 45%;
+        z-index: 1;
+    }
+
+    .text, .image {
         min-height: 300px;
+        @media(max-width: 900px) {
+            width: 100%;
+        }
+    }
+
+    .image > *, .text > * {
+        padding: 0px;
         margin: 0;
         display: flex;
         align-items: center;
+        width: 100%;
+        /* width: calc(50% + 100px); */
     }
-    > div {
+    .image > * {
+        min-height: 400px;
         height: 100%;
-        width: 55%;
+        position: relative;
         border-radius: 4px;
-        @media(max-width: 768px) {
+        left: ${props => props.reverse ? "-50px" : "50px"};
+        @media(max-width: 900px) {
             width: 100%;
-            position: absolute;
+            left: 0;
         }
     }
-    > p {
-        padding: 0 40px;
-        width: 45%;
+    .text > * {
+        min-height: 300px;
+        padding: 16px 40px;
         border-radius: 4px;
         box-sizing: border-box;
-        @media(max-width: 768px) {
-            width: 100%;
+        position: relative;
+        box-shadow: ${props => props.reverse ? "-8px" : "8px"} 8px 16px rgba(0, 0, 0, 0.5), 0 0 30px rgba(74,194,255,.25);
+        top: 150px;
+        left: ${props => props.reverse ? "50px" : "-50px"};
+        @media(max-width: 900px) {
+            width: 90%;
+            top: -75px;
+            left: 0;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5), 0 0 30px rgba(74,194,255,.25);
         }
     }
+
+    /* .text:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: #eef4fa;
+    } */
 `;
 
 export default function InfoGrid({ rows }) {
     const infoRows = () => {
-        return (rows.map(row => {
-            return (
+        return (rows.map((row, index) => 
+            (
                 <ContentRow key={row.title}>
-                    <FadeScroll>
-                        <h4>{row.title}</h4>
-                    </FadeScroll>
-                    <FadeScroll>
-                        <RowContents>
-                            {row.content}
-                        </RowContents>
-                    </FadeScroll>
+                    <h3>{row.title}</h3>
+                    <RowContents reverse={index % 2 === 1}>
+                        <div className="image">
+                            {row.image}
+                        </div>
+                        <FadeScroll className="text" delay={100}>
+                            {row.text}
+                        </FadeScroll>
+                    </RowContents>
                 </ContentRow>
             )
-        }));
+        ));
     };
 
     return (

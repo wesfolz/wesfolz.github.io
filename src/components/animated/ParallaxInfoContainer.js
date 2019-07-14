@@ -8,9 +8,6 @@ const Container = styled.div`
     border-radius: 4px;
     & >:first-child {
         opacity: 1;
-        @media(max-width: 768px) {
-            opacity: 0.2;
-        }
     }
     > * {
         transform: scale(1);

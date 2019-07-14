@@ -6,6 +6,7 @@ const CustomButton = styled.button`
     color: ${props => props.color || 'white'};
     font-weight: bold;
     font-size: 16px;
+    font-family: 'Fira Code';
     border-radius: 2px;
     padding: 4px 16px;
     outline: none;

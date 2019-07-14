@@ -19,7 +19,7 @@ import ParallaxInfoImage from 'components/animated/ParallaxInfoImage';
 import TechnologySection from 'components/tech-section/TechnologySection';
 import TechIcon from 'components/tech-section/TechIcon';
 import InfoGrid from 'components/info-sections/InfoGrid';
-import { SectionTitle, SectionText, FullRowImage } from 'components/info-sections/SectionStyles';
+import { SectionTitle, SectionText, FullRowImage, FullImageContainer } from 'components/info-sections/SectionStyles';
 
 export default function EngagementSection(props) {
 
@@ -44,53 +44,48 @@ export default function EngagementSection(props) {
 
     const appRows = [
         {
-            content: (
-                <React.Fragment>
-                    <ParallaxInfoImage backgroundImage={ScavengerClue} backgroundColor="black" overlayColor={Colors.info} href="https://github.com/wesfolz/ScavengerApp"></ParallaxInfoImage>
-                    <SectionText>
-                        I created a storyline which would set the scene for a series of clues she had to solve. 
-                        Some of the clues required her to enter answers to questions and for others she needed to drive to specific destinations. 
-                        The location-based clues would automatically unlock once her gps position showed she was close enough to the specific destination. 
-                        After she worked her way through all the tasks, she found me on my knee. 
-                    </SectionText>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoImage backgroundImage={ScavengerClue} backgroundColor="black" overlayColor={Colors.info} href="https://github.com/wesfolz/ScavengerApp"></ParallaxInfoImage>
+            ),
+            text: (
+                <SectionText>
+                    I created a storyline which would set the scene for a series of clues she had to solve. 
+                    Some of the clues required her to enter answers to questions and for others she needed to drive to specific destinations. 
+                    The location-based clues would automatically unlock once her gps position showed she was close enough to the specific destination. 
+                    After she worked her way through all the tasks, she found me on my knee. 
+                </SectionText>
+            ),
             title: 'Clues'
         },
         {
-            content: (
-                <React.Fragment>
-                    <SectionText>
-                        I added a real-time chat feature to the app so if she was stumped by a particular clue she could ask me (disguised as my dog Peach) for help. 
-                        This came in handy once or twice and really saved the day. 
-                        At one point, she thought one of the clues was at home (which was very incorrect and would have ruined the surprise) but after consulting Peach, she was back on track.
-                    </SectionText>
-                    <ParallaxInfoContainer>
-                        <ParallaxImage backgroundImage={ScavengerChat} backgroundColor="black"></ParallaxImage>
-                    </ParallaxInfoContainer>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoContainer>
+                    <ParallaxImage backgroundImage={ScavengerChat} backgroundColor="black"></ParallaxImage>
+                </ParallaxInfoContainer>
+            ),
+            text: (
+                <SectionText>
+                    I added a real-time chat feature to the app so if she was stumped by a particular clue she could ask me (disguised as my dog Peach) for help. 
+                    This came in handy once or twice and really saved the day. 
+                    At one point, she thought one of the clues was at home (which was very incorrect and would have ruined the surprise) but after consulting Peach, she was back on track.
+                </SectionText>
+            ),
             title: 'Real-time Chat'
         }
     ];
 
     const webRows = [
         {
-            content: (
-                <React.Fragment>
-                    <ParallaxInfoImage backgroundImage={ScavengerWeb} overlayColor={Colors.info} href="https://github.com/wesfolz/scavenger-web"></ParallaxInfoImage>
-                    <SectionText>
-                        I built a web app so that I could monitor how many clues she had solved, communicate with her via the instant chat interface and track her location in real time from my computer. 
-                        This feature took the guesswork out of setting up her final surprise. 
-                    </SectionText>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoImage backgroundImage={ScavengerWeb} overlayColor={Colors.info} href="https://github.com/wesfolz/scavenger-web"></ParallaxInfoImage>
+            ),
+            text: (
+                <SectionText>
+                    I built a web app so that I could monitor how many clues she had solved, communicate with her via the instant chat interface and track her location in real time from my computer. 
+                    This feature took the guesswork out of setting up her final surprise. 
+                </SectionText>
+            ),
             title: 'Location Tracking'
-        }
-    ];
-
-    const resultRows = [
-        {
-            content: (
-                <FullRowImage src={Proposal}></FullRowImage>),
-            title: 'She said yes!'
         }
     ];
 
@@ -115,7 +110,10 @@ export default function EngagementSection(props) {
             <SectionTitle>Technology Stack</SectionTitle>
             <TechnologySection techList={techList}></TechnologySection>
             <SectionTitle>The Result</SectionTitle>
-            <InfoGrid rows={resultRows}></InfoGrid>
+            <FullImageContainer>
+                <h4>She said yes!</h4>
+                <FullRowImage src={Proposal}></FullRowImage>
+            </FullImageContainer>
         </InfoSection>
     );
 }

@@ -3,13 +3,13 @@ import styled from 'styled-components/macro';
 
 const WriterText = styled.div`
     color: ${props => props.color || 'inherit'};
-    font-family: 'Fira Code';
     overflow: hidden;
     margin: 0;
 `;
 
 const WriterCharacter = styled.span`
     opacity: ${props => props.opacity || 0};
+    font-family: 'Fira Code';
 `;
 
 export default function TypeWriter({ text, start, delay, onComplete, color, className }) {

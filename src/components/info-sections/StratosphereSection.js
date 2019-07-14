@@ -60,51 +60,55 @@ export default function StratosphereSection(props) {
 
     const rows = [
         {
-            content: (
-                <React.Fragment>
-                    <ParallaxInfoContainer>
-                        <ParallaxImage backgroundImage={Gradient}></ParallaxImage>
-                    </ParallaxInfoContainer>
-                    <SectionText>
-                        I created an adaptive css gradient background that rescales and repositions itself depending on the width of the browser window.
-                    </SectionText>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoContainer>
+                    <ParallaxImage backgroundImage={Gradient}></ParallaxImage>
+                </ParallaxInfoContainer>
+            ),
+            text: (
+                <SectionText>
+                    I created an adaptive css gradient background that rescales and repositions itself depending on the width of the browser window.
+                </SectionText>
+            ),
             title: 'Gradient Background'
         },
         {
-            content: (
-                <React.Fragment>
-                    <SectionText>
-                        I added a new interactive team info section with custom transition animations.
-                    </SectionText>
-                    <ParallaxInfoContainer>
-                        <ParallaxImage backgroundImage={TeamSection} backgroundColor="black"></ParallaxImage>
-                    </ParallaxInfoContainer>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoContainer>
+                    <ParallaxImage backgroundImage={TeamSection} backgroundColor="black"></ParallaxImage>
+                </ParallaxInfoContainer>
+            ),
+            text: (
+                <SectionText>
+                    I added a new interactive team info section with custom transition animations.
+                </SectionText>
+            ),
             title: 'Team Section'
         },
         {
-            content: (
-                <React.Fragment>
-                    <ParallaxInfoContainer>
-                        <ParallaxImage backgroundImage={Blog} backgroundColor="black"></ParallaxImage>
-                    </ParallaxInfoContainer>
-                    <SectionText>
-                        I added and updated the content for the blog section and many of the case studies.
-                    </SectionText>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoContainer>
+                    <ParallaxImage backgroundImage={Blog} backgroundColor="black"></ParallaxImage>
+                </ParallaxInfoContainer>
+            ),
+            text: (
+                <SectionText>
+                    I added and updated the content for the blog section and many of the case studies.
+                </SectionText>
+            ),
             title: 'New Content'
         },
         {
-            content: (
-                <React.Fragment>
-                    <SectionText>
-                        I updated the contact form with new styling and validation logic.
-                    </SectionText>
-                    <ParallaxInfoContainer>
-                        <ParallaxImage backgroundImage={ContactForm} backgroundColor="black"></ParallaxImage>
-                    </ParallaxInfoContainer>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoContainer>
+                    <ParallaxImage backgroundImage={ContactForm} backgroundColor="black"></ParallaxImage>
+                </ParallaxInfoContainer>
+            ),
+            text: (
+                <SectionText>
+                    I updated the contact form with new styling and validation logic.
+                </SectionText>
+            ),
             title: 'Contact Form'
         }
     ];

@@ -100,61 +100,65 @@ export default function LokcheedSection(props) {
 
     const rows = [
         {
-            content: (
-                <React.Fragment>
-                    <ParallaxInfoImage backgroundImage={Orion} overlayColor={Colors.lockheed} href="https://www.lockheedmartin.com/en-us/products/orion.html"></ParallaxInfoImage>
-                    <SectionText>
-                        I develop and maintain Big Data web applications for retrieval and visualization of telemetry data for spacecrafts and satellites such as Orion and GOES-R. 
-                        For this team I work as a full stack engineer contributing on a wide array of features. 
-                        I redesigned and implemented the UIs for plotting data, building queries and searching for telemetry. 
-                        I improved performance of telemetry database queries by a factor of 10. 
-                    </SectionText>
-                </React.Fragment>
+            image: (                    
+                <ParallaxInfoImage backgroundImage={Orion} overlayColor={Colors.lockheed} href="https://www.lockheedmartin.com/en-us/products/orion.html"></ParallaxInfoImage>
+            ),
+            text: (
+                <SectionText>
+                    I develop and maintain Big Data web applications for retrieval and visualization of telemetry data for spacecrafts and satellites such as Orion and GOES-R. 
+                    For this team I work as a full stack engineer contributing on a wide array of features. 
+                    I redesigned and implemented the UIs for plotting data, building queries and searching for telemetry. 
+                    I improved performance of telemetry database queries by a factor of 10. 
+                </SectionText>
             ),
             title: 'Full Stack Web Development'
         },
         {
-            content: (
-                <React.Fragment>
-                    <SectionText>
-                        I developed the requirements and architecture for new visualization applications. 
-                        I built prototype applications to test out new technologies for searching and visualizing large datasets.
-                    </SectionText>
-                    <ParallaxInfoImage backgroundImage={Data} overlayColor={Colors.lockheed} href="https://en.wikipedia.org/wiki/Big_data"></ParallaxInfoImage>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoImage backgroundImage={Data} overlayColor={Colors.lockheed} href="https://en.wikipedia.org/wiki/Big_data"></ParallaxInfoImage>
+            ),
+            text: (
+                <SectionText>
+                    I generated the requirements and created the architecture for a new visualization application. 
+                    I built prototype applications to test out new technologies for searching and visualizing large datasets.
+                </SectionText>
+            ),
             title: 'Big Data Visualization'
         },
         {
-            content: (
-                <React.Fragment>
-                    <ParallaxInfoImage backgroundImage={LAS} overlayColor={Colors.lockheed} href="https://www.nasa.gov/sites/default/files/atoms/files/orion_las_fact_sheet_8.5x11_4page_11_19_15.pdf"></ParallaxInfoImage>
-                    <SectionText>
-                        I developed embedded applications to control electrical electrical ground support equipment for testing different functions of the Orion Multi-Purpose Crew Vehicle and Launch Abort System. 
-                        I designed and implemented innovative UIs for new testing applications. 
-                        I wrote an application to power and retrieve data from different flight computers for post-landing data analysis.
-                    </SectionText>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoImage backgroundImage={LAS} overlayColor={Colors.lockheed} href="https://www.youtube.com/watch?v=4rfsDMGplZU"></ParallaxInfoImage>
+            ),
+            text: (
+                <SectionText>
+                    I wrote software for embedded applications that controlled electrical electrical ground support equipment for testing different functions of the Orion Multi-Purpose Crew Vehicle and Launch Abort System. 
+                    I designed and implemented innovative UIs for new testing applications. 
+                    I developed an application to power and retrieve data from different flight computers for post-landing data analysis.
+                </SectionText>
+            ),
             title: 'Embedded Programming'
         },
         {
-            content: (
-                <React.Fragment>
-                    <SectionText>
-                        I debugged and fixed many difficult issues in systems involving both software and hardware components. 
-                        In one instance I tracked down a firmware bug in a serial communication card from one of our vendors.
-                    </SectionText>
-                    <ParallaxInfoImage backgroundImage={Debug} overlayColor={Colors.lockheed} href="https://en.wikipedia.org/wiki/Debugging#Origin_of_the_term"></ParallaxInfoImage>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoImage backgroundImage={Debug} overlayColor={Colors.lockheed} href="https://en.wikipedia.org/wiki/Debugging#Origin_of_the_term"></ParallaxInfoImage>
+            ),
+            text: (
+                <SectionText>
+                    I debugged and fixed many difficult issues in systems involving both software and hardware components. 
+                    In one instance I tracked down a firmware bug in a serial communication card from one of our vendors.
+                </SectionText>
+            ),
             title: 'Advanced Debugging'
         },
         {
-            content: (
-                <React.Fragment>
-                    <ParallaxInfoImage backgroundImage={Scrum} overlayColor={Colors.lockheed} href="https://www.scrum.org/"></ParallaxInfoImage>
-                    <SectionText>
-                        I served as the Scrum Master for my Agile software development team. I was in charge of running daily meetings, and coordinating dependencies with other teams. I also managed our Jira dashboard and participated in software peer reviews.
-                    </SectionText>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoImage backgroundImage={Scrum} overlayColor={Colors.lockheed} href="https://www.scrum.org/"></ParallaxInfoImage>
+            ),
+            text: (
+                <SectionText>
+                    I served as the Scrum Master for my Agile software development team. I was in charge of running daily meetings, and coordinating dependencies with other teams. I also managed our Jira dashboard and participated in software peer reviews.
+                </SectionText>
+            ),
             title: 'Scrum Master'
         }
     ];

@@ -74,6 +74,7 @@ const TimelineMarker = styled.li`
     color: white;
     background-color: ${Colors.primary};
     z-index: 1;
+    font-weight: 600;
     font-size: ${`${20 / INITIAL_SCALE}px`};
     padding: ${`${3 / INITIAL_SCALE}px`};
     border-radius: ${`${6 / INITIAL_SCALE}px`};

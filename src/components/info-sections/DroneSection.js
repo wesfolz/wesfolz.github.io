@@ -35,24 +35,26 @@ export default function EngagementSection(props) {
 
     const appRows = [
         {
-            content: (
-                <React.Fragment>
-                    <ParallaxInfoImage backgroundImage={Drone} backgroundColor="black" overlayColor={Colors.drone} href="https://github.com/wesfolz/RaspberryDronePi"></ParallaxInfoImage>
-                    <SectionText>
-                        I used the DroneKit Python API to send commands from the Raspberry Pi to the flight controller over USB. 
-                        I wrote a Flask web server to stream video from the Raspberry Pi camera and to accept websocket commands from a client application.
-                    </SectionText>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoImage backgroundImage={Drone} backgroundColor="black" overlayColor={Colors.drone} href="https://github.com/wesfolz/RaspberryDronePi"></ParallaxInfoImage>
+            ),
+            text: (
+                <SectionText>
+                    I used the DroneKit Python API to send commands from the Raspberry Pi to the flight controller over USB. 
+                    I wrote a Flask web server to stream video from the Raspberry Pi camera and to accept websocket commands from a client application.
+                </SectionText>
+            ),
             title: 'The Backend'
         },
         {
-            content: (
-                <React.Fragment>
-                    <SectionText>
-                        I built an Android app that connected to the Raspberry Pi web server to control the drone and view the video stream coming from the Raspberry Pi camera.
-                    </SectionText>
-                    <ParallaxInfoImage backgroundImage={DroneApp} overlayColor={Colors.drone} href="https://github.com/wesfolz/RaspberryDroneApp"></ParallaxInfoImage>
-                </React.Fragment>),
+            image: (
+                <ParallaxInfoImage backgroundImage={DroneApp} overlayColor={Colors.drone} href="https://github.com/wesfolz/RaspberryDroneApp"></ParallaxInfoImage>
+            ),
+            text: (
+                <SectionText>
+                    I built an Android app that connected to the Raspberry Pi web server to control the drone and view the video stream coming from the Raspberry Pi camera.
+                </SectionText>
+            ),
             title: 'The Frontend'
         }
     ];

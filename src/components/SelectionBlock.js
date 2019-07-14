@@ -37,13 +37,16 @@ const SectionText = styled.section`
     @media(max-width: 768px) {
         font-size: 14px;
     }
+    p {
+        font-family: "Fira Code";
+    }
 `;
 
 const SelectionContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* width: 100%; */
+    font-family: "Fira Code";
     max-width: 600px;
     opacity: ${props => props.slideOut || props.shrink ? 0 : 1};
     transition: ${props => `opacity ${props.transitionTime}s, transform ${props.transitionTime}s`};
