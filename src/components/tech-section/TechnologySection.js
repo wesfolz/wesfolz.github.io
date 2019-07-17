@@ -7,11 +7,15 @@ const SkillsGrid = styled.ul`
     list-style-type: none;
     display: flex;
     justify-content: flex-start;
+    align-items: flex-end;
     flex-wrap: wrap;
     width: 100%;
     background-color: white;
     padding-top: 20px;
     border-radius: 4px;
+    @media (max-width: 390px) {
+        justify-content: center;
+    }
 `;
 
 const SkillItem = styled.li`
@@ -20,6 +24,9 @@ const SkillItem = styled.li`
     flex-direction: column;
     align-items: center;
     width: 75px;
+    @media (max-width: 390px) {
+        padding: 20px;
+    }
     p {
         margin-bottom: 0;
         text-align: center;
