@@ -8,6 +8,7 @@ import StratosphereSection from 'components/info-sections/StratosphereSection';
 import EngagementSection from 'components/info-sections/EngagementSection';
 import BlowmeSection from 'components/info-sections/BlowmeSection';
 import DroneSection from 'components/info-sections/DroneSection';
+import DaylytesSection from 'components/info-sections/DaylytesSection';
 import Routes from 'Routes';
 
 export default function InfoRoutes(props) {
@@ -20,6 +21,7 @@ export default function InfoRoutes(props) {
             <Route path={Routes.engagement} render={() => <EngagementSection {...props}></EngagementSection>}/>
             <Route path={Routes.blowme} render={() => <BlowmeSection {...props}></BlowmeSection>}/>
             <Route path={Routes.drone} render={() => <DroneSection {...props}></DroneSection>}/>
+            <Route path={Routes.daylytes} render={() => <DaylytesSection {...props}></DaylytesSection>}/>
         </Switch>
     );
 }

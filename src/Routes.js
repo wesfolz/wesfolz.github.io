@@ -7,5 +7,6 @@ export default {
     stratosphere: '/timeline/stratosphere',
     engagement: '/timeline/engagement',
     drone: '/timeline/drone',
-    blowme: '/timeline/blowmeaway'  
+    blowme: '/timeline/blowmeaway',
+    daylytes: '/timeline/daylytes'
 };

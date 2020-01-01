@@ -1,16 +1,15 @@
 import React from 'react';
 
-import Stratosphere from 'images/stratosphere.png';
+import Daylytes from 'images/daylytes.svg';
 import Gradient from 'images/gradient.png';
 import TeamSection from 'images/team_section.png';
 import ContactForm from 'images/contact_form.png';
 import Blog from 'images/blog.png';
-import Coffescript from 'images/logos/coffeescript.svg';
-import Stylus from 'images/logos/stylus.svg';
-import Handlebars from 'images/logos/handlebars.svg';
-import Chrome from 'images/logos/chrome.svg';
-import Firefox from 'images/logos/firefox.svg';
-import Safari from 'images/logos/safari.svg';
+import Redux from 'images/logos/redux.svg';
+import Rails from 'images/logos/rails.png';
+import Postgres from 'images/logos/postgresql.svg';
+import Heroku from 'images/logos/heroku.svg';
+import Figma from 'images/logos/figma.png';
 
 import Colors from 'styles/Colors';
 import InfoSection from 'components/info-sections/InfoSection';
@@ -22,39 +21,47 @@ import InfoGrid from 'components/info-sections/InfoGrid';
 import { SectionTitle, SectionText, InlineButton } from 'components/info-sections/SectionStyles';
 import ParallaxInfoContainer from 'components/animated/ParallaxInfoContainer';
 
-export default function StratosphereSection(props) {
+export default function DaylytesSection(props) {
 
     const techList = [
         {
-            icon: <TechIcon src={Handlebars}></TechIcon>,
-            title: 'Handlebars'
+            icon: <FontAwesomeIcon icon={['fab', 'react']} color={Colors.react} size="3x"></FontAwesomeIcon>,
+            title: 'React Native'
         },
         {
-            icon: <TechIcon src={Stylus}></TechIcon>,
-            title: 'Stylus'
+            icon: <TechIcon src={Redux}></TechIcon>,
+            title: 'Redux'
         },
         {
-            icon: <TechIcon src={Coffescript}></TechIcon>,
-            title: 'CoffeeScript'
+            icon: <TechIcon src={Rails}></TechIcon>,
+            title: 'Ruby on Rails'
+        },
+        {
+            icon: <TechIcon src={Postgres}></TechIcon>,
+            title: 'PostgreSQL'
+        },
+        {
+            icon: <TechIcon src={Heroku}></TechIcon>,
+            title: 'Heroku'
+        },
+        {
+            icon: <FontAwesomeIcon icon={['fab', 'aws']} color={Colors.aws} size="3x"></FontAwesomeIcon>,
+            title: 'Amazon Web Services'
+        },
+        {
+            icon: <TechIcon src={Figma}></TechIcon>,
+            title: 'Figma'
         },
     ];
 
     const platformList = [
         {
-            icon: <TechIcon src={Chrome}></TechIcon>,
-            title: 'Chrome'
+            icon: <FontAwesomeIcon icon={['fab', 'apple']} color={Colors.ios} size="3x"></FontAwesomeIcon>,
+            title: 'iOS'
         },
         {
-            icon: <TechIcon src={Firefox}></TechIcon>,
-            title: 'Firefox'
-        },
-        {
-            icon: <FontAwesomeIcon icon={['fab', 'edge']} color={Colors.edge} size="3x"></FontAwesomeIcon>,
-            title: 'Edge'
-        },
-        {
-            icon: <TechIcon src={Safari}></TechIcon>,
-            title: 'Safari'
+            icon: <FontAwesomeIcon icon={['fab', 'android']} color={Colors.android} size="3x"></FontAwesomeIcon>,
+            title: 'Android'
         },
     ];
 
@@ -115,16 +122,16 @@ export default function StratosphereSection(props) {
 
     return (
         <InfoSection
-            infoTitle="Stratosphere Digital"
-            infoSubtitle="Contractor"
-            backgroundImage={Stratosphere}
-            backgroundColor="black"
-            exitColor={Colors.stratosphere}
+            infoTitle="Daylytes, Inc"
+            infoSubtitle="Software Engineer"
+            backgroundImage={Daylytes}
+            backgroundColor={Colors.daylytes}
+            exitColor={'black'}
             {...props}>
             <SectionTitle>Summary</SectionTitle>
             <SectionText>
-                <InlineButton color={Colors.stratosphere}>
-                    <a href="https://stratosphere.digital/">Stratosphere Digital</a>
+                <InlineButton color={Colors.daylytes}>
+                    <a href="https://daylytes.com/">Daylytes</a>
                 </InlineButton>  is a small digital agency that designs and builds websites and mobile apps.
                 Recently they redesigned their website and I was hired to implement the new design changes.
                 I added new features, new content, new styling and even fixed a few bugs.

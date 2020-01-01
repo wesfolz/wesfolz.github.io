@@ -7,7 +7,7 @@ const SkillsGrid = styled.ul`
     list-style-type: none;
     display: flex;
     justify-content: flex-start;
-    align-items: flex-end;
+    align-items: flex-start;
     flex-wrap: wrap;
     width: 100%;
     background-color: white;
@@ -24,6 +24,7 @@ const SkillItem = styled.li`
     flex-direction: column;
     align-items: center;
     width: 75px;
+    flex: 1;
     @media (max-width: 390px) {
         padding: 20px;
     }
