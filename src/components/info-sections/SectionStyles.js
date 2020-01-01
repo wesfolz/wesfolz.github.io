@@ -16,7 +16,6 @@ export const SectionText = styled.p`
 export const SectionHeader = styled.header`
     background-color: ${props => props.color};
     z-index: 1;
-    transition: all 0.3s ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;

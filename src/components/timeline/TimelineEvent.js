@@ -18,7 +18,8 @@ const ItemContainer = styled.div`
 `;
 
 const Overlay = styled(SectionHeader)`
-    position: absolute;
+    transition: all 0.3s ease-in-out;
+    position: fixed;
     width: ${props => `${props.imageSize}px`};
     height: ${props => `${props.imageSize}px`};
     border-radius: 50%;
