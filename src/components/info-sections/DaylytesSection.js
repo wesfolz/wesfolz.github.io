@@ -139,7 +139,7 @@ export default function DaylytesSection(props) {
             <SectionTitle>Major Features</SectionTitle>
             <InfoGrid rows={rows}>
             </InfoGrid>
-            <SectionTitle>Development Stack</SectionTitle>
+            <SectionTitle>Technology</SectionTitle>
             <TechnologySection techList={techList}>
             </TechnologySection>
             <SectionTitle>Supported Platforms</SectionTitle>
