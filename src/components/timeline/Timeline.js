@@ -158,7 +158,7 @@ const EventPointLeft = styled(EventMarkerLeft)`
 
 export default function Timeline(props) {
     const containerRef = useRef(null);
-    const [scale, setScale] = useState(INITIAL_SCALE / 10);
+    const [scale, setScale] = useState(INITIAL_SCALE / 3);
     const [opacity, setOpacity] = useState(0);
     const [translation, setTranslation] = useState({ x: '0px', y: '0px' });
     const [collapse, setCollapse] = useState(false);
