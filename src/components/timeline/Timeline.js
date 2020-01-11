@@ -36,6 +36,7 @@ const OverflowHidden = styled.div`
 `;
 
 const TimelineContainer = styled.div`
+    will-change: transform;
     display: flex;
     justify-content: center;
     /* align-items: center; */
@@ -43,7 +44,7 @@ const TimelineContainer = styled.div`
     /* transform-origin: 0; */
     opacity: ${props => props.opacity};
     transform: translate3d(${props => props.translation.x}, ${props => props.translation.y}, 0) scale3d(${props => `${props.scale || 1}, ${props.scale || 1}, ${props.scale || 1}`});
-    transition: all ${`${TRANSITION_TIME}s ease-in-out`};
+    transition: transform ${`${TRANSITION_TIME}s ease-in-out`}, opacity ${`${TRANSITION_TIME}s ease-in-out`};
     backface-visibility: hidden;
 `;
 
@@ -203,8 +204,10 @@ export default function Timeline(props) {
         const yOffset = (centerOffset / INITIAL_SCALE) - ref.current.getBoundingClientRect().height / (2 * INITIAL_SCALE);
         const xOffset = (horizontalOffset / INITIAL_SCALE) - ref.current.getBoundingClientRect().width / (2 * INITIAL_SCALE);
         setTranslation({ x: `${xOffset}px`, y: `${yOffset}px` });
+        const finalYOffset = yOffset - document.documentElement.offsetHeight / 2 + ref.current.getBoundingClientRect().height;
         setTimeout(() => {
             navigateToPath(eventName);
+            setTranslation({ x: `${xOffset}px`, y: `${finalYOffset}px` });
         }, TRANSITION_TIME * 1000 + 300);
         setScale(1);
         setCollapse(false);

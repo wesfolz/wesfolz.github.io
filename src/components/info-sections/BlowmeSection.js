@@ -15,7 +15,7 @@ import ParallaxInfoImage from 'components/animated/ParallaxInfoImage';
 import TechnologySection from 'components/tech-section/TechnologySection';
 import TechIcon from 'components/tech-section/TechIcon';
 import InfoGrid from 'components/info-sections/InfoGrid';
-import { SectionTitle, SectionText, InlineButton, FullRowImage } from 'components/info-sections/SectionStyles';
+import { SectionTitle, SectionText, FullRowImage } from 'components/info-sections/SectionStyles';
 
 export default function BlowmeSection(props) {
 

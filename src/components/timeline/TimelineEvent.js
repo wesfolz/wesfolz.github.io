@@ -18,7 +18,7 @@ const ItemContainer = styled.div`
 `;
 
 const Overlay = styled(SectionHeader)`
-    transition: all 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out, height 0.3s ease-in-out, transform 0.3s ease-in-out, border-radius 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     position: fixed;
     width: ${props => `${props.imageSize}px`};
     height: ${props => `${props.imageSize}px`};
@@ -39,7 +39,7 @@ const Overlay = styled(SectionHeader)`
             transform: scale(1.25);
         }
     }
-    &.expanded {
+    &.expanded, &.invisible {
         width: 100vw;
         height: 400px;
         border-radius: ${props => `${3 / props.scale}px`};
@@ -47,6 +47,10 @@ const Overlay = styled(SectionHeader)`
         @media(max-width: 768px), (max-height: 850px) {
             height: 240px;
         }
+    }
+
+    &.invisible {
+        opacity: 0;
     }
 
     &:hover, &.zoomed, &.expanded {
@@ -65,16 +69,22 @@ export default function TimelineEvent(props) {
 
     useEffect(() => {
         if (props.collapse) {
+            if (overlayClass) {
+                setOverlayClass('expanded');
+            }
             setTimeout(() => {
                 setOverlayClass(null);
             }, props.transitionTime * 1000);
         }
-    }, [props.collapse])
+    }, [props.collapse]);
 
     const selectItem = () => {
         setOverlayClass('zoomed');
         setTimeout(() => {
             setOverlayClass('expanded');
+            // setTimeout(() => {
+            //     setOverlayClass('invisible');
+            // }, 500)
         }, props.transitionTime * 1000);
 
         props.selectItem(itemRef, props.eventId);

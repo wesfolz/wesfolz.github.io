@@ -11,22 +11,33 @@ const DELAY_TIME = 0.25;
 
 const SectionWrapper = styled.article`
     position: absolute;
-    top: ${props => props.shrink ? '0' : `calc(50vh - ${props.imageSize / 2}px)`};
+    /* top: 0; */
+    /* top: ${props => props.shrink ? '0' : `calc(50vh - ${props.imageSize / 2}px)`}; */
+    top: ${props => `calc(50vh - ${props.imageSize / 2}px)`};
+    /* transform: translateY(${props => props.shrink ? '0' : `calc(50vh - ${props.imageSize / 2}px)`}); */
     left: 0;
     width: 100%;
-    background-color: ${Colors.offWhite};
+    /* background-color: ${Colors.offWhite}; */
     transition: top ${`${TRANSITION_TIME}s ease`};
     overflow-x: hidden;
 `;
 
 const ContentWrapper = styled.div`
-    max-height: ${props => props.shrink ? '10000px' : 0};
+    /* max-height: ${props => props.shrink ? '10000px' : 0}; */
+    /* max-height: 10000px; */
+    background-color: ${Colors.offWhite};
+    /* transform: scaleY(${props => props.shrink ? 1 : 0}), translateY(${props => props.shrink ? '0' : `calc(50vh - ${props.imageSize / 2}px)`}); */
+    opacity: ${props => props.shrink ? 1 : 0};
     overflow: hidden;
-    transition: max-height ${`${TRANSITION_TIME}s ease, padding ${TRANSITION_TIME}s ease`};
+    transition: opacity ${`${TRANSITION_TIME}s ease, padding ${TRANSITION_TIME}s ease`};
+`;
+
+const Content = styled.div`
     padding: ${props => props.shrink ? '0px 40px 40px' : '0px 40px'};
     margin: 0 auto;
     max-width: 1200px;
-`;
+    transition: padding ${`${TRANSITION_TIME}s ease`};
+`
 
 const CloseButton = styled(SelectableButton)`
     position: fixed;
@@ -44,12 +55,13 @@ export default function InfoSection(props) {
 
     useEffect(() => {
         setTimeout(() => {
-            setShrink(true);
+            // setShrink(true);
         }, DELAY_TIME * 1000);
     }, []);
 
     const closeSection = () => {
         setShrink(false);
+        window.scroll({top: 0, left: 0, behavior: 'smooth' })
         setTimeout(() => {
             if(props.zoomOut) {
                 props.zoomOut();
@@ -72,7 +84,9 @@ export default function InfoSection(props) {
                 <p>{props.infoSubtitle}</p>
             </SectionHeader>
             <ContentWrapper shrink={shrink}>
-                {props.children}
+                <Content shrink={shrink}>
+                    {props.children}
+                </Content>
             </ContentWrapper>
         </SectionWrapper>
     );
