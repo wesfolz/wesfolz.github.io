@@ -70,7 +70,7 @@ export default function SelectionBlock({ selectItem, titleText, subtitleText, se
     const [sectionTextComplete, setSectionTextComplete] = useState(false);
     const [indexLoading, setIndexLoading] = useState(0);
 
-    const [selectedIndex, setSelectedIndex] = useKeySelect({
+    const [selectedIndex] = useKeySelect({
         itemCount: selections.length,
         selectItem: () => { selectItem(selectedIndex) }
     });

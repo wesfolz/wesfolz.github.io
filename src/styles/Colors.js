@@ -24,6 +24,7 @@ const Colors = {
     scavenger: '#F4E023',
     drone: '#617F8A',
     raspberry: '#C11043',
+    daylytes: '#2D76F3',
     linkedin: '#0077B5',
     github: '#6e5494',
     android: '#a4c639',
@@ -33,7 +34,9 @@ const Colors = {
     java: '#007396',
     php: '#738ADB',
     react: '#61dbfb',
-    jira: '#0052CC'
+    jira: '#0052CC',
+    aws: '#fd7e14',
+    ios: '#A3AAAE'
 };
 
 export default Colors;
