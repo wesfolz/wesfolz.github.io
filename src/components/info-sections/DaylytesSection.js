@@ -1,10 +1,9 @@
 import React from 'react';
 
 import Daylytes from 'images/daylytes.svg';
-import Gradient from 'images/gradient.png';
-import TeamSection from 'images/team_section.png';
-import ContactForm from 'images/contact_form.png';
-import Blog from 'images/blog.png';
+import DaylytesVideo from 'images/daylytes_video.png';
+import DaylytesPost from 'images/daylytes_post.png';
+import DaylytesHome from 'images/daylytes_home.png';
 import Redux from 'images/logos/redux.svg';
 import Rails from 'images/logos/rails.png';
 import Postgres from 'images/logos/postgresql.svg';
@@ -67,56 +66,46 @@ export default function DaylytesSection(props) {
 
     const rows = [
         {
+            //http://onelink.to/4cnghx
             image: (
                 <ParallaxInfoContainer>
-                    <ParallaxImage backgroundImage={Gradient}></ParallaxImage>
+                    <ParallaxImage backgroundImage={DaylytesVideo} backgroundColor="black"></ParallaxImage>
                 </ParallaxInfoContainer>
             ),
             text: (
                 <SectionText>
-                    I created an adaptive css gradient background that rescales and repositions itself depending on the width of the browser window.
+                    I developed a social media sports app which was released to both the Apple App Store and Google Play Store. 
+                    Notable features of the app included fullscreen, autoplaying videos, video and image posting, a video interview feature, inline tagging of other users, a profile section, following, liking, etc.
                 </SectionText>
             ),
-            title: 'Gradient Background'
+            title: 'Cross-Platform Mobile App Development'
         },
         {
             image: (
                 <ParallaxInfoContainer>
-                    <ParallaxImage backgroundImage={TeamSection} backgroundColor="black"></ParallaxImage>
+                    <ParallaxImage backgroundImage={DaylytesPost} backgroundColor="black"></ParallaxImage>
                 </ParallaxInfoContainer>
             ),
             text: (
                 <SectionText>
-                    I added a new interactive team info section with custom transition animations.
+                    I worked on the backend API and database architecture for the Daylytes mobile app. 
+                    This included features such as token authentication, video and image upload processing, etc.
                 </SectionText>
             ),
-            title: 'Team Section'
+            title: 'Mobile App Backend API'
         },
         {
             image: (
                 <ParallaxInfoContainer>
-                    <ParallaxImage backgroundImage={Blog} backgroundColor="black"></ParallaxImage>
+                    <ParallaxImage backgroundImage={DaylytesHome} backgroundColor="black"></ParallaxImage>
                 </ParallaxInfoContainer>
             ),
             text: (
                 <SectionText>
-                    I added and updated the content for the blog section and many of the case studies.
+                    I worked with the marketing team to brainstorm and design product features that would accomplish specific marketing goals while also being technically feasible. 
                 </SectionText>
             ),
-            title: 'New Content'
-        },
-        {
-            image: (
-                <ParallaxInfoContainer>
-                    <ParallaxImage backgroundImage={ContactForm} backgroundColor="black"></ParallaxImage>
-                </ParallaxInfoContainer>
-            ),
-            text: (
-                <SectionText>
-                    I updated the contact form with new styling and validation logic.
-                </SectionText>
-            ),
-            title: 'Contact Form'
+            title: 'Business and Product Strategy'
         }
     ];
 
@@ -132,11 +121,12 @@ export default function DaylytesSection(props) {
             <SectionText>
                 <InlineButton color={Colors.daylytes}>
                     <a href="https://daylytes.com/">Daylytes</a>
-                </InlineButton>  is a small digital agency that designs and builds websites and mobile apps.
-                Recently they redesigned their website and I was hired to implement the new design changes.
-                I added new features, new content, new styling and even fixed a few bugs.
+                </InlineButton> is a VC funded sports media startup company.
+                I was hired as a software engineer and was employee number three at the company. 
+                I worked on all aspects of the Daylytes mobile app. 
+                From generating product ideas, to UI/UX design, backend software architecture and finally implementation of the full technology stack.
             </SectionText>
-            <SectionTitle>Major Features</SectionTitle>
+            <SectionTitle>Job Duties</SectionTitle>
             <InfoGrid rows={rows}>
             </InfoGrid>
             <SectionTitle>Technology</SectionTitle>
