@@ -45,7 +45,7 @@ const TimelineContainer = styled.div`
     height: 100vh;
     /* transform-origin: 0; */
     opacity: ${props => props.opacity};
-    transform: translate3d(${props => props.translation.x}, ${props => props.translation.y}, 0) scale(${props => props.scale || 1});
+    transform: translate3d(${props => props.translation.x}, ${props => props.translation.y}, 0) scale3d(${props => `${props.scale || 1}, ${props.scale || 1}, ${props.scale || 1}`});
     transition: all ${`${TRANSITION_TIME}s ease-in-out`};
     backface-visibility: hidden;
 `;
@@ -162,7 +162,7 @@ const EventPointLeft = styled(EventMarkerLeft)`
 
 export default function Timeline(props) {
     const containerRef = useRef(null);
-    const [scale, setScale] = useState(INITIAL_SCALE / 10);
+    const [scale, setScale] = useState(INITIAL_SCALE / 3);
     const [opacity, setOpacity] = useState(0);
     const [translation, setTranslation] = useState({ x: '0px', y: '0px' });
     const [collapse, setCollapse] = useState(false);
@@ -200,7 +200,9 @@ export default function Timeline(props) {
 
     const selectEvent = (ref, eventName) => {
         const top = ref.current.getBoundingClientRect().top;
-        const centerOffset = window.innerHeight / 2 - top;
+        // const centerOffset = window.innerHeight / 2 - top;
+        // Using offset height of the document instead of window.innerHeight ignores the address bar on mobile
+        const centerOffset = document.documentElement.offsetHeight / 2 - document.documentElement.scrollTop - top;
         const horizontalOffset = window.innerWidth / 2 - ref.current.getBoundingClientRect().left;
         const yOffset = (centerOffset / INITIAL_SCALE) - ref.current.getBoundingClientRect().height / (2 * INITIAL_SCALE);
         const xOffset = (horizontalOffset / INITIAL_SCALE) - ref.current.getBoundingClientRect().width / (2 * INITIAL_SCALE);

@@ -81,14 +81,14 @@ const RowContents = styled.section`
         border-radius: 4px;
         box-sizing: border-box;
         position: relative;
-        box-shadow: ${props => props.reverse ? "-8px" : "8px"} 8px 16px rgba(0, 0, 0, 0.5), 0 0 30px rgba(74,194,255,.25);
+        box-shadow: ${props => props.reverse ? "-8px" : "8px"} 8px 16px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 0, 0.25);
         top: 150px;
         left: ${props => props.reverse ? "50px" : "-50px"};
         @media(max-width: 900px) {
             width: 90%;
             top: -75px;
             left: 0;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5), 0 0 30px rgba(74,194,255,.25);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 0, .25);
         }
     }
 
