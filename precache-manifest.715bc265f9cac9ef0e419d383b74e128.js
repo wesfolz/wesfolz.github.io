@@ -1,23 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "27bd57cbfb236e769a63ba847a0cd869",
-    "url": "/static/media/gradient.27bd57cb.png"
+    "revision": "9f18301a14da523463e94a5fabc40bc4",
+    "url": "/static/media/handlebars.9f18301a.svg"
   },
   {
-    "revision": "5246b28c61400587ae23",
-    "url": "/static/css/main.cb0f4a24.chunk.css"
+    "revision": "2ef2012332a10fefb8be",
+    "url": "/static/css/main.eef2d161.chunk.css"
   },
   {
     "revision": "42ac5946195a7306e2a5",
     "url": "/static/js/runtime~main.a8a9905a.js"
   },
   {
-    "revision": "8236190c08c5efe01d04baae252c0241",
-    "url": "/static/media/FiraCode-Bold.8236190c.ttf"
+    "revision": "f6d69098a7e1481b4d682aca18d979ea",
+    "url": "/static/media/source-code-pro-latin-900italic.f6d69098.woff"
   },
   {
-    "revision": "517ee31d49d66d072c4f",
-    "url": "/static/js/2.48eb999d.chunk.js"
+    "revision": "3080f1d72eca591129bf",
+    "url": "/static/js/2.9497dec8.chunk.js"
   },
   {
     "revision": "2cb8e888d03105723549e41726b0e88f",
@@ -164,8 +164,8 @@ self.__precacheManifest = [
     "url": "/static/media/xilinx.fb652692.svg"
   },
   {
-    "revision": "5246b28c61400587ae23",
-    "url": "/static/js/main.10c25177.chunk.js"
+    "revision": "27bd57cbfb236e769a63ba847a0cd869",
+    "url": "/static/media/gradient.27bd57cb.png"
   },
   {
     "revision": "be02bfeeba9501ca2d58d13417131563",
@@ -188,8 +188,8 @@ self.__precacheManifest = [
     "url": "/static/media/stylus.23583c9d.svg"
   },
   {
-    "revision": "9f18301a14da523463e94a5fabc40bc4",
-    "url": "/static/media/handlebars.9f18301a.svg"
+    "revision": "2ef2012332a10fefb8be",
+    "url": "/static/js/main.c76c55dd.chunk.js"
   },
   {
     "revision": "4ed3a9f284c4e19658a81a482fc86b7c",
@@ -264,71 +264,119 @@ self.__precacheManifest = [
     "url": "/static/media/logo_primary.e85de17a.svg"
   },
   {
-    "revision": "3a7fa12881064e3e0e3983d8524bbc00",
-    "url": "/static/media/FiraCode-Light.3a7fa128.woff2"
+    "revision": "dccbac565028cfebef65293db4bd9714",
+    "url": "/static/media/source-code-pro-latin-300.dccbac56.woff2"
   },
   {
-    "revision": "d293dc7c066d907f308b9924a60f1700",
-    "url": "/static/media/FiraCode-Medium.d293dc7c.woff2"
+    "revision": "5150e99c19321c28973e47f9569d2777",
+    "url": "/static/media/source-code-pro-latin-200italic.5150e99c.woff2"
   },
   {
-    "revision": "24310bd06e2537b92a92f33dabdc038b",
-    "url": "/static/media/FiraCode-Regular.24310bd0.woff2"
+    "revision": "ffa5c77d0ba471964e2edf117c5e52cf",
+    "url": "/static/media/source-code-pro-latin-200.ffa5c77d.woff2"
   },
   {
-    "revision": "9ecee2ce95b0de731b1498b48e71c737",
-    "url": "/static/media/FiraCode-Bold.9ecee2ce.woff2"
+    "revision": "9e3292f8b91cbb18756a46d39b802e48",
+    "url": "/static/media/source-code-pro-latin-300italic.9e3292f8.woff2"
   },
   {
-    "revision": "6929f8ebd787ddbe39bf7be574731a5e",
-    "url": "/static/media/FiraCode-Regular.6929f8eb.eot"
+    "revision": "982234eca7d717dd9784d15519ece2f8",
+    "url": "/static/media/source-code-pro-latin-400.982234ec.woff2"
   },
   {
-    "revision": "52f4340d65ddb99093e8c3af242c33fc",
-    "url": "/static/media/FiraCode-Medium.52f4340d.eot"
+    "revision": "1a0fda4533853faab45697ee60d0f9fe",
+    "url": "/static/media/source-code-pro-latin-400italic.1a0fda45.woff2"
   },
   {
-    "revision": "259c44f16f7596bab6718b235119e013",
-    "url": "/static/media/FiraCode-Light.259c44f1.eot"
+    "revision": "04d782d8f60233715c253e81be5ef8a2",
+    "url": "/static/media/source-code-pro-latin-500italic.04d782d8.woff2"
   },
   {
-    "revision": "f0f92eeb8c1af44fa4e604069fde97d9",
-    "url": "/static/media/FiraCode-Bold.f0f92eeb.eot"
+    "revision": "744eeaab2c97bfcde24f9f96377a0ec9",
+    "url": "/static/media/source-code-pro-latin-500.744eeaab.woff2"
   },
   {
-    "revision": "a8a711df192aa3da76989bcb5db3239d",
-    "url": "/static/media/FiraCode-Light.a8a711df.woff"
+    "revision": "3036a9fd64c64be915eb1dbcfb6a51cf",
+    "url": "/static/media/source-code-pro-latin-600.3036a9fd.woff2"
   },
   {
-    "revision": "4dee11c0d1acf3da2be1957cb5299315",
-    "url": "/static/media/FiraCode-Medium.4dee11c0.woff"
+    "revision": "b4c3891c92598de51f1470a6302a2f67",
+    "url": "/static/media/source-code-pro-latin-600italic.b4c3891c.woff2"
   },
   {
-    "revision": "62da0ac51db1e4a3a4d57b9154a344fc",
-    "url": "/static/media/FiraCode-Regular.62da0ac5.woff"
+    "revision": "fc9b51aa041ab01766a7d13cca7e230c",
+    "url": "/static/media/source-code-pro-latin-700italic.fc9b51aa.woff2"
   },
   {
-    "revision": "2bf08001f42c34e30e1de9d2eb81aead",
-    "url": "/static/media/FiraCode-Bold.2bf08001.woff"
+    "revision": "f85c431d467f00f1f44b1a2dc3792852",
+    "url": "/static/media/source-code-pro-latin-700.f85c431d.woff2"
   },
   {
-    "revision": "a85ebfc3913ab6bc6a7b817fa627b904",
-    "url": "/static/media/FiraCode-Light.a85ebfc3.ttf"
+    "revision": "e13ecdc77b68244d5e0d1149a35726e1",
+    "url": "/static/media/source-code-pro-latin-900.e13ecdc7.woff2"
   },
   {
-    "revision": "f08fdb39cbf433548d343b4e4daf3ba1",
-    "url": "/static/media/FiraCode-Regular.f08fdb39.ttf"
+    "revision": "9e39d561554343bf27d2acf561bf256e",
+    "url": "/static/media/source-code-pro-latin-900italic.9e39d561.woff2"
   },
   {
-    "revision": "010c2e55a9ef14a61d1d6c8b3fbcc7bc",
-    "url": "/static/media/FiraCode-Medium.010c2e55.ttf"
+    "revision": "558e932a85350db3380c8daa75c396ab",
+    "url": "/static/media/source-code-pro-latin-200.558e932a.woff"
   },
   {
-    "revision": "517ee31d49d66d072c4f",
-    "url": "/static/css/2.b324f394.chunk.css"
+    "revision": "62a30baa98bb767d790e8780b73e2b1c",
+    "url": "/static/media/source-code-pro-latin-200italic.62a30baa.woff"
   },
   {
-    "revision": "9686c28675e00a658a794344f30b5afa",
+    "revision": "de712560ce6208f9fb93e71af1dd0f8b",
+    "url": "/static/media/source-code-pro-latin-300.de712560.woff"
+  },
+  {
+    "revision": "7082c98886a824910e49c07a1025f114",
+    "url": "/static/media/source-code-pro-latin-300italic.7082c988.woff"
+  },
+  {
+    "revision": "17ea4760cdf09ade45a20bce5f2933a9",
+    "url": "/static/media/source-code-pro-latin-400.17ea4760.woff"
+  },
+  {
+    "revision": "18dd4f87fffded28ff1bb467f5b0709f",
+    "url": "/static/media/source-code-pro-latin-400italic.18dd4f87.woff"
+  },
+  {
+    "revision": "3f58f0647ec74049ee3ba6cef1a5fde0",
+    "url": "/static/media/source-code-pro-latin-500.3f58f064.woff"
+  },
+  {
+    "revision": "cfc748ca1b98f6855c39ccff0f6414b8",
+    "url": "/static/media/source-code-pro-latin-500italic.cfc748ca.woff"
+  },
+  {
+    "revision": "5a085db27a43c3351e2983f7a755dc5e",
+    "url": "/static/media/source-code-pro-latin-600.5a085db2.woff"
+  },
+  {
+    "revision": "b837c15c474e3654dabab85ad647cde6",
+    "url": "/static/media/source-code-pro-latin-700.b837c15c.woff"
+  },
+  {
+    "revision": "c48732b54355ac669ca48b5cea058c40",
+    "url": "/static/media/source-code-pro-latin-900.c48732b5.woff"
+  },
+  {
+    "revision": "e690a100108349e491a9803509e8f61e",
+    "url": "/static/media/source-code-pro-latin-700italic.e690a100.woff"
+  },
+  {
+    "revision": "fead30eb2d488adb1b3ddf744aeb7995",
+    "url": "/static/media/source-code-pro-latin-600italic.fead30eb.woff"
+  },
+  {
+    "revision": "3080f1d72eca591129bf",
+    "url": "/static/css/2.525a89fe.chunk.css"
+  },
+  {
+    "revision": "7e203696d6b3972fc904f9d8ac0ace5a",
     "url": "/index.html"
   }
 ];
