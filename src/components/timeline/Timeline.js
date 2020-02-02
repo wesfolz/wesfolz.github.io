@@ -268,7 +268,7 @@ export default function Timeline(props) {
 
     const timelineMarkers = () => {
         const markers = ['Present', '2019', '2018', '2016', '2014', '2011'];
-        return markers.map(marker => <TimelineMarker>{marker}</TimelineMarker>);
+        return markers.map(marker => <TimelineMarker key={marker}>{marker}</TimelineMarker>);
     }
 
     return (
