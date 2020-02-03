@@ -116,7 +116,7 @@ export default function StratosphereSection(props) {
     return (
         <InfoSection
             infoTitle="Stratosphere Digital"
-            infoSubtitle="Independent Contractor"
+            infoSubtitle="Contractor"
             backgroundImage={Stratosphere}
             backgroundColor="black"
             exitColor={Colors.stratosphere}

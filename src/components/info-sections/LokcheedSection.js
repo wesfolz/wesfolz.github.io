@@ -105,10 +105,10 @@ export default function LokcheedSection(props) {
             ),
             text: (
                 <SectionText>
-                    I develop and maintain Big Data web applications for retrieval and visualization of telemetry data for spacecrafts and satellites such as Orion and GOES-R. 
-                    For this team I work as a full stack engineer contributing on a wide array of features. 
-                    I redesigned and implemented the UIs for plotting data, building queries and searching for telemetry. 
-                    I improved performance of telemetry database queries by a factor of 10. 
+                   I developed and maintained Big Data web applications for retrieval and visualization of telemetry data for spacecrafts and satellites such as Orion and GOES-R. 
+                   For this team I worked as a full stack engineer contributing to a wide array of features. 
+                   I redesigned and implemented the UIs for plotting data, building queries and searching for telemetry. 
+                   I improved performance of telemetry database queries by a factor of 10. 
                 </SectionText>
             ),
             title: 'Full Stack Web Development'
@@ -175,7 +175,8 @@ export default function LokcheedSection(props) {
                 Lockheed Martin is a multi-billion dollar aerospace and defense company. I have been a software engineer for&nbsp;
                 <InlineButton color={Colors.lockheed}>
                     <a href="https://www.lockheedmartin.com/en-us/capabilities/space.html">Lockheed Martin Space Systems</a>
-                </InlineButton> since 2016. I have worked on two different teams, doing both embedded programming and full stack web development.
+                </InlineButton>
+                from 2016 - 2019. In my time there, I worked on two different teams, doing both embedded programming and full stack web development.
             </SectionText>
             <SectionTitle>Job Duties</SectionTitle>
             <InfoGrid rows={rows}></InfoGrid>

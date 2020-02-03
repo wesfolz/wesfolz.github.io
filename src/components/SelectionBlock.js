@@ -38,7 +38,7 @@ const SectionText = styled.section`
         font-size: 14px;
     }
     p {
-        font-family: "Fira Code";
+        font-family: 'Source Code Pro';
     }
 `;
 
@@ -46,7 +46,7 @@ const SelectionContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    font-family: "Fira Code";
+    font-family: 'Source Code Pro';
     max-width: 600px;
     opacity: ${props => props.slideOut || props.shrink ? 0 : 1};
     transition: ${props => `opacity ${props.transitionTime}s, transform ${props.transitionTime}s`};
@@ -70,7 +70,7 @@ export default function SelectionBlock({ selectItem, titleText, subtitleText, se
     const [sectionTextComplete, setSectionTextComplete] = useState(false);
     const [indexLoading, setIndexLoading] = useState(0);
 
-    const [selectedIndex, setSelectedIndex] = useKeySelect({
+    const [selectedIndex] = useKeySelect({
         itemCount: selections.length,
         selectItem: () => { selectItem(selectedIndex) }
     });

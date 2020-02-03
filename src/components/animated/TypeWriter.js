@@ -7,9 +7,9 @@ const WriterText = styled.div`
     margin: 0;
 `;
 
-const WriterCharacter = styled.span`
+const WriterCharacter = styled.code`
     opacity: ${props => props.opacity || 0};
-    font-family: 'Fira Code';
+    font-family: 'Source Code Pro';
 `;
 
 export default function TypeWriter({ text, start, delay, onComplete, color, className }) {

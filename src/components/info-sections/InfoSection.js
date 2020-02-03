@@ -20,6 +20,7 @@ const SectionWrapper = styled.article`
     /* background-color: ${Colors.offWhite}; */
     transition: top ${`${TRANSITION_TIME}s ease`};
     overflow-x: hidden;
+    margin-bottom: 16px;
 `;
 
 const ContentWrapper = styled.div`
@@ -42,8 +43,8 @@ const Content = styled.div`
 const CloseButton = styled(SelectableButton)`
     position: fixed;
     z-index: 1000;
-    top: 20px;
-    right: 20px;
+    top: 8px;
+    right: 8px;
     border-radius: 50%;
     padding: 8px 11px;
     background-color: transparent;
