@@ -18,18 +18,26 @@ const ItemContainer = styled.div`
 `;
 
 const Overlay = styled(SectionHeader)`
-    transition: width 0.3s ease-in-out, height 0.3s ease-in-out, transform 0.3s ease-in-out, border-radius 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* transition: width 0.3s ease-in-out, height 0.3s ease-in-out, transform 0.3s ease-in-out, border-radius 0.3s ease-in-out, box-shadow 0.3s ease-in-out; */
+    transition: transform 0.3s ease-in-out;
     position: fixed;
+    border-radius: 50%;
     width: ${props => `${props.imageSize}px`};
     height: ${props => `${props.imageSize}px`};
-    border-radius: 50%;
     p {
         opacity: 0;
         transition: opacity 0.3s;
     }
+    &::before {
+        content: '';
+        transition: transform 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+        border-radius: 50%;
+        background-color: ${props => props.color};
+        position: absolute;
+        width: ${props => `${props.imageSize}px`};
+        height: ${props => `${props.imageSize}px`};
+    }
     &:hover, &.zoomed {
-        box-shadow: ${props => ` 0px 0px ${16 / props.scale}px white`};
-        border-radius: ${props => `${8 / props.scale}px`};
         transform: scale(2);
         z-index: 2;
         @media(max-width: 500px) {
@@ -38,11 +46,18 @@ const Overlay = styled(SectionHeader)`
         @media(max-width: 400px) {
             transform: scale(1.25);
         }
+
+        &::before {
+            box-shadow: ${props => ` 0px 0px ${16 / props.scale}px white`};
+            border-radius: ${props => `${8 / props.scale}px`};
+        }
     }
     &.expanded, &.invisible {
-        width: 100vw;
-        height: 400px;
-        border-radius: ${props => `${3 / props.scale}px`};
+        &::before {
+            transform: scaleX(6);
+            border-radius: 0;
+        }
+        z-index: 2;
         transform: scale(1);
         @media(max-width: 768px), (max-height: 850px) {
             height: 240px;
@@ -63,7 +78,6 @@ const Overlay = styled(SectionHeader)`
 `;
 
 export default function TimelineEvent(props) {
-
     const [overlayClass, setOverlayClass] = useState(null);
     const itemRef = useRef(null);
 

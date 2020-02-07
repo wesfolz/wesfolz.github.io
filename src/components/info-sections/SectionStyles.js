@@ -26,7 +26,6 @@ export const SectionHeader = styled.header`
         color: white;
         text-align: center;
     }
-    border-radius: ${props => `${3 / props.scale}px`};
     width: 100vw;
     height: 400px;
     @media(max-width: 768px), (max-height: 850px) {

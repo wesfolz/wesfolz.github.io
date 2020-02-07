@@ -169,6 +169,7 @@ export default function Timeline(props) {
     const [collapse, setCollapse] = useState(false);
     const [timelineWidth, setTimelineWidth] = useState(TIMELINE_WIDTH);
     const [imageSize, setImageSize] = useState(100 / INITIAL_SCALE);
+    const centerZoom = useRef(null);
 
 
     const handleResize = () => {
@@ -207,6 +208,7 @@ export default function Timeline(props) {
         const horizontalOffset = window.innerWidth / 2 - ref.current.getBoundingClientRect().left;
         const yOffset = (centerOffset / INITIAL_SCALE) - ref.current.getBoundingClientRect().height / (2 * INITIAL_SCALE);
         const xOffset = (horizontalOffset / INITIAL_SCALE) - ref.current.getBoundingClientRect().width / (2 * INITIAL_SCALE);
+        centerZoom.current = { x: `${xOffset}px`, y: `${yOffset}px` };
         setTranslation({ x: `${xOffset}px`, y: `${yOffset}px` });
         const finalYOffset = yOffset - document.documentElement.offsetHeight / 2 + ref.current.getBoundingClientRect().height;
         setTimeout(() => {
@@ -218,10 +220,13 @@ export default function Timeline(props) {
     };
 
     const zoomOut = () => {
-        setScale(INITIAL_SCALE);
-        setTranslation({ x: 0, y: 0 });
-        setCollapse(true);
-        props.history.push('/timeline');
+        setTranslation(centerZoom.current)
+        setTimeout(() => {
+            setScale(INITIAL_SCALE);
+            setTranslation({ x: 0, y: 0 });
+            setCollapse(true);
+            props.history.push('/timeline');
+        }, TRANSITION_TIME * 1000)
     };
 
     const navigateToPath = (eventName) => {
@@ -275,7 +280,7 @@ export default function Timeline(props) {
     }
 
     return (
-        <div>
+        <React.Fragment>
             <OverflowHidden>
                 <TimelineContainer ref={containerRef} scale={scale} translation={translation} opacity={opacity}>
                     <TimelineList>
@@ -407,6 +412,6 @@ export default function Timeline(props) {
                 </TimelineContainer>
             </OverflowHidden>
             <InfoRoutes zoomOut={zoomOut} imageSize={imageSize}></InfoRoutes>
-        </div>
+        </React.Fragment>
     );
 }
