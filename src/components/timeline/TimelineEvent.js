@@ -39,13 +39,25 @@ const Overlay = styled(SectionHeader)`
             transform: scale(1.25);
         }
     }
-    &.expanded {
-        width: 100vw;
-        height: 400px;
+    &::after {
+      content: '';
+      height: 400px;
+      width: 100vw;
+      background-color: ${props => props.color};
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out;
+      position: absolute;
+      top: 0;
+    }
+    &.expanded, &.invisible {
+        box-shadow: 0px 0px 0px white;
         border-radius: ${props => `${3 / props.scale}px`};
         transform: scale(1);
         @media(max-width: 768px), (max-height: 850px) {
             height: 240px;
+        }
+        &::after {
+          transform: scaleX(1);
         }
     }
 
