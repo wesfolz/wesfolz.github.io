@@ -50,7 +50,7 @@ export default function Navbar(props) {
     useEffect(() => {
         let route = props.currentRoute || window.location.pathname;
         for (let i = 0; i < routes.length; i++) {
-            if (route === routes[i]) {
+            if (route.replace(/\//g, '') === routes[i].replace(/\//g, '')) {
                 navSelect(i);
                 break;
             }

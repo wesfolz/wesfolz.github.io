@@ -145,7 +145,7 @@ const App = (props) => {
                 setSelectedSet(selectionSets[selectedSet].selections[index].nextSet);
             }, TRANSITION_TIME * 1000);
         }
-        if (selectionSets[selectedSet].selections[index].route === '/timeline') {
+        if (selectionSets[selectedSet].selections[index].route.includes(Routes.timeline)) {
             setShrinkBlock(true);
         } else {
             setSlideOutBlock(true);
