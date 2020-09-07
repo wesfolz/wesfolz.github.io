@@ -94,7 +94,7 @@ export default function ContactForm() {
   const [submitText, setSubmitText] = useState("Send Message");
 
   useEffect(() => {
-    setShow(true);
+    setTimeout(() => setShow(true));
     return () => {
       setShow(false);
     };

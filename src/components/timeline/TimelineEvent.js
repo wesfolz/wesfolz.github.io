@@ -109,7 +109,7 @@ export default function TimelineEvent(props) {
       setOverlayClass("expanded");
     }, props.transitionTime * 1000);
 
-    props.selectItem(itemRef, props.eventId);
+    props.selectItem(itemRef, props.route);
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled, { css } from "styled-components/macro";
 import TypeWriter from "components/animated/TypeWriter";
 import SelectableButton from "components/buttons/SelectableButton";
@@ -81,6 +81,7 @@ export default function SelectionBlock({
   const [subtitleComplete, setSubtitleComplete] = useState(false);
   const [sectionTextComplete, setSectionTextComplete] = useState(false);
   const [indexLoading, setIndexLoading] = useState(0);
+  const timer = useRef(null);
 
   const [selectedIndex] = useKeySelect({
     itemCount: selections.length,
@@ -98,11 +99,12 @@ export default function SelectionBlock({
     if (!titleText && !subtitleText && sectionText) {
       waitForSectionText();
     }
+    return () => timer.current && clearTimeout(timer.current);
   }, [titleText, subtitleText, sectionText, selections]);
 
   const waitForSectionText = () => {
     if (sectionText) {
-      setTimeout(() => {
+      timer.current = setTimeout(() => {
         setSectionTextComplete(true);
       }, DELAY);
     } else {
@@ -117,7 +119,7 @@ export default function SelectionBlock({
       sectionTextComplete &&
       indexLoading < selections.length
     ) {
-      setTimeout(() => {
+      timer.current = setTimeout(() => {
         setIndexLoading(indexLoading + 1);
       }, 100);
     }
@@ -164,9 +166,9 @@ export default function SelectionBlock({
       <SectionTitle
         text={titleText}
         onComplete={() =>
-          setTimeout(() => {
+          (timer.current = setTimeout(() => {
             completeTitle();
-          }, DELAY)
+          }, DELAY))
         }
         color="white"
         delay={DELAY}
@@ -175,9 +177,9 @@ export default function SelectionBlock({
       <SectionSubTitle
         text={subtitleText}
         onComplete={() =>
-          setTimeout(() => {
+          (timer.current = setTimeout(() => {
             completeSubtitle();
-          }, DELAY)
+          }, DELAY))
         }
         color="white"
         delay={DELAY}

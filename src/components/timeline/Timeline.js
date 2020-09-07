@@ -22,18 +22,6 @@ const LINE_WIDTH = 6 / INITIAL_SCALE;
 const WIDTH_MULTIPLIER = 2.0;
 const TIMEILINE_PADDING = 48 / INITIAL_SCALE;
 
-const TIMELINE_EVENTS = {
-  COLLEGE: 1,
-  SANDIA: 2,
-  LOCKHEED: 3,
-  STRATOSPHERE: 4,
-  ENGAGEMENT: 5,
-  BLOWME: 6,
-  DRONE: 7,
-  DAYLYTES: 8,
-  DAYLIGHTS: 9,
-};
-
 const OverflowHidden = styled.div`
   overflow: hidden;
   height: 100vh;
@@ -207,21 +195,22 @@ export default function Timeline(props) {
 
   useEffect(() => {
     handleResize();
-    setOpacity(1);
     window.addEventListener("resize", handleResize);
     return () => {
-      setScale(INITIAL_SCALE / 2);
       window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   useEffect(() => {
-    if (props.location.pathname === "/timeline") {
-      setScale(INITIAL_SCALE);
-      setTranslation({ x: 0, y: 0 });
-      setCollapse(true);
+    if (props.location.pathname === Routes.timeline) {
+      setTimeout(() => {
+        setScale(INITIAL_SCALE);
+        setTranslation({ x: 0, y: 0 });
+        setOpacity(1);
+        setCollapse(true);
+      });
     }
-  }, [props.location]);
+  }, [props.location.pathname]);
 
   const selectEvent = (ref, eventName) => {
     const top = ref.current.getBoundingClientRect().top;
@@ -241,7 +230,7 @@ export default function Timeline(props) {
       ref.current.getBoundingClientRect().width / (2 * INITIAL_SCALE);
     setTranslation({ x: `${xOffset}px`, y: `${yOffset}px` });
     setTimeout(() => {
-      navigateToPath(eventName);
+      props.history.push(eventName);
     }, TRANSITION_TIME * 1000 + 300);
     setScale(1);
     setCollapse(false);
@@ -252,55 +241,6 @@ export default function Timeline(props) {
     setTranslation({ x: 0, y: 0 });
     setCollapse(true);
     props.history.push("/timeline");
-  };
-
-  const navigateToPath = (eventName) => {
-    if (selectEvent == null) {
-      return null;
-    }
-    let path;
-
-    switch (eventName) {
-      case TIMELINE_EVENTS.COLLEGE:
-        path = Routes.college;
-        break;
-
-      case TIMELINE_EVENTS.SANDIA:
-        path = Routes.sandia;
-        break;
-
-      case TIMELINE_EVENTS.LOCKHEED:
-        path = Routes.lockheed;
-        break;
-
-      case TIMELINE_EVENTS.STRATOSPHERE:
-        path = Routes.stratosphere;
-        break;
-
-      case TIMELINE_EVENTS.ENGAGEMENT:
-        path = Routes.engagement;
-        break;
-
-      case TIMELINE_EVENTS.BLOWME:
-        path = Routes.blowme;
-        break;
-
-      case TIMELINE_EVENTS.DRONE:
-        path = Routes.drone;
-        break;
-
-      case TIMELINE_EVENTS.DAYLYTES:
-        path = Routes.daylytes;
-        break;
-
-      case TIMELINE_EVENTS.DAYLIGHTS:
-        path = Routes.daylights;
-        break;
-
-      default:
-        return;
-    }
-    props.history.push(path);
   };
 
   const timelineMarkers = () => {
@@ -332,7 +272,7 @@ export default function Timeline(props) {
               left={true}
               eventTitle="Daylights, Inc"
               eventSubtitle="Software Engineer"
-              eventId={TIMELINE_EVENTS.DAYLIGHTS}
+              route={Routes.daylights}
               collapse={collapse}
               imageSize={imageSize}
               image={Daylights}
@@ -354,7 +294,7 @@ export default function Timeline(props) {
               left={true}
               eventTitle="Daylytes, Inc"
               eventSubtitle="Software Engineer"
-              eventId={TIMELINE_EVENTS.DAYLYTES}
+              route={Routes.daylytes}
               collapse={collapse}
               imageSize={imageSize}
               image={Daylytes}
@@ -377,7 +317,7 @@ export default function Timeline(props) {
               left={true}
               eventTitle="Stratosphere Digital"
               eventSubtitle="Contractor"
-              eventId={TIMELINE_EVENTS.STRATOSPHERE}
+              route={Routes.stratosphere}
               collapse={collapse}
               imageSize={imageSize}
               image={Stratosphere}
@@ -397,7 +337,7 @@ export default function Timeline(props) {
             imageSize={imageSize}
           >
             <TimelineEvent
-              eventId={TIMELINE_EVENTS.ENGAGEMENT}
+              route={Routes.engagement}
               eventTitle="I Got Engaged!"
               eventSubtitle="And Built An App"
               collapse={collapse}
@@ -419,7 +359,7 @@ export default function Timeline(props) {
             imageSize={imageSize}
           >
             <TimelineEvent
-              eventId={TIMELINE_EVENTS.DRONE}
+              route={Routes.drone}
               eventTitle="Raspberry Pi Drone"
               eventSubtitle="Android App"
               collapse={collapse}
@@ -455,7 +395,7 @@ export default function Timeline(props) {
             imageSize={imageSize}
           >
             <TimelineEvent
-              eventId={TIMELINE_EVENTS.LOCKHEED}
+              route={Routes.lockheed}
               eventTitle="Lockheed Martin"
               eventSubtitle="Software Engineer"
               collapse={collapse}
@@ -476,7 +416,7 @@ export default function Timeline(props) {
             imageSize={imageSize}
           >
             <TimelineEvent
-              eventId={TIMELINE_EVENTS.SANDIA}
+              route={Routes.sandia}
               eventTitle="Sandia Labs"
               eventSubtitle="Technical Intern"
               collapse={collapse}
@@ -500,7 +440,7 @@ export default function Timeline(props) {
               left={true}
               eventTitle="University of Arizona"
               eventSubtitle="Master of Science"
-              eventId={TIMELINE_EVENTS.COLLEGE}
+              route={Routes.college}
               collapse={collapse}
               imageSize={imageSize}
               image={Wildcat}
