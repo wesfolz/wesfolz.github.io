@@ -39,12 +39,12 @@ const FormInput = styled.input`
   font-size: 14px;
   padding: 12px;
   margin: 8px 0;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
   &::placeholder {
     color: white;
     opacity: 0.6;
   }
-  &:hover {
+  &:hover:not(:focus) {
     background-color: #1ba9d760;
   }
   &:focus {
