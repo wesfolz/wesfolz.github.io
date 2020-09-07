@@ -18,7 +18,8 @@ import Colors from "styles/Colors";
 import InfoSection from "components/info-sections/InfoSection";
 import ParallaxImage from "components/animated/ParallaxImage";
 import TechnologySection from "components/tech-section/TechnologySection";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaReact } from "react-icons/fa";
+import { GrEdge } from "react-icons/gr";
 import TechIcon from "components/tech-section/TechIcon";
 import InfoGrid from "components/info-sections/InfoGrid";
 import {
@@ -31,13 +32,7 @@ import ParallaxInfoContainer from "components/animated/ParallaxInfoContainer";
 export default function DaylightsSection(props) {
   const techList = [
     {
-      icon: (
-        <FontAwesomeIcon
-          icon={["fab", "react"]}
-          color={Colors.react}
-          size="3x"
-        ></FontAwesomeIcon>
-      ),
+      icon: <FaReact size={56} color={Colors.react} />,
       title: "React",
     },
     {
@@ -76,13 +71,7 @@ export default function DaylightsSection(props) {
       title: "Firefox",
     },
     {
-      icon: (
-        <FontAwesomeIcon
-          icon={["fab", "edge"]}
-          color={Colors.edge}
-          size="3x"
-        ></FontAwesomeIcon>
-      ),
+      icon: <GrEdge size={48} color={Colors.edge} />,
       title: "Edge",
     },
     {

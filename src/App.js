@@ -6,34 +6,11 @@ import GradientBackground from "components/GradientBackground";
 import ContactForm from "components/contact/ContactForm";
 import SelectionBlock from "components/SelectionBlock";
 import Colors from "styles/Colors";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-import {
-  faTimes,
-  faHome,
-  faEnvelope,
-  faEnvelopeOpen,
-  faEnvelopeOpenText,
-  faExclamationTriangle,
-  faCheckSquare,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
+
 import Timeline from "components/timeline/Timeline";
 import Navbar from "components/Navbar";
 import Logo from "images/logos/logo_primary.svg";
 import Routes from "Routes";
-
-library.add(
-  fab,
-  faTimes,
-  faHome,
-  faEnvelope,
-  faEnvelopeOpen,
-  faEnvelopeOpenText,
-  faExclamationTriangle,
-  faCheckSquare,
-  faUser
-);
 
 const TRANSITION_TIME = 0.5;
 

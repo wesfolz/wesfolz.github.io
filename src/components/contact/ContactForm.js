@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaCheckSquare, FaExclamationTriangle } from "react-icons/fa";
 import * as emailjs from "emailjs-com";
 
 import FillButton from "components/buttons/FillButton";
@@ -189,27 +189,19 @@ export default function ContactForm() {
       )}
       {error ? (
         <FeedbackContainer>
-          <FontAwesomeIcon
-            icon="exclamation-triangle"
-            size="2x"
-            color={Colors.orange}
-          ></FontAwesomeIcon>
+          <FaExclamationTriangle size={32} color={Colors.orange} />
           <p>
             Hmmm... Something went wrong.
             <br />
             Try again or try emailing me directly:
-            <br />{" "}
+            <br />
             <a href="mailto:wesleyfolz@gmail.com">wesleyfolz@gmail.com</a>
           </p>
         </FeedbackContainer>
       ) : null}
       {success ? (
         <FeedbackContainer>
-          <FontAwesomeIcon
-            icon="check-square"
-            size="2x"
-            color={Colors.green}
-          ></FontAwesomeIcon>
+          <FaCheckSquare size={32} color={Colors.green} />
           <p>
             Thanks for your message.
             <br />I will respond as soon as I can.
