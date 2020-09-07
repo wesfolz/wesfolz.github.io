@@ -217,11 +217,7 @@ export default function ContactForm() {
         </FeedbackContainer>
       ) : null}
       <SendContainer>
-        <FillButton
-          type="button"
-          color={Colors.lightBlue}
-          onClick={handleSubmit}
-        >
+        <FillButton type="button" color={Colors.info} onClick={handleSubmit}>
           {submitText}
         </FillButton>
       </SendContainer>
