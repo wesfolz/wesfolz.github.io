@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { Route, withRouter } from "react-router-dom";
-import ReactGA from "react-ga";
-import styled from "styled-components/macro";
-import GradientBackground from "components/GradientBackground";
-import ContactForm from "components/contact/ContactForm";
-import SelectionBlock from "components/SelectionBlock";
-import Colors from "styles/Colors";
+import React, { useState, useEffect } from 'react';
+import { Route, withRouter } from 'react-router-dom';
+import ReactGA from 'react-ga';
+import styled from 'styled-components/macro';
+import GradientBackground from 'components/GradientBackground';
+import ContactForm from 'components/contact/ContactForm';
+import SelectionBlock from 'components/SelectionBlock';
+import Colors from 'styles/Colors';
 
-import Timeline from "components/timeline/Timeline";
-import Navbar from "components/Navbar";
-import Logo from "images/logos/logo_primary.svg";
-import Routes from "Routes";
+import Timeline from 'components/timeline/Timeline';
+import Navbar from 'components/Navbar';
+import Logo from 'images/logos/logo_primary.svg';
+import Routes from 'Routes';
 
 const TRANSITION_TIME = 0.5;
 
@@ -21,7 +21,7 @@ const Container = styled.main`
   justify-content: center;
   align-items: center;
   overflow-x: hidden;
-  padding: 0px 60px;
+  padding: 0px 24px;
   box-sizing: border-box;
 `;
 
@@ -41,39 +41,39 @@ const LogoImg = styled.img`
   }
 `;
 
-ReactGA.initialize("UA-140890686-1");
+ReactGA.initialize('UA-140890686-1');
 
 const App = (props) => {
   const selectionSets = [
     {
-      titleText: "Hello...",
-      subtitleText: "Why are you here?",
+      titleText: 'Hello...',
+      subtitleText: 'Why are you here?',
       selections: [
         {
-          text: "I want to learn more about Wesley.",
+          text: 'I want to learn more about Wesley.',
           color: Colors.lightGray,
           backgroundColor: Colors.secondary,
-          route: "/",
-          nextSet: 1,
+          route: '/',
+          nextSet: 1
         },
         {
-          text: "I want to contact Wesley.",
+          text: 'I want to contact Wesley.',
           color: Colors.lightGray,
           backgroundColor: Colors.secondary,
-          route: Routes.contact,
+          route: Routes.contact
         },
         {
-          text: "Why am I here?",
+          text: 'Why am I here?',
           color: Colors.lightGray,
           backgroundColor: Colors.secondary,
-          route: "/",
-          nextSet: 2,
-        },
-      ],
+          route: '/',
+          nextSet: 2
+        }
+      ]
     },
     {
-      titleText: "Who is Wesley?",
-      subtitleText: "Thanks for asking!",
+      titleText: 'Who is Wesley?',
+      subtitleText: 'Thanks for asking!',
       sectionText: (
         <p>
           Wesley is a software engineer with experience in full stack web
@@ -86,28 +86,28 @@ const App = (props) => {
       ),
       selections: [
         {
-          text: "What has Wesley done thus far?",
+          text: 'What has Wesley done thus far?',
           color: Colors.lightGray,
           backgroundColor: Colors.secondary,
-          route: Routes.timeline,
+          route: Routes.timeline
         },
         {
-          text: "I want to contact Wesley.",
+          text: 'I want to contact Wesley.',
           color: Colors.lightGray,
           backgroundColor: Colors.secondary,
-          route: Routes.contact,
+          route: Routes.contact
         },
         {
-          text: "Cool, thanks!",
+          text: 'Cool, thanks!',
           color: Colors.lightGray,
           backgroundColor: Colors.secondary,
-          route: "/",
-          nextSet: 0,
-        },
-      ],
+          route: '/',
+          nextSet: 0
+        }
+      ]
     },
     {
-      titleText: "Why are any of us here?",
+      titleText: 'Why are any of us here?',
       subtitleText: "Here's some amateur philosophy...",
       sectionText: (
         <React.Fragment>
@@ -132,14 +132,14 @@ const App = (props) => {
       ),
       selections: [
         {
-          text: "I want to return to a simpler time.",
+          text: 'I want to return to a simpler time.',
           color: Colors.lightGray,
           backgroundColor: Colors.secondary,
-          route: "/",
-          nextSet: 0,
-        },
-      ],
-    },
+          route: '/',
+          nextSet: 0
+        }
+      ]
+    }
   ];
 
   const [selectedSet, setSelectedSet] = useState(0);
@@ -151,7 +151,7 @@ const App = (props) => {
     if (props.location.pathname !== currentRoute) {
       ReactGA.pageview(props.location.pathname);
     }
-    if (props.location.pathname === "/") {
+    if (props.location.pathname === '/') {
       setShrinkBlock(false);
       setSlideOutBlock(false);
       setSelectedSet(0);
@@ -164,7 +164,7 @@ const App = (props) => {
   }, [props.location]);
 
   const selectItem = (index) => {
-    if (selectionSets[selectedSet].selections[index].route !== "/") {
+    if (selectionSets[selectedSet].selections[index].route !== '/') {
       setCurrentRoute(selectionSets[selectedSet].selections[index].route);
       setTimeout(() => {
         props.history.push(selectionSets[selectedSet].selections[index].route);
@@ -194,7 +194,7 @@ const App = (props) => {
       <LogoImg src={Logo}></LogoImg>
       <Navbar currentRoute={currentRoute}></Navbar>
       <Route
-        path="/"
+        path='/'
         exact
         render={() => (
           <SelectionBlock

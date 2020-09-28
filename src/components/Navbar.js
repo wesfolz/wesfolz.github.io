@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components/macro";
-import { Link } from "react-router-dom";
-import { FaHome, FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
-import { MdTimeline } from "react-icons/md";
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components/macro';
+import { Link } from 'react-router-dom';
+import { FaHome, FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { MdTimeline } from 'react-icons/md';
 
-import Colors from "styles/Colors";
-import FillButton from "components/buttons/FillButton";
-import Routes from "Routes";
+import Colors from 'styles/Colors';
+import FillButton from 'components/buttons/FillButton';
+import Routes from 'Routes';
 
 const NavList = styled.ul`
   list-style-type: none;
@@ -26,18 +26,9 @@ const NavList = styled.ul`
   @media (max-width: 600px) {
     border-radius: 0px;
   }
-  @media (max-height: 500px) {
-    flex-direction: column;
-    justify-content: space-around;
-    left: 0;
-    height: 100%;
-    padding: 0px 4px;
-    width: unset;
-    border-radius: 0px;
-  }
 `;
 
-const routes = ["/", Routes.timeline, Routes.contact];
+const routes = ['/', Routes.timeline, Routes.contact];
 
 export default function Navbar(props) {
   const [deselect, setDeselect] = useState(Array(routes.length).fill(false));
@@ -65,7 +56,7 @@ export default function Navbar(props) {
   return (
     <NavList>
       <li>
-        <Link to="/">
+        <Link to='/'>
           <FillButton
             color={Colors.info}
             click={() => navSelect(0)}
@@ -101,14 +92,14 @@ export default function Navbar(props) {
         </Link>
       </li>
       <li>
-        <a href="https://www.linkedin.com/in/wesley-folz/">
+        <a href='https://www.linkedin.com/in/wesley-folz/'>
           <FillButton color={Colors.info}>
             <FaLinkedin size={24} />
           </FillButton>
         </a>
       </li>
       <li>
-        <a href="https://github.com/wesfolz/">
+        <a href='https://github.com/wesfolz/'>
           <FillButton color={Colors.info}>
             <FaGithub size={24} />
           </FillButton>

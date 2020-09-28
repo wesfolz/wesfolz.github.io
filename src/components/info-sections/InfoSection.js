@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components/macro";
-import { FaTimes } from "react-icons/fa";
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components/macro';
+import { FaTimes } from 'react-icons/fa';
 
-import SelectableButton from "components/buttons/SelectableButton";
-import Colors from "styles/Colors";
+import SelectableButton from 'components/buttons/SelectableButton';
+import Colors from 'styles/Colors';
 import {
   SectionHeader,
-  HeaderImg,
-} from "components/info-sections/SectionStyles";
+  HeaderImg
+} from 'components/info-sections/SectionStyles';
 
 const TRANSITION_TIME = 0.5;
 const DELAY_TIME = 0.25;
@@ -15,21 +15,20 @@ const DELAY_TIME = 0.25;
 const SectionWrapper = styled.article`
   position: absolute;
   top: ${(props) =>
-    props.shrink ? "0" : `calc(50vh - ${props.imageSize / 2}px)`};
+    props.shrink ? '0' : `calc(50vh - ${props.imageSize / 2}px)`};
   left: 0;
   width: 100%;
   background-color: ${Colors.offWhite};
   transition: top ${`${TRANSITION_TIME}s ease`};
   overflow-x: hidden;
-  margin-bottom: 16px;
 `;
 
 const ContentWrapper = styled.div`
-  max-height: ${(props) => (props.shrink ? "10000px" : 0)};
+  max-height: ${(props) => (props.shrink ? '10000px' : 0)};
   overflow: hidden;
   transition: max-height
     ${`${TRANSITION_TIME}s ease, padding ${TRANSITION_TIME}s ease`};
-  padding: ${(props) => (props.shrink ? "0px 40px 40px" : "0px 40px")};
+  padding: ${(props) => (props.shrink ? '0px 40px 40px' : '0px 40px')};
   margin: 0 auto;
   max-width: 1200px;
 `;
@@ -46,7 +45,7 @@ const CloseButton = styled(SelectableButton)`
   width: 48px;
   height: 48px;
   background-color: transparent;
-  color: ${(props) => props.color || "black"};
+  color: ${(props) => props.color || 'black'};
 `;
 
 export default function InfoSection(props) {

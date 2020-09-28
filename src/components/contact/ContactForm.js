@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components/macro";
-import { FaCheckSquare, FaExclamationTriangle } from "react-icons/fa";
-import * as emailjs from "emailjs-com";
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components/macro';
+import { FaCheckSquare, FaExclamationTriangle } from 'react-icons/fa';
+import * as emailjs from 'emailjs-com';
 
-import FillButton from "components/buttons/FillButton";
-import Colors from "styles/Colors";
+import FillButton from 'components/buttons/FillButton';
+import Colors from 'styles/Colors';
 
 const Header = styled.h1`
   color: ${Colors.lightBlue};
@@ -20,12 +20,14 @@ const FormContainer = styled.form`
   width: 100%;
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
   opacity: ${(props) => (props.show ? 1 : 0)};
-  transform: ${(props) => (props.show ? "translateY(0)" : "translateY(50px)")};
+  transform: ${(props) => (props.show ? 'translateY(0)' : 'translateY(50px)')};
   background-color: ${`${Colors.info}10`};
   padding: 40px;
-  margin: 0px 40px;
   border-radius: 2px;
   box-sizing: border-box;
+  @media (max-width: 768px) {
+    padding: 24px;
+  }
 `;
 
 const FormInput = styled.input`
@@ -35,7 +37,7 @@ const FormInput = styled.input`
   background-color: #1ba9d730;
   border-radius: 2px;
   outline: none;
-  border: 1px solid ${(props) => (props.invalid ? "red" : "transparent")};
+  border: 1px solid ${(props) => (props.invalid ? 'red' : 'transparent')};
   font-size: 14px;
   padding: 12px;
   margin: 8px 0;
@@ -80,9 +82,9 @@ const FeedbackContainer = styled.div`
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 export default function ContactForm() {
-  const [fromName, setFromName] = useState("");
-  const [fromEmail, setFromEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [fromName, setFromName] = useState('');
+  const [fromEmail, setFromEmail] = useState('');
+  const [message, setMessage] = useState('');
 
   const [fromNameInvalid, setFromNameInvalid] = useState(false);
   const [fromEmailInvalid, setFromEmailInvalid] = useState(false);
@@ -91,7 +93,7 @@ export default function ContactForm() {
   const [show, setShow] = useState(false);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [submitText, setSubmitText] = useState("Send Message");
+  const [submitText, setSubmitText] = useState('Send Message');
 
   useEffect(() => {
     setTimeout(() => setShow(true));
@@ -116,7 +118,7 @@ export default function ContactForm() {
     if (success || error) {
       setError(false);
       setSuccess(false);
-      setSubmitText("Send Message");
+      setSubmitText('Send Message');
       return;
     }
 
@@ -124,27 +126,27 @@ export default function ContactForm() {
       return;
     }
 
-    const SERVICE_ID = "default_service";
-    const TEMPLATE_ID = "template_5VzY19VX";
-    const USER_ID = "user_dscsF7Lfpco5msNoHFWln";
+    const SERVICE_ID = 'default_service';
+    const TEMPLATE_ID = 'template_5VzY19VX';
+    const USER_ID = 'user_dscsF7Lfpco5msNoHFWln';
 
     const templateParams = {
-      toName: "Wesley Folz",
+      toName: 'Wesley Folz',
       fromName,
       fromEmail,
-      message,
+      message
     };
 
     emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, USER_ID).then(
       (response) => {
-        console.log("SUCCESS!", response.status, response.text);
+        console.log('SUCCESS!', response.status, response.text);
         setSuccess(true);
-        setSubmitText("New Message");
+        setSubmitText('New Message');
       },
       (error) => {
-        console.log("FAILED...", error);
+        console.log('FAILED...', error);
         setError(true);
-        setSubmitText("Try Again");
+        setSubmitText('Try Again');
       }
     );
   };
@@ -156,8 +158,8 @@ export default function ContactForm() {
         <div>
           <FormInput
             invalid={fromNameInvalid}
-            type="text"
-            placeholder="Name"
+            type='text'
+            placeholder='Name'
             value={fromName}
             onChange={(e) => {
               setFromNameInvalid(!e.target.value);
@@ -166,8 +168,8 @@ export default function ContactForm() {
           />
           <FormInput
             invalid={fromEmailInvalid}
-            type="email"
-            placeholder="Email"
+            type='email'
+            placeholder='Email'
             value={fromEmail}
             onChange={(e) => {
               setFromEmailInvalid(!e.target.value.match(EMAIL_REGEX));
@@ -176,9 +178,9 @@ export default function ContactForm() {
           />
           <FormArea
             invalid={messageInvalid}
-            as="textarea"
-            type="text"
-            placeholder="Message"
+            as='textarea'
+            type='text'
+            placeholder='Message'
             value={message}
             onChange={(e) => {
               setMessageInvalid(!e.target.value);
@@ -195,7 +197,7 @@ export default function ContactForm() {
             <br />
             Try again or try emailing me directly:
             <br />
-            <a href="mailto:wesleyfolz@gmail.com">wesleyfolz@gmail.com</a>
+            <a href='mailto:wesleyfolz@gmail.com'>wesleyfolz@gmail.com</a>
           </p>
         </FeedbackContainer>
       ) : null}
@@ -209,7 +211,7 @@ export default function ContactForm() {
         </FeedbackContainer>
       ) : null}
       <SendContainer>
-        <FillButton type="button" color={Colors.info} onClick={handleSubmit}>
+        <FillButton type='button' color={Colors.info} onClick={handleSubmit}>
           {submitText}
         </FillButton>
       </SendContainer>
