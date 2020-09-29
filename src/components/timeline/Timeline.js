@@ -1,19 +1,19 @@
-import React, { useState, useEffect, useRef } from "react";
-import styled from "styled-components/macro";
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import styled from 'styled-components/macro';
 
-import Lockheed from "images/lockheed.jpg";
-import Wildcat from "images/wildcat.png";
-import Sandia from "images/sandia.png";
-import Stratosphere from "images/stratosphere.png";
-import Scavenger from "images/scavenger.svg";
-import RaspberryDrone from "images/raspberry_drone.png";
-import Daylytes from "images/daylytes.svg";
-import Daylights from "images/daylights.svg";
-import Colors from "styles/Colors";
+import Lockheed from 'images/lockheed.jpg';
+import Wildcat from 'images/wildcat.png';
+import Sandia from 'images/sandia.png';
+import Stratosphere from 'images/stratosphere.png';
+import Scavenger from 'images/scavenger.svg';
+import RaspberryDrone from 'images/raspberry_drone.png';
+import Daylytes from 'images/daylytes.svg';
+import Daylights from 'images/daylights.svg';
+import Colors from 'styles/Colors';
 
-import TimelineEvent from "components/timeline/TimelineEvent";
-import InfoRoutes from "components/info-sections/InfoRoutes";
-import Routes from "Routes";
+import TimelineEvent from 'components/timeline/TimelineEvent';
+import InfoRoutes from 'components/info-sections/InfoRoutes';
+import Routes from 'Routes';
 
 const TRANSITION_TIME = 0.75;
 const INITIAL_SCALE = 0.25;
@@ -36,8 +36,8 @@ const TimelineContainer = styled.div`
   /* transform-origin: 0; */
   opacity: ${(props) => props.opacity};
   transform: translate3d(
-      ${(props) => props.translation.x},
-      ${(props) => props.translation.y},
+      ${(props) => (props.translation ? props.translation.x : 0)},
+      ${(props) => (props.translation ? props.translation.y : 0)},
       0
     )
     scale3d(
@@ -61,7 +61,7 @@ const TimelineList = styled.ul`
   margin: 0;
   height: ${`${100 / INITIAL_SCALE}%`};
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     background-color: white;
     opacity: 0.5;
@@ -94,7 +94,7 @@ const EventMarker = styled.div`
       props.imageSize * (props.multiplier || WIDTH_MULTIPLIER) + LINE_WIDTH / 2
     }px + 50vw)`};
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     border-top: ${`${LINE_WIDTH}px`} solid ${(props) => props.color};
     border-bottom: ${`${LINE_WIDTH}px`} solid ${(props) => props.color};
@@ -173,16 +173,24 @@ const EventPointLeft = styled(EventMarkerLeft)`
   }
 `;
 
+const timelineMarkers = () => {
+  const markers = ['Present', '2020', '2019', '2018', '2016', '2014', '2011'];
+  return markers.map((marker) => (
+    <TimelineMarker key={marker}>{marker}</TimelineMarker>
+  ));
+};
+
 export default function Timeline(props) {
   const containerRef = useRef(null);
   const [scale, setScale] = useState(INITIAL_SCALE / 3);
   const [opacity, setOpacity] = useState(0);
-  const [translation, setTranslation] = useState({ x: "0px", y: "0px" });
+  const [translation, setTranslation] = useState({ x: '0px', y: '0px' });
   const [collapse, setCollapse] = useState(false);
   const [timelineWidth, setTimelineWidth] = useState(TIMELINE_WIDTH);
   const [imageSize, setImageSize] = useState(100 / INITIAL_SCALE);
+  const [showRoute, setShowRoute] = useState(false);
 
-  const handleResize = () => {
+  const handleResize = useCallback(() => {
     if (window.innerWidth <= 768 || window.innerHeight <= 850) {
       setImageSize(60 / INITIAL_SCALE);
     } else {
@@ -191,18 +199,28 @@ export default function Timeline(props) {
     const width =
       window.innerWidth < TIMELINE_WIDTH ? window.innerWidth : TIMELINE_WIDTH;
     setTimelineWidth(width);
-  };
+  }, []);
 
   useEffect(() => {
     handleResize();
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   useEffect(() => {
-    if (props.location.pathname === Routes.timeline) {
+    if (
+      props.location.pathname.replace(/\//g, '') ===
+      Routes.timeline.replace(/\//g, '')
+    ) {
+      setTimeout(() => {
+        setScale(INITIAL_SCALE);
+        setTranslation({ x: 0, y: 0 });
+        setOpacity(1);
+        setCollapse(true);
+      });
+    } else if (opacity !== 1) {
       setTimeout(() => {
         setScale(INITIAL_SCALE);
         setTranslation({ x: 0, y: 0 });
@@ -212,43 +230,49 @@ export default function Timeline(props) {
     }
   }, [props.location.pathname]);
 
-  const selectEvent = (ref, eventName) => {
-    const top = ref.current.getBoundingClientRect().top;
+  const selectEvent = useCallback((ref, eventName) => {
+    const windowHeight = document.documentElement.offsetHeight;
+    const element = ref.current.getBoundingClientRect();
+    const elementHeight = window.innerWidth <= 768 ? 120 : 200;
+    // TODO: Figure out why these are not always the same
+    const heightDiff = elementHeight - element.height;
     // const centerOffset = window.innerHeight / 2 - top;
     // Using offset height of the document instead of window.innerHeight ignores the address bar on mobile
-    const centerOffset =
-      document.documentElement.offsetHeight / 2 -
-      document.documentElement.scrollTop -
-      top;
-    const horizontalOffset =
-      window.innerWidth / 2 - ref.current.getBoundingClientRect().left;
+    const verticalOffset =
+      windowHeight / 2 - document.documentElement.scrollTop - element.top;
+
+    const horizontalOffset = window.innerWidth / 2 - element.left;
+
     const yOffset =
-      centerOffset / INITIAL_SCALE -
-      ref.current.getBoundingClientRect().height / (2 * INITIAL_SCALE);
+      verticalOffset / INITIAL_SCALE -
+      elementHeight / (2 * INITIAL_SCALE) +
+      2 * heightDiff; // Not sure why adding this is necessary, maybe some sort of timing/race condition?
+
     const xOffset =
-      horizontalOffset / INITIAL_SCALE -
-      ref.current.getBoundingClientRect().width / (2 * INITIAL_SCALE);
+      horizontalOffset / INITIAL_SCALE - element.width / (2 * INITIAL_SCALE);
+
+    const finalYOffset = yOffset - windowHeight / 2 + elementHeight;
+
+    // Move to center
     setTranslation({ x: `${xOffset}px`, y: `${yOffset}px` });
+
     setTimeout(() => {
+      setShowRoute(true);
       props.history.push(eventName);
+      // Move to top
+      setTranslation({ x: `${xOffset}px`, y: `${finalYOffset}px` });
     }, TRANSITION_TIME * 1000 + 300);
+
     setScale(1);
     setCollapse(false);
-  };
+  }, []);
 
-  const zoomOut = () => {
+  const zoomOut = useCallback(() => {
     setScale(INITIAL_SCALE);
     setTranslation({ x: 0, y: 0 });
     setCollapse(true);
-    props.history.push("/timeline");
-  };
-
-  const timelineMarkers = () => {
-    const markers = ["Present", "2020", "2019", "2018", "2016", "2014", "2011"];
-    return markers.map((marker) => (
-      <TimelineMarker key={marker}>{marker}</TimelineMarker>
-    ));
-  };
+    props.history.push(Routes.timeline);
+  }, [INITIAL_SCALE, Routes.timeline]);
 
   // [-88, 350] => 438
   return (
@@ -270,8 +294,8 @@ export default function Timeline(props) {
           >
             <TimelineEvent
               left={true}
-              eventTitle="Daylights, Inc"
-              eventSubtitle="Software Engineer"
+              eventTitle='Daylights, Inc'
+              eventSubtitle='Software Engineer'
               route={Routes.daylights}
               collapse={collapse}
               imageSize={imageSize}
@@ -292,8 +316,8 @@ export default function Timeline(props) {
           >
             <TimelineEvent
               left={true}
-              eventTitle="Daylytes, Inc"
-              eventSubtitle="Software Engineer"
+              eventTitle='Daylytes, Inc'
+              eventSubtitle='Software Engineer'
               route={Routes.daylytes}
               collapse={collapse}
               imageSize={imageSize}
@@ -315,13 +339,13 @@ export default function Timeline(props) {
           >
             <TimelineEvent
               left={true}
-              eventTitle="Stratosphere Digital"
-              eventSubtitle="Contractor"
+              eventTitle='Stratosphere Digital'
+              eventSubtitle='Contractor'
               route={Routes.stratosphere}
               collapse={collapse}
               imageSize={imageSize}
               image={Stratosphere}
-              color="black"
+              color='black'
               selectItem={selectEvent}
               exit={zoomOut}
               scale={INITIAL_SCALE}
@@ -338,12 +362,12 @@ export default function Timeline(props) {
           >
             <TimelineEvent
               route={Routes.engagement}
-              eventTitle="I Got Engaged!"
-              eventSubtitle="And Built An App"
+              eventTitle='I Got Engaged!'
+              eventSubtitle='And Built An App'
               collapse={collapse}
               imageSize={imageSize}
               image={Scavenger}
-              color={"black"}
+              color={'black'}
               selectItem={selectEvent}
               exit={zoomOut}
               scale={INITIAL_SCALE}
@@ -360,8 +384,8 @@ export default function Timeline(props) {
           >
             <TimelineEvent
               route={Routes.drone}
-              eventTitle="Raspberry Pi Drone"
-              eventSubtitle="Android App"
+              eventTitle='Raspberry Pi Drone'
+              eventSubtitle='Android App'
               collapse={collapse}
               imageSize={imageSize}
               image={RaspberryDrone}
@@ -396,8 +420,8 @@ export default function Timeline(props) {
           >
             <TimelineEvent
               route={Routes.lockheed}
-              eventTitle="Lockheed Martin"
-              eventSubtitle="Software Engineer"
+              eventTitle='Lockheed Martin'
+              eventSubtitle='Software Engineer'
               collapse={collapse}
               imageSize={imageSize}
               image={Lockheed}
@@ -417,8 +441,8 @@ export default function Timeline(props) {
           >
             <TimelineEvent
               route={Routes.sandia}
-              eventTitle="Sandia Labs"
-              eventSubtitle="Technical Intern"
+              eventTitle='Sandia Labs'
+              eventSubtitle='Technical Intern'
               collapse={collapse}
               imageSize={imageSize}
               image={Sandia}
@@ -438,8 +462,8 @@ export default function Timeline(props) {
           >
             <TimelineEvent
               left={true}
-              eventTitle="University of Arizona"
-              eventSubtitle="Master of Science"
+              eventTitle='University of Arizona'
+              eventSubtitle='Master of Science'
               route={Routes.college}
               collapse={collapse}
               imageSize={imageSize}
@@ -453,7 +477,7 @@ export default function Timeline(props) {
           </EventMarkerLeft>
         </TimelineContainer>
       </OverflowHidden>
-      <InfoRoutes zoomOut={zoomOut} imageSize={imageSize} />
+      <InfoRoutes show={showRoute} zoomOut={zoomOut} imageSize={imageSize} />
     </div>
   );
 }

@@ -1,10 +1,11 @@
-import React, { useRef, useState, useEffect } from "react";
-import styled, { css } from "styled-components/macro";
+import React, { useRef, useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import styled, { css } from 'styled-components/macro';
 
 import {
   SectionHeader,
-  HeaderImg,
-} from "components/info-sections/SectionStyles";
+  HeaderImg
+} from 'components/info-sections/SectionStyles';
 
 const ItemContainer = styled.div`
   cursor: pointer;
@@ -25,8 +26,7 @@ const ItemContainer = styled.div`
 `;
 
 const Overlay = styled(SectionHeader)`
-  transition: transform 0.3s ease-in-out, border-radius 0.3s ease-in-out,
-    box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, border-radius 0.3s ease-in-out;
   position: fixed;
   border-radius: 50%;
   width: ${(props) => `${props.imageSize}px`};
@@ -38,7 +38,7 @@ const Overlay = styled(SectionHeader)`
   }
 
   &::after {
-    content: "";
+    content: '';
     height: 400px;
     width: 100vw;
     background-color: ${(props) => props.color};
@@ -55,9 +55,7 @@ const Overlay = styled(SectionHeader)`
   &:hover,
   &.zoomed {
     border-radius: ${(props) => `${8 / props.scale}px`};
-    box-shadow: ${(props) => ` 0px 0px ${16 / props.scale}px white`};
     transform: scale(2);
-    z-index: 2;
     @media (max-width: 500px) {
       transform: scale(1.75);
     }
@@ -66,9 +64,14 @@ const Overlay = styled(SectionHeader)`
     }
   }
 
+  &:hover,
+  &.zoomed,
+  &.expanded {
+    z-index: 2;
+  }
+
   &.expanded,
   &.invisible {
-    box-shadow: 0px 0px 0px white;
     border-radius: ${(props) => `${3 / props.scale}px`};
     transform: scale(1);
     &::after {
@@ -94,6 +97,7 @@ const Overlay = styled(SectionHeader)`
 export default function TimelineEvent(props) {
   const [overlayClass, setOverlayClass] = useState(null);
   const itemRef = useRef(null);
+  const location = useLocation();
 
   useEffect(() => {
     if (props.collapse) {
@@ -103,10 +107,22 @@ export default function TimelineEvent(props) {
     }
   }, [props.collapse]);
 
+  useEffect(() => {
+    if (
+      location.pathname.includes(props.route) &&
+      overlayClass !== 'zoomed' &&
+      overlayClass !== 'expanded'
+    ) {
+      setTimeout(() => {
+        selectItem();
+      }, props.transitionTime * 1500);
+    }
+  }, [location.pathname]);
+
   const selectItem = () => {
-    setOverlayClass("zoomed");
+    setOverlayClass('zoomed');
     setTimeout(() => {
-      setOverlayClass("expanded");
+      setOverlayClass('expanded');
     }, props.transitionTime * 1000);
 
     props.selectItem(itemRef, props.route);

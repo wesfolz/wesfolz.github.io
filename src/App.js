@@ -177,7 +177,9 @@ const App = (props) => {
       }, TRANSITION_TIME * 1000);
     }
     if (
-      selectionSets[selectedSet].selections[index].route === Routes.timeline
+      selectionSets[selectedSet].selections[index].route.includes(
+        Routes.timeline
+      )
     ) {
       setShrinkBlock(true);
     } else {
@@ -190,9 +192,9 @@ const App = (props) => {
       <GradientBackground
         // backgroundColor={selectedIndex == null ? defaultColor : selectionSets[selectedSet].selections[selectedIndex].backgroundColor}>
         backgroundColor={Colors.primary}
-      ></GradientBackground>
-      <LogoImg src={Logo}></LogoImg>
-      <Navbar currentRoute={currentRoute}></Navbar>
+      />
+      <LogoImg src={Logo} />
+      <Navbar currentRoute={currentRoute} />
       <Route
         path='/'
         exact
@@ -203,11 +205,11 @@ const App = (props) => {
             slideOut={slideOutBlock}
             selectItem={selectItem}
             {...selectionSets[selectedSet]}
-          ></SelectionBlock>
+          />
         )}
       />
-      <Route path={Routes.timeline} component={Timeline}></Route>
-      <Route path={Routes.contact} component={ContactForm}></Route>
+      <Route path={Routes.timeline} component={Timeline} />
+      <Route path={Routes.contact} component={ContactForm} />
     </Container>
   );
 };

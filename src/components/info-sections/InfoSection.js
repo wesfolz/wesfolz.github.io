@@ -1,34 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/macro';
 import { FaTimes } from 'react-icons/fa';
+import { Events, animateScroll } from 'react-scroll';
 
 import SelectableButton from 'components/buttons/SelectableButton';
 import Colors from 'styles/Colors';
-import {
-  SectionHeader,
-  HeaderImg
-} from 'components/info-sections/SectionStyles';
+import { SectionHeader } from 'components/info-sections/SectionStyles';
 
 const TRANSITION_TIME = 0.5;
 const DELAY_TIME = 0.25;
 
 const SectionWrapper = styled.article`
   position: absolute;
-  top: ${(props) =>
-    props.shrink ? '0' : `calc(50vh - ${props.imageSize / 2}px)`};
-  left: 0;
+  top: 0px;
+  left: 0px;
   width: 100%;
-  background-color: ${Colors.offWhite};
-  transition: top ${`${TRANSITION_TIME}s ease`};
   overflow-x: hidden;
 `;
 
 const ContentWrapper = styled.div`
-  max-height: ${(props) => (props.shrink ? '10000px' : 0)};
+  background-color: ${Colors.offWhite};
   overflow: hidden;
-  transition: max-height
-    ${`${TRANSITION_TIME}s ease, padding ${TRANSITION_TIME}s ease`};
-  padding: ${(props) => (props.shrink ? '0px 40px 40px' : '0px 40px')};
+  transition: all ${`${TRANSITION_TIME}s ease-in-out`};
+  opacity: ${(props) => (props.shrink ? 1 : 0)};
+  transform: scaleY(${(props) => (props.shrink ? 1 : 0)});
+  transform-origin: top;
+`;
+
+const Content = styled.div`
+  padding: 0px 40px 40px;
   margin: 0 auto;
   max-width: 1200px;
 `;
@@ -52,18 +52,33 @@ export default function InfoSection(props) {
   const [shrink, setShrink] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      setShrink(true);
-    }, DELAY_TIME * 1000);
-  }, []);
+    if (props.show) {
+      const timeout = setTimeout(() => {
+        setShrink(true);
+      }, (DELAY_TIME + TRANSITION_TIME) * 1000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [props.show]);
 
   const closeSection = () => {
-    setShrink(false);
-    setTimeout(() => {
-      if (props.zoomOut) {
-        props.zoomOut();
-      }
-    }, (TRANSITION_TIME + DELAY_TIME) * 1000);
+    Events.scrollEvent.register('end', () => {
+      Events.scrollEvent.remove('end');
+      setShrink(false);
+      setTimeout(() => {
+        props.zoomOut && props.zoomOut();
+      }, [TRANSITION_TIME * 1000]);
+    });
+    animateScroll.scrollToTop({
+      duration: (scrollDistance) => {
+        const minTime = 200;
+        const maxTime = TRANSITION_TIME * 1000;
+        const calculatedTime = Math.abs((TRANSITION_TIME * scrollDistance) / 2);
+        const minBounded = Math.min(calculatedTime, maxTime);
+        return Math.max(minTime, minBounded);
+      },
+      smooth: 'easeInOutQuad'
+    });
   };
 
   return (
@@ -71,16 +86,10 @@ export default function InfoSection(props) {
       <CloseButton color={props.exitColor} onClick={closeSection}>
         <FaTimes size={24} />
       </CloseButton>
-      <SectionHeader color={props.backgroundColor}>
-        <p>{props.infoTitle}</p>
-        <HeaderImg
-          color={props.backgroundColor}
-          image={props.backgroundImage}
-          imageSize={props.imageSize / 1.5}
-        ></HeaderImg>
-        <p>{props.infoSubtitle}</p>
-      </SectionHeader>
-      <ContentWrapper shrink={shrink}>{props.children}</ContentWrapper>
+      <SectionHeader color='transparent' />
+      <ContentWrapper shrink={shrink}>
+        <Content>{props.children}</Content>
+      </ContentWrapper>
     </SectionWrapper>
   );
 }
