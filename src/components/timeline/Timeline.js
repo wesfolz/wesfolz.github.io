@@ -287,7 +287,7 @@ export default function Timeline(props) {
           <TimelineList>{timelineMarkers()}</TimelineList>
           <EventMarkerLeft
             top={-75}
-            height={24}
+            height={23}
             color={Colors.daylightsPrimary}
             timelineWidth={timelineWidth}
             imageSize={imageSize}
@@ -433,8 +433,8 @@ export default function Timeline(props) {
             />
           </EventMarkerLeft>
           <EventMarker
-            top={150}
-            height={28}
+            top={149}
+            height={27}
             color={Colors.sandia}
             timelineWidth={timelineWidth}
             imageSize={imageSize}

@@ -21,14 +21,14 @@ const SectionWrapper = styled.article`
 const ContentWrapper = styled.div`
   background-color: ${Colors.offWhite};
   overflow: hidden;
-  transition: all ${`${TRANSITION_TIME}s ease-in-out`};
+  transition: all ${TRANSITION_TIME}s ease-in-out;
   opacity: ${(props) => (props.shrink ? 1 : 0)};
   transform: scaleY(${(props) => (props.shrink ? 1 : 0)});
   transform-origin: top;
 `;
 
 const Content = styled.div`
-  padding: 0px 40px 40px;
+  padding: 0px 40px 64px 40px;
   margin: 0 auto;
   max-width: 1200px;
 `;
@@ -46,6 +46,8 @@ const CloseButton = styled(SelectableButton)`
   height: 48px;
   background-color: transparent;
   color: ${(props) => props.color || 'black'};
+  opacity: ${(props) => (props.shrink ? 1 : 0)};
+  transition: opacity ${TRANSITION_TIME}s ease-in-out;
 `;
 
 export default function InfoSection(props) {
@@ -83,7 +85,7 @@ export default function InfoSection(props) {
 
   return (
     <SectionWrapper shrink={shrink} imageSize={props.imageSize}>
-      <CloseButton color={props.exitColor} onClick={closeSection}>
+      <CloseButton shrink={shrink} color={props.exitColor} onClick={closeSection}>
         <FaTimes size={24} />
       </CloseButton>
       <SectionHeader color='transparent' />
