@@ -1,6 +1,6 @@
-import React from 'react';
-import styled, { css } from 'styled-components/macro';
-import FadeScroll from 'components/animated/FadeScroll';
+import React from "react";
+import styled from "styled-components/macro";
+import FadeScroll from "components/animated/FadeScroll";
 
 //div -> position: absolute, width: 100%, opacity: 0.1, p -> background-color: none, width: 100%
 const ContentGrid = styled.ul`
@@ -29,7 +29,7 @@ const ContentRow = styled.li`
 
 const RowContents = styled.section`
   display: flex;
-  flex-direction: ${(props) => (props.reverse ? 'row-reverse' : 'row')};
+  flex-direction: ${(props) => (props.reverse ? "row-reverse" : "row")};
   align-items: center;
   justify-content: center;
   position: relative;
@@ -41,35 +41,16 @@ const RowContents = styled.section`
   }
 
   .image {
-    width: 60%;
-    ${(props) =>
-      props.reverse
-        ? css`
-            right: 0px;
-          `
-        : css`
-            left: 0px;
-          `};
+    width: 55%;
   }
 
   .text {
-    width: 50%;
+    width: 45%;
     z-index: 1;
-    right: 0px;
-    ${(props) =>
-      props.reverse
-        ? css`
-            left: 0px;
-          `
-        : css`
-            right: 0px;
-          `};
   }
 
   .text,
   .image {
-    position: absolute;
-    top: 0px;
     min-height: 300px;
     @media (max-width: 900px) {
       width: 100%;
@@ -90,6 +71,8 @@ const RowContents = styled.section`
     height: 100%;
     position: relative;
     border-radius: 4px;
+    left: ${(props) => (props.reverse ? "-50px" : "0px")};
+    width: calc(100% + 50px);
     @media (max-width: 900px) {
       width: 100%;
       left: 0;
@@ -100,42 +83,37 @@ const RowContents = styled.section`
     padding: 16px 40px;
     border-radius: 4px;
     box-sizing: border-box;
-    position: relative;
-    box-shadow: ${(props) => (props.reverse ? '-8px' : '8px')} 8px 8px
+    position: absolute;
+    box-shadow: ${(props) => (props.reverse ? "-8px" : "8px")} 8px 8px
         rgba(0, 0, 0, 0.2),
       0 0 8px rgba(0, 0, 0, 0.2);
     top: 150px;
+    left: ${(props) => (props.reverse ? "0px" : "-50px")};
+    width: calc(100% + 50px);
     @media (max-width: 900px) {
+      position: relative;
       width: 90%;
+      top: -100px;
+      left: 0;
       box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 0, 0.25);
     }
   }
-
-  /* .text:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        background-color: #eef4fa;
-    } */
 `;
 
-export default function InfoGrid({ rows }) {
-  const infoRows = () => {
-    return rows.map((row, index) => (
-      <ContentRow key={row.title}>
-        <h3>{row.title}</h3>
-        <RowContents reverse={index % 2 === 1}>
-          <div className='image'>{row.image}</div>
-          <FadeScroll className='text' delay={100}>
-            {row.text}
-          </FadeScroll>
-        </RowContents>
-      </ContentRow>
-    ));
-  };
+const infoRows = (rows) => {
+  return rows.map((row, index) => (
+    <ContentRow key={row.title}>
+      <h3>{row.title}</h3>
+      <RowContents reverse={index % 2 === 1}>
+        <div className="image">{row.image}</div>
+        <FadeScroll className="text" delay={100}>
+          {row.text}
+        </FadeScroll>
+      </RowContents>
+    </ContentRow>
+  ));
+};
 
-  return <ContentGrid>{infoRows()}</ContentGrid>;
+export default function InfoGrid({ rows }) {
+  return <ContentGrid>{infoRows(rows)}</ContentGrid>;
 }

@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
 
 const Container = styled.div`
   position: relative;
@@ -22,9 +22,5 @@ const Container = styled.div`
 `;
 
 export default function ParallaxInfoContainer(props) {
-    return (
-        <Container>
-            {props.children}
-        </Container>
-    );
+  return <Container>{props.children}</Container>;
 }

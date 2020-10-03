@@ -47,7 +47,6 @@ const CloseButton = styled(SelectableButton)`
   background-color: transparent;
   color: ${(props) => props.color || 'black'};
   opacity: ${(props) => (props.shrink ? 1 : 0)};
-  transition: opacity ${TRANSITION_TIME}s ease-in-out;
 `;
 
 export default function InfoSection(props) {
