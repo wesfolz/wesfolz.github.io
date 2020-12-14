@@ -138,10 +138,7 @@ export default function DaylytesSection(props) {
     >
       <SectionTitle>Summary</SectionTitle>
       <SectionText>
-        <InlineButton color={Colors.daylytes}>
-          <a href='https://daylytes.com/'>Daylytes</a>
-        </InlineButton>
-        &nbsp;is a VC funded sports media startup company. I was hired as a
+        Daylytes was a VC funded sports media startup company. I was hired as a
         software engineer and was employee number three at the company. I worked
         on all aspects of the Daylytes mobile app. From generating product
         ideas, to UI/UX design, backend software architecture and finally

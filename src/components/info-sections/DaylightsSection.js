@@ -145,10 +145,7 @@ export default function DaylightsSection(props) {
     >
       <SectionTitle>Summary</SectionTitle>
       <SectionText>
-        <InlineButton color={Colors.daylightsPrimary}>
-          <a href='https://getdaylights.com/'>Daylights</a>
-        </InlineButton>
-        &nbsp;(formerly Daylytes) is a VC funded sports media startup company. I
+        Daylights (formerly Daylytes) was a VC funded sports media startup company. I
         was hired as a software engineer and was employee number three at the
         company. I developed the software for the Daylights personalized sports
         email service.
