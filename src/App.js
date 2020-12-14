@@ -164,6 +164,7 @@ const App = (props) => {
   }, [props.location]);
 
   const selectItem = (index) => {
+    window.scrollTo(0, 0);
     if (selectionSets[selectedSet].selections[index].route !== '/') {
       setCurrentRoute(selectionSets[selectedSet].selections[index].route);
       setTimeout(() => {

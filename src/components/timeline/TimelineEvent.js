@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import styled, { css } from 'styled-components/macro';
+import styled from 'styled-components/macro';
 
 import {
   SectionHeader,
@@ -14,14 +14,6 @@ const ItemContainer = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1;
-  ${(props) =>
-    props.left
-      ? css`
-          right: 0;
-        `
-      : css`
-          left: 0;
-        `}
   border-radius: 50%;
 `;
 
@@ -31,6 +23,7 @@ const Overlay = styled(SectionHeader)`
   border-radius: 50%;
   width: ${(props) => `${props.imageSize}px`};
   height: ${(props) => `${props.imageSize}px`};
+  box-shadow: ${props => `0px 2px ${24/props.scale}px rgba(0, 0, 0, 0.5)`};
 
   p {
     opacity: 0;
@@ -129,7 +122,7 @@ export default function TimelineEvent(props) {
   };
 
   return (
-    <ItemContainer {...props}>
+    <ItemContainer>
       <Overlay
         ref={itemRef}
         onClick={selectItem}

@@ -63,7 +63,7 @@ const TimelineList = styled.ul`
   &::before {
     content: '';
     position: absolute;
-    background-color: white;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.1) 25%);
     opacity: 0.5;
     top: 0;
     width: ${`${LINE_WIDTH}px`};
@@ -73,12 +73,13 @@ const TimelineList = styled.ul`
 
 const TimelineMarker = styled.li`
   color: white;
-  background-color: ${Colors.primary};
+  background-color: ${Colors.timelineBackground};
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
   z-index: 1;
   font-weight: 600;
   font-size: ${`${20 / INITIAL_SCALE}px`};
-  padding: ${`${3 / INITIAL_SCALE}px`};
-  border-radius: ${`${6 / INITIAL_SCALE}px`};
+  padding: ${`${6 / INITIAL_SCALE}px ${10 / INITIAL_SCALE}px`};
+  border-radius: ${`${40 / INITIAL_SCALE}px`};
   @media (max-width: 768px), (max-height: 850px) {
     font-size: ${`${16 / INITIAL_SCALE}px`};
   }
@@ -286,8 +287,8 @@ export default function Timeline(props) {
         >
           <TimelineList>{timelineMarkers()}</TimelineList>
           <EventMarkerLeft
-            top={-75}
-            height={23}
+            top={-77}
+            height={22}
             color={Colors.daylightsPrimary}
             timelineWidth={timelineWidth}
             imageSize={imageSize}
@@ -309,7 +310,7 @@ export default function Timeline(props) {
           </EventMarkerLeft>
           <EventMarker
             top={-22}
-            height={26}
+            height={28}
             color={Colors.daylytes}
             timelineWidth={timelineWidth}
             imageSize={imageSize}
@@ -332,7 +333,7 @@ export default function Timeline(props) {
           <EventMarker
             multiplier={WIDTH_MULTIPLIER * 0.75}
             top={40}
-            height={22}
+            height={20}
             color={Colors.stratosphere}
             timelineWidth={timelineWidth}
             imageSize={imageSize}
