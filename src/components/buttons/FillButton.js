@@ -7,7 +7,7 @@ const CustomButton = styled.button`
   font-weight: bold;
   font-size: 16px;
   font-family: "Source Code Pro";
-  border-radius: 2px;
+  border-radius: 6px;
   padding: 4px 16px;
   outline: none;
   display: inline-flex;

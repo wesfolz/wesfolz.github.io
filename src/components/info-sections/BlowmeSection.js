@@ -1,7 +1,6 @@
 import React from "react";
 
 import Scavenger from "images/scavenger.svg";
-import Proposal from "images/proposal.jpg";
 import Blowme from "images/blowme.png";
 
 import FirebaseLogo from "images/logos/firebase.svg";
@@ -17,8 +16,6 @@ import InfoGrid from "components/info-sections/InfoGrid";
 import {
   SectionTitle,
   SectionText,
-  InlineButton,
-  FullRowImage,
 } from "components/info-sections/SectionStyles";
 
 export default function BlowmeSection(props) {
@@ -57,13 +54,6 @@ export default function BlowmeSection(props) {
         </React.Fragment>
       ),
       title: "Clues",
-    },
-  ];
-
-  const resultRows = [
-    {
-      content: <FullRowImage src={Proposal}></FullRowImage>,
-      title: "She said yes!",
     },
   ];
 

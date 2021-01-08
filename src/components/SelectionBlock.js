@@ -50,7 +50,7 @@ const SelectionContainer = styled.div`
   opacity: ${(props) => (props.slideOut || props.shrink ? 0 : 1)};
   transition: ${(props) =>
     `opacity ${props.transitionTime}s, transform ${props.transitionTime}s`};
-  margin: 32px 0px;
+  margin: 32px 0px 56px;
   ${(props) =>
     props.shrink
       ? css`

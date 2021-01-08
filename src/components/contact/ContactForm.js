@@ -79,6 +79,10 @@ const FeedbackContainer = styled.div`
   }
 `;
 
+const SubmitButton = styled(FillButton)`
+  padding: 8px 16px;
+`;
+
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 export default function ContactForm() {
@@ -211,9 +215,9 @@ export default function ContactForm() {
         </FeedbackContainer>
       ) : null}
       <SendContainer>
-        <FillButton type='button' color={Colors.info} onClick={handleSubmit}>
+        <SubmitButton type='button' color={Colors.info} onClick={handleSubmit}>
           {submitText}
-        </FillButton>
+        </SubmitButton>
       </SendContainer>
     </FormContainer>
   );

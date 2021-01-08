@@ -28,9 +28,12 @@ const ContentWrapper = styled.div`
 `;
 
 const Content = styled.div`
-  padding: 0px 40px 64px 40px;
+  padding: 0px 60px 64px 60px;
   margin: 0 auto;
   max-width: 1200px;
+  @media (max-width: 768px) {
+    padding: 0px 48px 64px 48px;
+  }
 `;
 
 const CloseButton = styled(SelectableButton)`

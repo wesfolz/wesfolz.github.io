@@ -19,8 +19,7 @@ import TechIcon from 'components/tech-section/TechIcon';
 import InfoGrid from 'components/info-sections/InfoGrid';
 import {
   SectionTitle,
-  SectionText,
-  InlineButton
+  SectionText
 } from 'components/info-sections/SectionStyles';
 import ParallaxInfoContainer from 'components/animated/ParallaxInfoContainer';
 
