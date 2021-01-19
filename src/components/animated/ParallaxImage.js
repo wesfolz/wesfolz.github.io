@@ -28,7 +28,6 @@ export default function ParallaxImage(props) {
       elePercent = (maxOffset - minOffset) * elePercent + minOffset;
       elePercent = Math.min(elePercent, maxOffset);
       elePercent = Math.max(elePercent, minOffset);
-      console.log(rect, elePercent);
       imageEl.current.style.backgroundPosition = `50%  ${elePercent}%`;
     };
 
