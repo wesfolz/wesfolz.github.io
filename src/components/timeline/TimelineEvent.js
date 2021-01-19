@@ -96,7 +96,7 @@ export default function TimelineEvent(props) {
     if (props.collapse) {
       setTimeout(() => {
         setOverlayClass(null);
-      }, props.transitionTime * 1000);
+      }, props.transitionTime);
     }
   }, [props.collapse]);
 
@@ -108,7 +108,7 @@ export default function TimelineEvent(props) {
     ) {
       setTimeout(() => {
         selectItem();
-      }, props.transitionTime * 1500);
+      }, props.transitionTime * 1.5);
     }
   }, [location.pathname]);
 
@@ -116,7 +116,7 @@ export default function TimelineEvent(props) {
     setOverlayClass('zoomed');
     setTimeout(() => {
       setOverlayClass('expanded');
-    }, props.transitionTime * 1000);
+    }, props.transitionTime);
 
     props.selectItem(itemRef, props.route);
   };

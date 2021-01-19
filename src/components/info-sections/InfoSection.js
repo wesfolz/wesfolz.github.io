@@ -7,8 +7,8 @@ import SelectableButton from 'components/buttons/SelectableButton';
 import Colors from 'styles/Colors';
 import { SectionHeader } from 'components/info-sections/SectionStyles';
 
-const TRANSITION_TIME = 0.5;
-const DELAY_TIME = 0.25;
+const TRANSITION_TIME = 500;
+const DELAY_TIME = 0;
 
 const SectionWrapper = styled.article`
   position: absolute;
@@ -21,7 +21,7 @@ const SectionWrapper = styled.article`
 const ContentWrapper = styled.div`
   background-color: ${Colors.offWhite};
   overflow: hidden;
-  transition: all ${TRANSITION_TIME}s ease-in-out;
+  transition: all ${TRANSITION_TIME}ms ease-in-out;
   opacity: ${(props) => (props.shrink ? 1 : 0)};
   transform: scaleY(${(props) => (props.shrink ? 1 : 0)});
   transform-origin: top;
@@ -59,7 +59,7 @@ export default function InfoSection(props) {
     if (props.show) {
       const timeout = setTimeout(() => {
         setShrink(true);
-      }, (DELAY_TIME + TRANSITION_TIME) * 1000);
+      }, (DELAY_TIME + TRANSITION_TIME));
 
       return () => clearTimeout(timeout);
     }
@@ -71,12 +71,12 @@ export default function InfoSection(props) {
       setShrink(false);
       setTimeout(() => {
         props.zoomOut && props.zoomOut();
-      }, [TRANSITION_TIME * 1000]);
+      }, [TRANSITION_TIME]);
     });
     animateScroll.scrollToTop({
       duration: (scrollDistance) => {
         const minTime = 200;
-        const maxTime = TRANSITION_TIME * 1000;
+        const maxTime = TRANSITION_TIME;
         const calculatedTime = Math.abs((TRANSITION_TIME * scrollDistance) / 2);
         const minBounded = Math.min(calculatedTime, maxTime);
         return Math.max(minTime, minBounded);

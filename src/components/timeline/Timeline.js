@@ -15,7 +15,7 @@ import TimelineEvent from 'components/timeline/TimelineEvent';
 import InfoRoutes from 'components/info-sections/InfoRoutes';
 import Routes from 'Routes';
 
-const TRANSITION_TIME = 0.75;
+const TRANSITION_TIME = 500;
 const INITIAL_SCALE = 0.25;
 const TIMELINE_WIDTH = 100 / INITIAL_SCALE;
 const LINE_WIDTH = 6 / INITIAL_SCALE;
@@ -44,7 +44,7 @@ const TimelineContainer = styled.div`
       ${(props) =>
         `${props.scale || 1}, ${props.scale || 1}, ${props.scale || 1}`}
     );
-  transition: all ${`${TRANSITION_TIME}s ease-in-out`};
+  transition: all ${`${TRANSITION_TIME}ms ease-in-out`};
   backface-visibility: hidden;
 `;
 
@@ -262,7 +262,7 @@ export default function Timeline(props) {
       props.history.push(eventName);
       // Move to top
       setTranslation({ x: `${xOffset}px`, y: `${finalYOffset}px` });
-    }, TRANSITION_TIME * 1000 + 300);
+    }, TRANSITION_TIME + 300);
 
     setScale(1);
     setCollapse(false);
