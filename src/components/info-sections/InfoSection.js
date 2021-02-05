@@ -57,11 +57,11 @@ export default function InfoSection(props) {
 
   useEffect(() => {
     if (props.show) {
-      const timeout = setTimeout(() => {
+      // const timeout = setTimeout(() => {
         setShrink(true);
-      }, (DELAY_TIME + TRANSITION_TIME));
+      // }, (DELAY_TIME + TRANSITION_TIME));
 
-      return () => clearTimeout(timeout);
+      // return () => clearTimeout(timeout);
     }
   }, [props.show]);
 

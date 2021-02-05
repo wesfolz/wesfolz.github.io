@@ -234,7 +234,7 @@ export default function Timeline(props) {
   const selectEvent = useCallback((ref, eventName) => {
     const windowHeight = document.documentElement.offsetHeight;
     const element = ref.current.getBoundingClientRect();
-    const elementHeight = window.innerWidth <= 768 ? 120 : 200;
+    const elementHeight = window.innerWidth <= 768 || window.innerHeight <= 850 ? 120 : 200;
     // TODO: Figure out why these are not always the same
     const heightDiff = elementHeight - element.height;
     // const centerOffset = window.innerHeight / 2 - top;
@@ -258,10 +258,12 @@ export default function Timeline(props) {
     setTranslation({ x: `${xOffset}px`, y: `${yOffset}px` });
 
     setTimeout(() => {
-      setShowRoute(true);
-      props.history.push(eventName);
       // Move to top
       setTranslation({ x: `${xOffset}px`, y: `${finalYOffset}px` });
+      setTimeout(() => {
+        setShowRoute(true);
+        props.history.push(eventName);
+      }, TRANSITION_TIME);
     }, TRANSITION_TIME + 300);
 
     setScale(1);
