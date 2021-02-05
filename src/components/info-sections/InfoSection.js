@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/macro';
 import { FaTimes } from 'react-icons/fa';
 import { Events, animateScroll } from 'react-scroll';
+import { mix } from 'polished';
 
 import SelectableButton from 'components/buttons/SelectableButton';
 import Colors from 'styles/Colors';
@@ -19,12 +20,13 @@ const SectionWrapper = styled.article`
 `;
 
 const ContentWrapper = styled.div`
-  background-color: ${Colors.offWhite};
+  background-color: ${mix(0.75, '#141414', Colors.primary)};
   overflow: hidden;
   transition: all ${TRANSITION_TIME}ms ease-in-out;
   opacity: ${(props) => (props.shrink ? 1 : 0)};
   transform: scaleY(${(props) => (props.shrink ? 1 : 0)});
   transform-origin: top;
+  color: ${Colors.offWhite};
 `;
 
 const Content = styled.div`
@@ -90,7 +92,7 @@ export default function InfoSection(props) {
       <CloseButton shrink={shrink} color={props.exitColor} onClick={closeSection}>
         <FaTimes size={24} />
       </CloseButton>
-      <SectionHeader color='transparent' />
+      <SectionHeader />
       <ContentWrapper shrink={shrink}>
         <Content>{props.children}</Content>
       </ContentWrapper>

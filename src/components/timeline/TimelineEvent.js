@@ -1,7 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components/macro';
+import { mix } from 'polished';
 
+import Colors from 'styles/Colors';
 import {
   SectionHeader,
   HeaderImg
@@ -29,12 +31,25 @@ const Overlay = styled(SectionHeader)`
     opacity: 0;
     transition: opacity 0.3s;
   }
+  &:before {
+    width: 100%;
+    position: absolute;
+    content: '';
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(1, 22, 39, 0.15) 0, rgba(1, 22, 39, 0) 75%);
+    z-index: 1;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    border-radius: 50%;
+    /* border-radius: ${(props) => `${3 / props.scale}px`}; */
+  }
 
-  &::after {
+  &:after {
     content: '';
     height: 400px;
     width: 100vw;
-    background-color: ${(props) => props.color};
+    background-color: ${(props) => mix(0.75, props.color, Colors.primary)};
     transform: scaleX(0);
     transition: transform 0.3s ease-in-out, border-radius 0.3s ease-in-out;
     position: absolute;
@@ -134,7 +149,7 @@ export default function TimelineEvent(props) {
           image={props.image}
           color={props.color}
           imageSize={props.imageSize / 1.5}
-        ></HeaderImg>
+        />
         <p>{props.eventSubtitle}</p>
       </Overlay>
     </ItemContainer>

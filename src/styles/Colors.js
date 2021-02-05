@@ -10,7 +10,7 @@ const Colors = {
   yellow: "#eeca46",
   green: "#27AE60",
   darkRed: "#5E1224",
-  offWhite: "#fafafa",
+  offWhite: "rgba(255, 255, 255, 0.85)",
   lightGray: "#e0e0e0",
   timeline: "#035E7F",
   timelineBackground: "#022F40",

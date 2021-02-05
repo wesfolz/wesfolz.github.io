@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import styled from 'styled-components/macro';
+import { mix } from 'polished';
 
 import Lockheed from 'images/lockheed.jpg';
 import Wildcat from 'images/wildcat.png';
@@ -97,9 +98,9 @@ const EventMarker = styled.div`
   &::before {
     content: '';
     position: absolute;
-    border-top: ${`${LINE_WIDTH}px`} solid ${(props) => props.color};
-    border-bottom: ${`${LINE_WIDTH}px`} solid ${(props) => props.color};
-    border-right: ${`${LINE_WIDTH}px`} solid ${(props) => props.color};
+    border-top: ${`${LINE_WIDTH}px`} solid ${(props) => mix(0.75, props.color, Colors.primary)};
+    border-bottom: ${`${LINE_WIDTH}px`} solid ${(props) => mix(0.75, props.color, Colors.primary)};
+    border-right: ${`${LINE_WIDTH}px`} solid ${(props) => mix(0.75, props.color, Colors.primary)};
     padding: ${(props) => `${props.height}vh`}
       ${(props) =>
         `${
@@ -129,7 +130,7 @@ const EventMarkerLeft = styled(EventMarker)`
     }px + 50vw)`};
   left: unset;
   &::before {
-    border-left: ${`${LINE_WIDTH}px`} solid ${(props) => props.color};
+    border-left: ${`${LINE_WIDTH}px`} solid ${(props) => mix(0.75, props.color, Colors.primary)};
     border-right: 0;
     right: ${(props) =>
       `${-props.imageSize * (props.multiplier || WIDTH_MULTIPLIER)}px`};

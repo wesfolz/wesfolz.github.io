@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 
 const CustomButton = styled.button`
   background-color: transparent;
-  color: ${(props) => props.color || "white"};
+  color: ${(props) => props.color || "inherit"};
   font-weight: bold;
   font-size: 16px;
   font-family: "Source Code Pro";

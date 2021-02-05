@@ -1,5 +1,8 @@
 import styled from 'styled-components/macro';
+import { mix } from 'polished';
+
 import UnderlineButton from 'components/buttons/UnderlineButton';
+import Colors from 'styles/Colors';
 
 export const SectionTitle = styled.h1`
   margin: 60px 0px 20px;
@@ -7,19 +10,31 @@ export const SectionTitle = styled.h1`
 
 export const SectionText = styled.p`
   margin: 0;
-  background-color: white;
+  background-color: ${mix(0.85, '#1f1f1f', Colors.primary)};
   padding: 20px;
   line-height: 24px;
   border-radius: 4px;
 `;
 
 export const SectionHeader = styled.header`
-  background-color: ${(props) => props.color};
+  background-color: ${({ color }) => color ? mix(0.75, color, Colors.primary) : 'transparent'};
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  /* &:before {
+    width: 100%;
+    position: absolute;
+    content: '';
+    height: 100%;
+    background-color: rgba(1, 22, 39, 0.25);
+    z-index: 1;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    border-radius: ${(props) => `${3 / props.scale}px`};
+  } */
   p {
     font-size: 32px;
     font-weight: bold;

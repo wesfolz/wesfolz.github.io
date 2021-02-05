@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { mix } from 'polished';
+
 import FadeScroll from 'components/animated/FadeScroll';
+import Colors from 'styles/Colors';
 
 const SkillsGrid = styled.ul`
     padding: 0;
@@ -10,7 +13,7 @@ const SkillsGrid = styled.ul`
     align-items: flex-start;
     flex-wrap: wrap;
     width: 100%;
-    background-color: white;
+    background-color: ${mix(0.85, '#1f1f1f', Colors.primary)};
     padding-top: 20px;
     border-radius: 4px;
     @media (max-width: 390px) {
