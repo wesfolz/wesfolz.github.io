@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaJava, FaHtml5, FaCss3Alt } from 'react-icons/fa';
 
-import Wildcat from 'images/wildcat.png';
+import UofA from 'images/uofa.svg';
 import Surface from 'images/surface.png';
 import Robot from 'images/robot.jpg';
 import Encryption from 'images/encryption.png';
@@ -52,7 +52,7 @@ const techList = [
     title: 'HTML'
   },
   {
-    icon: <FaCss3Alt size={56} color='blue' />,
+    icon: <FaCss3Alt size={56} color='#264de4' />,
     title: 'CSS'
   },
   {
@@ -170,9 +170,8 @@ export default function CollegSection(props) {
     <InfoSection
       infoTitle='University of Arizona'
       infoSubtitle='Master of Science'
-      backgroundImage={Wildcat}
+      backgroundImage={UofA}
       backgroundColor={Colors.uofaRed}
-      exitColor={Colors.uofa}
       {...props}
     >
       <SectionTitle>Summary</SectionTitle>

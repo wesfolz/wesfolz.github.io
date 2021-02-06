@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaReact } from 'react-icons/fa';
 
-import RaspberryDrone from 'images/raspberry_drone.png';
+import RaspberryDrone from 'images/raspberry_drone.svg';
 import Drone from 'images/drone.jpg';
 import DroneApp from 'images/drone_app.png';
 

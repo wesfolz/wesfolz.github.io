@@ -10,14 +10,14 @@ export const SectionTitle = styled.h1`
 
 export const SectionText = styled.p`
   margin: 0;
-  background-color: ${mix(0.85, '#1f1f1f', Colors.primary)};
+  background-color: ${mix(0.85, Colors.surface, Colors.primary)};
   padding: 20px;
   line-height: 24px;
   border-radius: 4px;
 `;
 
 export const SectionHeader = styled.header`
-  background-color: ${({ color }) => color ? mix(0.75, color, Colors.primary) : 'transparent'};
+  background-color: ${({ color }) => color ? mix(0.65, color, Colors.primary) : 'transparent'};
   z-index: 1;
   display: flex;
   justify-content: center;
@@ -55,8 +55,7 @@ export const SectionHeader = styled.header`
 export const HeaderImg = styled.div`
   width: ${(props) => `${props.imageSize}px`};
   height: ${(props) => `${props.imageSize}px`};
-  background: ${(props) => props.color} url(${(props) => props.image}) no-repeat
-    center;
+  background: url(${(props) => props.image}) no-repeat center;
   background-size: contain;
   z-index: 2;
 `;

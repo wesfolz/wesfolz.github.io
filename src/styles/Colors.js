@@ -39,6 +39,8 @@ const Colors = {
   jira: "#0052CC",
   aws: "#fd7e14",
   ios: "#A3AAAE",
+  surface: '#2F2F2F',
+  dark: '#141414'
 };
 
 export default Colors;

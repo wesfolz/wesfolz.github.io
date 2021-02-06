@@ -2,12 +2,12 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import styled from 'styled-components/macro';
 import { mix } from 'polished';
 
-import Lockheed from 'images/lockheed.jpg';
-import Wildcat from 'images/wildcat.png';
-import Sandia from 'images/sandia.png';
-import Stratosphere from 'images/stratosphere.png';
+import Lockheed from 'images/lockheed.svg';
+import UofA from 'images/uofa.svg';
+import Sandia from 'images/sandia.svg';
+import Stratosphere from 'images/stratosphere.svg';
 import Scavenger from 'images/scavenger.svg';
-import RaspberryDrone from 'images/raspberry_drone.png';
+import RaspberryDrone from 'images/raspberry_drone.svg';
 import Daylytes from 'images/daylytes.svg';
 import Daylights from 'images/daylights.svg';
 import Colors from 'styles/Colors';
@@ -101,12 +101,8 @@ const EventMarker = styled.div`
     border-top: ${`${LINE_WIDTH}px`} solid ${(props) => mix(0.75, props.color, Colors.primary)};
     border-bottom: ${`${LINE_WIDTH}px`} solid ${(props) => mix(0.75, props.color, Colors.primary)};
     border-right: ${`${LINE_WIDTH}px`} solid ${(props) => mix(0.75, props.color, Colors.primary)};
-    padding: ${(props) => `${props.height}vh`}
-      ${(props) =>
-        `${
-          props.imageSize * (props.multiplier / 2 || WIDTH_MULTIPLIER / 2) -
-          LINE_WIDTH / 4
-        }px`};
+    padding: ${(props) => 
+      `${props.height}vh ${props.imageSize * (props.multiplier / 2 || WIDTH_MULTIPLIER / 2) - LINE_WIDTH / 4}px`};
     left: ${(props) =>
       `${-props.imageSize * (props.multiplier || WIDTH_MULTIPLIER)}px`};
     top: ${(props) =>
@@ -471,7 +467,7 @@ export default function Timeline(props) {
               route={Routes.college}
               collapse={collapse}
               imageSize={imageSize}
-              image={Wildcat}
+              image={UofA}
               color={Colors.uofaRed}
               selectItem={selectEvent}
               exit={zoomOut}

@@ -13,7 +13,7 @@ const SkillsGrid = styled.ul`
     align-items: flex-start;
     flex-wrap: wrap;
     width: 100%;
-    background-color: ${mix(0.85, '#1f1f1f', Colors.primary)};
+    background-color: ${mix(0.85, Colors.surface, Colors.primary)};
     padding-top: 20px;
     border-radius: 4px;
     @media (max-width: 390px) {

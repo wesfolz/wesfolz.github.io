@@ -9,7 +9,7 @@ import {
   FaWindows
 } from 'react-icons/fa';
 
-import Lockheed from 'images/lockheed.jpg';
+import Lockheed from 'images/lockheed.svg';
 import Orion from 'images/orion.jpg';
 import LAS from 'images/las.jpg';
 import Scrum from 'images/scrum.png';
@@ -202,7 +202,7 @@ const rows = [
   }
 ];
 
-export default function LokcheedSection(props) {
+export default function LockheedSection(props) {
   return (
     <InfoSection
       infoTitle='Lockheed Martin'

@@ -2,9 +2,11 @@ import React from 'react';
 import styled from 'styled-components/macro';
 
 import FillButton from 'components/buttons/FillButton';
+import Colors from 'styles/Colors';
 
 const CustomButton = styled(FillButton)`
-  background-color: transparent;
+  background-color: ${Colors.surface};
+  color: ${Colors.lightBlue};
   flex-direction: column;
 
   &:after {
@@ -17,11 +19,11 @@ const CustomButton = styled(FillButton)`
     transition: width 0.3s ease, background-color 0.3s ease;
   }
   &:hover {
-    background-color: transparent;
-    color: inherit;
+    background-color: ${Colors.surface};
+    color: white;
     &:after {
       width: 100%;
-      background: ${(props) => props.color};
+      background: ${Colors.lightBlue};
     }
   }
 `;

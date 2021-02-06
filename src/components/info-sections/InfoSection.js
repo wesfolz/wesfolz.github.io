@@ -9,7 +9,6 @@ import Colors from 'styles/Colors';
 import { SectionHeader } from 'components/info-sections/SectionStyles';
 
 const TRANSITION_TIME = 500;
-const DELAY_TIME = 0;
 
 const SectionWrapper = styled.article`
   position: absolute;
@@ -20,7 +19,7 @@ const SectionWrapper = styled.article`
 `;
 
 const ContentWrapper = styled.div`
-  background-color: ${mix(0.75, '#141414', Colors.primary)};
+  background-color: ${mix(0.75, Colors.dark, Colors.primary)};
   overflow: hidden;
   transition: all ${TRANSITION_TIME}ms ease-in-out;
   opacity: ${(props) => (props.shrink ? 1 : 0)};
@@ -50,7 +49,7 @@ const CloseButton = styled(SelectableButton)`
   width: 48px;
   height: 48px;
   background-color: transparent;
-  color: ${(props) => props.color || 'black'};
+  color: ${Colors.lightBlue};
   opacity: ${(props) => (props.shrink ? 1 : 0)};
 `;
 

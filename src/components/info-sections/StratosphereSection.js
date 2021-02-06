@@ -1,7 +1,7 @@
 import React from 'react';
 import { GrEdge } from 'react-icons/gr';
 
-import Stratosphere from 'images/stratosphere.png';
+import Stratosphere from 'images/stratosphere.svg';
 import Gradient from 'images/gradient.png';
 import TeamSection from 'images/team_section.png';
 import ContactForm from 'images/contact_form.png';

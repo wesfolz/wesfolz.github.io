@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import LokcheedSection from "components/info-sections/LokcheedSection";
+import LockheedSection from "components/info-sections/LockheedSection";
 import SandiaSection from "components/info-sections/SandiaSection";
 import CollegeSection from "components/info-sections/CollegeSection";
 import StratosphereSection from "components/info-sections/StratosphereSection";
@@ -22,7 +22,7 @@ export default function InfoRoutes(props) {
       <Route path={Routes.sandia} render={() => <SandiaSection {...props} />} />
       <Route
         path={Routes.lockheed}
-        render={() => <LokcheedSection {...props} />}
+        render={() => <LockheedSection {...props} />}
       />
       <Route
         path={Routes.stratosphere}

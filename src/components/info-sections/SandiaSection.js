@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaJava, FaAndroid, FaLinux, FaWindows } from 'react-icons/fa';
 
-import Sandia from 'images/sandia.png';
+import Sandia from 'images/sandia.svg';
 import Maccs from 'images/maccs.png';
 import Santeria from 'images/santeria.png';
 import Rtree from 'images/rtree.png';
@@ -59,7 +59,7 @@ const rows = [
         backgroundImage={Maccs}
         overlayColor={Colors.sandia}
         href={MaccsPoster}
-      ></ParallaxInfoImage>
+      />
     ),
     text: (
       <SectionText>
@@ -78,7 +78,8 @@ const rows = [
         backgroundImage={Rtree}
         overlayColor={Colors.sandia}
         href={AdHocPoster}
-      ></ParallaxInfoImage>
+        backgroundColor='white'
+      />
     ),
     text: (
       <SectionText>
@@ -98,7 +99,8 @@ const rows = [
         backgroundImage={Santeria}
         overlayColor={Colors.sandia}
         href={SanteriaPoster}
-      ></ParallaxInfoImage>
+        backgroundColor="white"
+      />
     ),
     text: (
       <SectionText>
