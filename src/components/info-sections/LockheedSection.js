@@ -47,7 +47,7 @@ const techList = [
     title: 'HTML'
   },
   {
-    icon: <FaCss3Alt size={48} color='blue' />,
+    icon: <FaCss3Alt size={48} color='#264de4' />,
     title: 'CSS'
   },
   {
