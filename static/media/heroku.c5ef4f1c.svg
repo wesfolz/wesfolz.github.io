@@ -3,7 +3,7 @@
     <title>heroku logo</title>
   <style>
     .heroku-logo {
-        fill:#430098;
+        fill:#6B28C0;
     }
     rect {
         fill: transparent;
