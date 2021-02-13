@@ -12,6 +12,7 @@ const ParallaxDiv = styled.div`
   /* background-size: cover; */
   background-size: auto 125%;
   border-radius: inherit;
+  background-position: 50% ${props => props.maxOffset || 100}%;
 `;
 
 export default function ParallaxImage(props) {
@@ -32,8 +33,6 @@ export default function ParallaxImage(props) {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    setTimeout(() => handleScroll(), 925);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
