@@ -1,9 +1,12 @@
 import React from 'react';
 
 import Daylights from 'images/daylights.svg';
-import DaylightsSubscriber from 'images/daylights_subscriber.png';
-import Octagon from 'images/octagon.png';
-import DaylightsPublisher from 'images/publisher.png';
+import DaylightsSubscriber from 'images/daylights_subscriber.jpg';
+import Octagon from 'images/octagon.jpg';
+import DaylightsPublisher from 'images/publisher.jpg';
+import DaylightsSubscriberSmall from 'images/daylights_subscriber_small.jpg';
+import OctagonSmall from 'images/octagon_small.jpg';
+import DaylightsPublisherSmall from 'images/publisher_small.jpg';
 import Redux from 'images/logos/redux.svg';
 import Rails from 'images/logos/rails.png';
 import Postgres from 'images/logos/postgresql.svg';
@@ -84,6 +87,7 @@ const rows = [
       <ParallaxInfoContainer>
         <ParallaxImage
           backgroundImage={DaylightsSubscriber}
+          smallBackgroundImage={DaylightsSubscriberSmall}
           backgroundColor='black'
         />
       </ParallaxInfoContainer>
@@ -101,7 +105,7 @@ const rows = [
   {
     image: (
       <ParallaxInfoContainer>
-        <ParallaxImage backgroundImage={Octagon} />
+        <ParallaxImage backgroundImage={Octagon} smallBackgroundImage={OctagonSmall} />
       </ParallaxInfoContainer>
     ),
     text: (
@@ -118,7 +122,7 @@ const rows = [
   {
     image: (
       <ParallaxInfoContainer>
-        <ParallaxImage backgroundImage={DaylightsPublisher} />
+        <ParallaxImage backgroundImage={DaylightsPublisher} smallBackgroundImage={DaylightsPublisherSmall} />
       </ParallaxInfoContainer>
     ),
     text: (

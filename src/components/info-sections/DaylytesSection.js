@@ -5,6 +5,10 @@ import Daylytes from 'images/daylytes.svg';
 import DaylytesVideo from 'images/daylytes_video.png';
 import DaylytesPost from 'images/daylytes_post.png';
 import DaylytesHome from 'images/daylytes_home.png';
+import DaylytesVideoSmall from 'images/daylytes_video_small.png';
+import DaylytesHomeSmall from 'images/daylytes_home_small.png';
+import DaylytesPostSmall from 'images/daylytes_post_small.png';
+
 import Redux from 'images/logos/redux.svg';
 import Rails from 'images/logos/rails.png';
 import Postgres from 'images/logos/postgresql.svg';
@@ -72,8 +76,9 @@ const rows = [
       <ParallaxInfoContainer>
         <ParallaxImage
           backgroundImage={DaylytesVideo}
+          smallBackgroundImage={DaylytesVideoSmall}
           backgroundColor='black'
-        ></ParallaxImage>
+        />
       </ParallaxInfoContainer>
     ),
     text: (
@@ -92,8 +97,9 @@ const rows = [
       <ParallaxInfoContainer>
         <ParallaxImage
           backgroundImage={DaylytesPost}
+          smallBackgroundImage={DaylytesPostSmall}
           backgroundColor='black'
-        ></ParallaxImage>
+        />
       </ParallaxInfoContainer>
     ),
     text: (
@@ -110,8 +116,9 @@ const rows = [
       <ParallaxInfoContainer>
         <ParallaxImage
           backgroundImage={DaylytesHome}
+          smallBackgroundImage={DaylytesHomeSmall}
           backgroundColor='black'
-        ></ParallaxImage>
+        />
       </ParallaxInfoContainer>
     ),
     text: (

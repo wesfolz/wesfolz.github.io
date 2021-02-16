@@ -2,9 +2,12 @@ import React from 'react';
 import { FaJava, FaAndroid, FaLinux, FaWindows } from 'react-icons/fa';
 
 import Sandia from 'images/sandia.svg';
-import Maccs from 'images/maccs.png';
-import Santeria from 'images/santeria.png';
+import Maccs from 'images/maccs.jpg';
+import Santeria from 'images/santeria.jpg';
 import Rtree from 'images/rtree.png';
+import MaccsSmall from 'images/maccs_small.jpg';
+import SanteriaSmall from 'images/santeria_small.jpg';
+import RtreeSmall from 'images/rtree_small.jpg';
 import MaccsPoster from 'images/MACCS_Poster.pdf';
 import SanteriaPoster from 'images/Santeria_Poster.pdf';
 import AdHocPoster from 'images/Ad_Hoc_Poster.pdf';
@@ -57,6 +60,7 @@ const rows = [
     image: (
       <ParallaxInfoImage
         backgroundImage={Maccs}
+        smallBackgroundImage={MaccsSmall}
         overlayColor={Colors.sandia}
         href={MaccsPoster}
       />
@@ -76,6 +80,7 @@ const rows = [
     image: (
       <ParallaxInfoImage
         backgroundImage={Rtree}
+        smallBackgroundImage={RtreeSmall}
         overlayColor={Colors.sandia}
         href={AdHocPoster}
         backgroundColor='white'
@@ -97,6 +102,7 @@ const rows = [
     image: (
       <ParallaxInfoImage
         backgroundImage={Santeria}
+        smallBackgroundImage={SanteriaSmall}
         overlayColor={Colors.sandia}
         href={SanteriaPoster}
         backgroundColor="white"

@@ -15,6 +15,11 @@ import LAS from 'images/las.jpg';
 import Scrum from 'images/scrum.png';
 import Data from 'images/big-data.jpg';
 import Debug from 'images/debug.jpg';
+import OrionSmall from 'images/orion_small.jpg';
+import LASSmall from 'images/las_small.jpg';
+import ScrumSmall from 'images/scrum_small.jpg';
+import DataSmall from 'images/big-data_small.jpg';
+import DebugSmall from 'images/debug_small.jpg';
 import Elastic from 'images/logos/elasticsearch.svg';
 import Labview from 'images/logos/labview.svg';
 import Python from 'images/logos/python.svg';
@@ -112,6 +117,7 @@ const rows = [
     image: (
       <ParallaxInfoImage
         backgroundImage={Orion}
+        smallBackgroundImage={OrionSmall}
         overlayColor={Colors.lockheed}
         href='https://www.lockheedmartin.com/en-us/products/orion.html'
       />
@@ -132,6 +138,7 @@ const rows = [
     image: (
       <ParallaxInfoImage
         backgroundImage={Data}
+        smallBackgroundImage={DataSmall}
         overlayColor={Colors.lockheed}
         href='https://en.wikipedia.org/wiki/Big_data'
       />
@@ -149,6 +156,7 @@ const rows = [
     image: (
       <ParallaxInfoImage
         backgroundImage={LAS}
+        smallBackgroundImage={LASSmall}
         overlayColor={Colors.lockheed}
         href='https://www.youtube.com/watch?v=4rfsDMGplZU'
       />
@@ -169,6 +177,7 @@ const rows = [
     image: (
       <ParallaxInfoImage
         backgroundImage={Debug}
+        smallBackgroundImage={DebugSmall}
         overlayColor={Colors.lockheed}
         href='https://en.wikipedia.org/wiki/Debugging#Origin_of_the_term'
       />
@@ -186,6 +195,7 @@ const rows = [
     image: (
       <ParallaxInfoImage
         backgroundImage={Scrum}
+        smallBackgroundImage={ScrumSmall}
         overlayColor={Colors.lockheed}
         href='https://www.scrum.org/'
       />

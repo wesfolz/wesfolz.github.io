@@ -69,10 +69,19 @@ export const FullImageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  overflow: hidden;
 `;
 
 export const FullRowImage = styled.img`
   width: 100%;
   height: auto;
   border-radius: 4px;
+  transition: opacity 500ms ease;
+  opacity: ${(props) => props.opacity};
+`;
+
+export const FullRowImageBlurred = styled(FullRowImage)`
+  filter: ${(props) => props.blur ? 'blur(16px)' : ''};
+  position: absolute;
 `;

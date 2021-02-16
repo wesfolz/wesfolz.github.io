@@ -7,6 +7,13 @@ import Robot from 'images/robot.jpg';
 import Encryption from 'images/encryption.png';
 import Pipeline from 'images/mips_pipeline.png';
 import Models3D from 'images/3D.jpg';
+
+import SurfaceSmall from 'images/surface_small.jpg';
+import RobotSmall from 'images/robot_small.jpg';
+import EncryptionSmall from 'images/encryption_small.jpg';
+import PipelineSmall from 'images/mips_pipeline_small.jpg';
+import Models3DSmall from 'images/3D_small.jpg';
+
 import MtsPoster from 'images/Mobile_Terrain_Scanning.pdf';
 import Cpp from 'images/logos/c++.svg';
 import Python from 'images/logos/python.svg';
@@ -66,10 +73,11 @@ const rows = [
     image: (
       <ParallaxInfoImage
         backgroundImage={Models3D}
+        smallBackgroundImage={Models3DSmall}
         backgroundColor='black'
         overlayColor={Colors.uofa}
         href='http://youtu.be/KQVvxJpnd_8'
-      ></ParallaxInfoImage>
+      />
     ),
     text: (
       <SectionText>
@@ -88,9 +96,10 @@ const rows = [
     image: (
       <ParallaxInfoImage
         backgroundImage={Surface}
+        smallBackgroundImage={SurfaceSmall}
         overlayColor={Colors.uofa}
         href={MtsPoster}
-      ></ParallaxInfoImage>
+      />
     ),
     text: (
       <SectionText>
@@ -108,10 +117,11 @@ const rows = [
     image: (
       <ParallaxInfoImage
         backgroundImage={Robot}
+        smallBackgroundImage={RobotSmall}
         backgroundColor={Colors.uofa}
         overlayColor={Colors.uofa}
         href='https://youtu.be/l8RhUTHFiTc'
-      ></ParallaxInfoImage>
+      />
     ),
     text: (
       <SectionText>
@@ -128,9 +138,10 @@ const rows = [
     image: (
       <ParallaxInfoImage
         backgroundImage={Encryption}
+        smallBackgroundImage={EncryptionSmall}
         overlayColor={Colors.uofa}
         href='https://github.com/wesfolz/Real_Time_Video_Encryption/blob/master/Final%20Project%20Report.pdf'
-      ></ParallaxInfoImage>
+      />
     ),
     text: (
       <SectionText>
@@ -148,6 +159,7 @@ const rows = [
     image: (
       <ParallaxInfoImage
         backgroundImage={Pipeline}
+        smallBackgroundImage={PipelineSmall}
         overlayColor={Colors.uofa}
         href='https://github.com/wesfolz/mips-pipeline-processor'
       />

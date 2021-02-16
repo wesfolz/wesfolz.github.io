@@ -3,7 +3,10 @@ import { FaReact } from 'react-icons/fa';
 
 import RaspberryDrone from 'images/raspberry_drone.svg';
 import Drone from 'images/drone.jpg';
-import DroneApp from 'images/drone_app.png';
+import DroneApp from 'images/drone_app.jpg';
+
+import DroneSmall from 'images/drone_small.jpg';
+import DroneAppSmall from 'images/drone_app_small.jpg';
 
 import PythonLogo from 'images/logos/python.svg';
 import FlaskLogo from 'images/logos/flask.svg';
@@ -39,10 +42,11 @@ const appRows = [
     image: (
       <ParallaxInfoImage
         backgroundImage={Drone}
+        smallBackgroundImage={DroneSmall}
         backgroundColor='black'
         overlayColor={Colors.drone}
         href='https://github.com/wesfolz/RaspberryDronePi'
-      ></ParallaxInfoImage>
+      />
     ),
     text: (
       <SectionText>
@@ -58,9 +62,10 @@ const appRows = [
     image: (
       <ParallaxInfoImage
         backgroundImage={DroneApp}
+        smallBackgroundImage={DroneAppSmall}
         overlayColor={Colors.drone}
         href='https://github.com/wesfolz/RaspberryDroneApp'
-      ></ParallaxInfoImage>
+      />
     ),
     text: (
       <SectionText>

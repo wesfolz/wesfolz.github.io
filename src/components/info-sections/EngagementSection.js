@@ -3,9 +3,14 @@ import { FaReact } from 'react-icons/fa';
 
 import Scavenger from 'images/scavenger.svg';
 import ScavengerChat from 'images/scavenger-chat.png';
-import ScavengerWeb from 'images/scavenger-web.png';
+import ScavengerWeb from 'images/scavenger-web.jpg';
 import ScavengerClue from 'images/scavenger-clue.png';
 import Proposal from 'images/proposal.jpg';
+
+import ScavengerChatSmall from 'images/scavenger-chat_small.jpg';
+import ScavengerWebSmall from 'images/scavenger-web_small.jpg';
+import ScavengerClueSmall from 'images/scavenger-clue_small.jpg';
+import ProposalSmall from 'images/proposal_small.jpg';
 
 import FirebaseLogo from 'images/logos/firebase.svg';
 import MapsLogo from 'images/logos/google-maps.svg';
@@ -23,8 +28,10 @@ import {
   SectionTitle,
   SectionText,
   FullRowImage,
-  FullImageContainer
+  FullImageContainer,
+  FullRowImageBlurred
 } from 'components/info-sections/SectionStyles';
+import useProgressiveImage from 'hooks/useProgressiveImage';
 
 const techList = [
   {
@@ -50,6 +57,7 @@ const appRows = [
     image: (
       <ParallaxInfoImage
         backgroundImage={ScavengerClue}
+        smallBackgroundImage={ScavengerClueSmall}
         backgroundColor='black'
         overlayColor={Colors.info}
         href='https://github.com/wesfolz/ScavengerApp'
@@ -72,6 +80,7 @@ const appRows = [
       <ParallaxInfoContainer>
         <ParallaxImage
           backgroundImage={ScavengerChat}
+          smallBackgroundImage={ScavengerChatSmall}
           backgroundColor='black'
         />
       </ParallaxInfoContainer>
@@ -95,6 +104,7 @@ const webRows = [
     image: (
       <ParallaxInfoImage
         backgroundImage={ScavengerWeb}
+        smallBackgroundImage={ScavengerWebSmall}
         overlayColor={Colors.info}
         href='https://github.com/wesfolz/scavenger-web'
       />
@@ -112,6 +122,8 @@ const webRows = [
 ];
 
 export default function EngagementSection(props) {
+  const loadingProposalImage = useProgressiveImage({ imgSrc: Proposal });
+
   return (
     <InfoSection
       infoTitle='I Got Engaged!'
@@ -132,15 +144,16 @@ export default function EngagementSection(props) {
         logistics for me.
       </SectionText>
       <SectionTitle>The Mobile App</SectionTitle>
-      <InfoGrid rows={appRows}></InfoGrid>
+      <InfoGrid rows={appRows} />
       <SectionTitle>The Web App</SectionTitle>
-      <InfoGrid rows={webRows}></InfoGrid>
+      <InfoGrid rows={webRows} />
       <SectionTitle>Technology Stack</SectionTitle>
-      <TechnologySection techList={techList}></TechnologySection>
+      <TechnologySection techList={techList} />
       <SectionTitle>The Result</SectionTitle>
       <FullImageContainer>
         <h4>She said yes!</h4>
-        <FullRowImage src={Proposal}></FullRowImage>
+        <FullRowImageBlurred src={ProposalSmall} blur opacity={loadingProposalImage ? 1 : 0} style={{ top: '70px', left: '0', height: 'calc(100% - 70px)' }} />
+        <FullRowImage src={Proposal} opacity={loadingProposalImage ? 0 : 1} />
       </FullImageContainer>
     </InfoSection>
   );

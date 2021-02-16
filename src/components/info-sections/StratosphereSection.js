@@ -2,10 +2,14 @@ import React from 'react';
 import { GrEdge } from 'react-icons/gr';
 
 import Stratosphere from 'images/stratosphere.svg';
-import Gradient from 'images/gradient.png';
-import TeamSection from 'images/team_section.png';
-import ContactForm from 'images/contact_form.png';
-import Blog from 'images/blog.png';
+import Gradient from 'images/gradient.jpg';
+import TeamSection from 'images/team_section.jpg';
+import ContactForm from 'images/contact_form.jpg';
+import Blog from 'images/blog.jpg';
+import GradientSmall from 'images/gradient_small.jpg';
+import TeamSectionSmall from 'images/team_section_small.jpg';
+import ContactFormSmall from 'images/contact_form_small.jpg';
+import BlogSmall from 'images/blog_small.jpg';
 import Coffescript from 'images/logos/coffeescript.svg';
 import Stylus from 'images/logos/stylus.svg';
 import Handlebars from 'images/logos/handlebars.svg';
@@ -64,7 +68,7 @@ const rows = [
   {
     image: (
       <ParallaxInfoContainer>
-        <ParallaxImage backgroundImage={Gradient}></ParallaxImage>
+        <ParallaxImage backgroundImage={Gradient} smallBackgroundImage={GradientSmall} />
       </ParallaxInfoContainer>
     ),
     text: (
@@ -80,8 +84,9 @@ const rows = [
       <ParallaxInfoContainer>
         <ParallaxImage
           backgroundImage={TeamSection}
+          smallBackgroundImage={TeamSectionSmall}
           backgroundColor='black'
-        ></ParallaxImage>
+        />
       </ParallaxInfoContainer>
     ),
     text: (
@@ -97,8 +102,9 @@ const rows = [
       <ParallaxInfoContainer>
         <ParallaxImage
           backgroundImage={Blog}
+          smallBackgroundImage={BlogSmall}
           backgroundColor='black'
-        ></ParallaxImage>
+        />
       </ParallaxInfoContainer>
     ),
     text: (
@@ -114,8 +120,9 @@ const rows = [
       <ParallaxInfoContainer>
         <ParallaxImage
           backgroundImage={ContactForm}
+          smallBackgroundImage={ContactFormSmall}
           backgroundColor='black'
-        ></ParallaxImage>
+        />
       </ParallaxInfoContainer>
     ),
     text: (
