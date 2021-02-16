@@ -10,10 +10,7 @@ export default function useProgressiveImage({ imgSrc }) {
       setLoading(false);
     } else {
       image.onload = () => {
-        console.log('onload');
-        setTimeout(() => {
-          setLoading(false);
-        }, 5000);
+        setLoading(false);
       }
     }
     return () => image.onload = null;
