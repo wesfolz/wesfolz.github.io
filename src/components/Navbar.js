@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
-import { FaHome, FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { MdTimeline } from 'react-icons/md';
+import { IoIosChatboxes } from 'react-icons/io';
 
 import Colors from 'styles/Colors';
 import FillButton from 'components/buttons/FillButton';
@@ -63,7 +64,7 @@ export default function Navbar(props) {
             deselect={deselect[0]}
             select={select[0]}
           >
-            <FaHome size={24} />
+            <IoIosChatboxes size={24} />
           </FillButton>
         </Link>
       </li>
@@ -92,16 +93,16 @@ export default function Navbar(props) {
         </Link>
       </li>
       <li>
-        <a href='https://www.linkedin.com/in/wesley-folz/'>
-          <FillButton color={Colors.info}>
-            <FaLinkedin size={24} />
+        <a href='https://github.com/wesfolz/' target="_blank"rel="noopener noreferrer">
+          <FillButton color={Colors.info} noSelect>
+            <FaGithub size={24} />
           </FillButton>
         </a>
       </li>
       <li>
-        <a href='https://github.com/wesfolz/'>
-          <FillButton color={Colors.info}>
-            <FaGithub size={24} />
+        <a href='https://www.linkedin.com/in/wesley-folz/' target="_blank"rel="noopener noreferrer">
+          <FillButton color={Colors.info} noSelect>
+            <FaLinkedin size={24} />
           </FillButton>
         </a>
       </li>

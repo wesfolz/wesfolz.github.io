@@ -44,7 +44,7 @@ export default function FillButton(props) {
         if (props.click) {
           props.click();
         }
-        setSelected(true);
+        setSelected(!props.noSelect);
       }}
       className={selected ? "selected" : null}
       {...props}
