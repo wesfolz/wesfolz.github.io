@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import { mix } from 'polished';
+import { mix, transparentize } from 'polished';
 
 import UnderlineButton from 'components/buttons/UnderlineButton';
 import Colors from 'styles/Colors';
@@ -10,7 +10,9 @@ export const SectionTitle = styled.h1`
 
 export const SectionText = styled.p`
   margin: 0;
-  background-color: ${mix(0.85, Colors.surface, Colors.primary)};
+  background-color: ${transparentize(0.05, mix(0.75, Colors.surface, Colors.primary))};
+  /* backdrop-filter: blur(12px); */
+  /* border: 1px solid rgba(255, 255, 255, 0.1); */
   padding: 20px;
   line-height: 24px;
   border-radius: 4px;

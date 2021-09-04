@@ -21,7 +21,8 @@ const NavList = styled.ul`
   margin: 0;
   box-sizing: border-box;
   z-index: 1000;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   @media (max-width: 600px) {

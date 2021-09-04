@@ -43,11 +43,14 @@ export default function TypeWriter({
   useEffect(() => {
     setVisibleIndex(-1);
     if (start && text) {
-      const interval = delay && text.length ? delay / text.length : 50;
-      timer.current = setTimeout(
-        () => updateCharacterIndex(interval),
-        interval
-      );
+      timer.current = setTimeout(() => {
+        const interval = delay && text.length ? delay / text.length : 50;
+        timer.current = setTimeout(
+          () => updateCharacterIndex(interval),
+          interval
+        );      
+      }, delay);
+
     }
     return () => timer.current && clearTimeout(timer.current);
   }, [text, start]);

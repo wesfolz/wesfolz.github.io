@@ -5,7 +5,6 @@ export default function useProgressiveImage({ imgSrc }) {
   useEffect(() => {
     const image = new Image();
     image.src = imgSrc;
-    console.log(image.complete);
     if (image.complete) {
       setLoading(false);
     } else {

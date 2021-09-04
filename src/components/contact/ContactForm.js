@@ -6,6 +6,8 @@ import * as emailjs from 'emailjs-com';
 import FillButton from 'components/buttons/FillButton';
 import Colors from 'styles/Colors';
 
+const RADIUS = 4;
+
 const Header = styled.h1`
   color: ${Colors.lightBlue};
   margin-top: 0;
@@ -21,9 +23,11 @@ const FormContainer = styled.form`
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
   opacity: ${(props) => (props.show ? 1 : 0)};
   transform: ${(props) => (props.show ? 'translateY(0)' : 'translateY(50px)')};
-  background-color: ${`${Colors.info}10`};
+  background-color: ${Colors.info}10;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
   padding: 40px;
-  border-radius: 2px;
+  border-radius: ${RADIUS}px;
   box-sizing: border-box;
   @media (max-width: 768px) {
     padding: 24px;
@@ -35,9 +39,9 @@ const FormInput = styled.input`
   width: 100%;
   box-sizing: border-box;
   background-color: #1ba9d730;
-  border-radius: 2px;
+  border-radius: ${RADIUS}px;
   outline: none;
-  border: 1px solid ${(props) => (props.invalid ? 'red' : 'transparent')};
+  border: 1px solid ${(props) => (props.invalid ? 'red' : 'rgba(255, 255, 255, 0.1)')};
   font-size: 14px;
   padding: 12px;
   margin: 8px 0;

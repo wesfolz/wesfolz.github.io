@@ -114,6 +114,7 @@ const EventMarker = styled.div`
   &:hover {
     &::before {
       background-color: ${(props) => `${props.color}40`};
+      backdrop-filter: blur(12px);
       transition: all 0.3s ease-in-out;
     }
   }

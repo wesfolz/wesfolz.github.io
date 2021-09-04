@@ -93,7 +93,7 @@ const RowContents = styled.section`
     @media (max-width: 900px) {
       position: relative;
       width: 90%;
-      top: -100px;
+      top: -150px;
       left: 0;
       box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 0, 0.25);
       padding: 24px;
